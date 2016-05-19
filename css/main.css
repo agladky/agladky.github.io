@@ -193,6 +193,13 @@ section.header .name {
 section.header .name:hover {
   color: inherit;
 }
+section.header a:link,
+section.header a:visited {
+  border-bottom-color: rgba(17, 17, 17, 0.2);
+}
+section.header a:hover {
+  border-bottom-color: rgba(208, 64, 0, 0.2);
+}
 section.header nav {
   font-size: 14px;
   margin-bottom: 16px;
@@ -203,26 +210,23 @@ section.header nav {
 section.header nav .menu-item-selected {
   background-color: antiquewhite;
 }
-section.header nav ul {
-  list-style: none;
+section.header nav a {
   text-align: center;
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
   display: -ms-inline-flexbox;
   display: -ms-inline-flex;
   display: inline-flex;
-}
-section.header nav ul a {
   margin-left: 6px;
   margin-right: 6px;
 }
-section.header nav ul a:first-child {
+section.header nav a:first-child {
   margin-left: 0;
 }
-section.header nav ul a:last-child {
+section.header nav a:last-child {
   margin-right: 0;
 }
-section.header nav ul li {
+section.header nav a span {
   color: #111;
   font-weight: 500;
   -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
@@ -230,15 +234,8 @@ section.header nav ul li {
   -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
   -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
-section.header nav ul li:hover {
+section.header nav a span:hover {
   color: inherit;
-}
-section.header a:link,
-section.header a:visited {
-  border-bottom-color: rgba(17, 17, 17, 0.2);
-}
-section.header a:hover {
-  border-bottom-color: rgba(208, 64, 0, 0.2);
 }
 @media (min-width: 600px) {
   section.header {
@@ -351,6 +348,13 @@ section.main .content .title-container {
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
+}
+section.main .content .title-container a:link,
+section.main .content .title-container a:visited {
+  border-bottom-color: rgba(17, 17, 17, 0.2);
+}
+section.main .content .title-container a:hover {
+  border-bottom-color: rgba(208, 64, 0, 0.2);
 }
 section.main .content .page-heading {
   font-size: 18px;
