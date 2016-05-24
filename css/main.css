@@ -279,6 +279,7 @@ section.icons .content a {
   margin-left: 6px;
   margin-right: 6px;
   color: #555;
+  border-bottom: none;
   -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
   -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
   -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
