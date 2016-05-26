@@ -581,7 +581,7 @@ section.main .content .markdown h2 {
 }
 section.main .content .markdown h3 {
   font-size: 1em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.63rem;
 }
 section.main .content .markdown h4,
 section.main .content .markdown h5,
@@ -605,8 +605,7 @@ section.main .content .markdown code {
 section.main .content .markdown pre {
   /* Hugo specific: consider using the 'highlight' shortcode */
   display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.26em;
   padding: 1rem;
   line-height: 1.5em;
   white-space: pre;
@@ -629,13 +628,22 @@ section.main .content .markdown p {
   /* Invoked by line break */
   font-size: 1rem;
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0.63em;
 }
 section.main .content .markdown ul,
 section.main .content .markdown ol,
 section.main .content .markdown dl {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.63em;
+  padding-left: 2.5rem;
+}
+section.main .content .markdown p + ul,
+section.main .content .markdown p + ol {
+  margin-top: -0.63em;
+}
+section.main .content .markdown ul + pre,
+section.main .content .markdown ol + pre {
+  margin-left: 2.5rem;
 }
 section.main .content .markdown dt {
   font-weight: bold;
@@ -644,11 +652,12 @@ section.main .content .markdown dd {
   margin-bottom: .5rem;
 }
 section.main .content .markdown ul {
-  margin-bottom: 1.25rem;
-}
-section.main .content .markdown li {
+  list-style-position: outside;
   list-style-type: disc;
-  list-style-position: inside;
+}
+section.main .content .markdown ol {
+  list-style-position: outside;
+  list-style-type: decimal;
 }
 section.main .content .markdown em {
   font-style: italic;
@@ -689,7 +698,7 @@ section.main .content .markdown blockquote p:last-child {
   }
 }
 section.main .content .markdown img {
-  margin: 1rem 0;
+  margin-bottom: 0.63em;
   max-width: 100%;
 }
 section.main .content .markdown table {
