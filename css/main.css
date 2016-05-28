@@ -339,17 +339,6 @@ section.main .content {
   color: #111;
   font-size: 16px;
 }
-section.main .content .title-container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-}
 section.main .content .title-container a:link,
 section.main .content .title-container a:visited {
   border-bottom-color: rgba(17, 17, 17, 0.2);
