@@ -60,6 +60,7 @@ body {
   justify-content: flex-start;
   width: 100%;
   min-height: 100%;
+  min-width: 320px;
   font-weight: 400;
   font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
   color: #111;
@@ -336,6 +337,7 @@ section.main .container {
   justify-content: flex-start;
 }
 section.main .content {
+  width: inherit;
   color: #111;
   font-size: 16px;
 }
@@ -356,15 +358,11 @@ section.main .content .page-heading {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: #111;
-  margin-bottom: 16px;
 }
 section.main .content .page-heading:hover {
   color: inherit;
 }
-section.main .content .front-matter .page-heading {
-  margin-bottom: 0;
-}
-section.main .content .front-matter .meta {
+section.main .content .meta {
   font-size: 14px;
   color: #666;
   display: -webkit-flex;
@@ -374,26 +372,9 @@ section.main .content .front-matter .meta {
   display: flex;
   margin-bottom: 32px;
 }
-section.main .content .front-matter .date,
-section.main .content .front-matter .word-count,
-section.main .content .front-matter .reading-time .middot {
-  display: none;
-}
-section.main .content .front-matter .middot {
-  font-size: 6px;
+section.main .content .meta-space {
   margin: 0 6px;
   display: inline;
-  vertical-align: middle;
-}
-section.main .content .front-matter .middot:before {
-  content: "•";
-}
-@media (min-width: 600px) {
-  section.main .content .front-matter .date,
-  section.main .content .front-matter .word-count,
-  section.main .content .front-matter .reading-time .middot {
-    display: initial;
-  }
 }
 section.main .container.f04 {
   -webkit-justify-content: center;
@@ -601,11 +582,15 @@ section.main .content .markdown pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
+  overflow-x: auto;
 }
 section.main .content .markdown pre code {
   /* enclosed by 4 backticks (````) */
   padding: 0;
   font-size: 0.9rem;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-wrap: normal;
 }
 section.main .content .markdown a code {
   color: #0060a0 !important;
