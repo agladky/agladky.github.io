@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 .dark {
   color: #333 !important;
@@ -78,9 +77,6 @@ body {
     padding-top: 0 !important;
   }
 }
-.icon {
-  text-rendering: geometricPrecision !important;
-}
 section {
   display: -webkit-flex;
   display: -moz-flex;
@@ -113,47 +109,6 @@ section {
     max-width: 750px;
   }
 }
-section.header {
-  -webkit-order: 0;
-  -moz-order: 0;
-  -ms-order: 0;
-  order: 0;
-}
-section.icons {
-  -webkit-order: 1;
-  -moz-order: 1;
-  -ms-order: 1;
-  order: 1;
-}
-section.main {
-  -webkit-order: 2;
-  -moz-order: 2;
-  -ms-order: 2;
-  order: 2;
-}
-@media (min-width: 600px) {
-  section.header {
-    -webkit-order: 0;
-    -moz-order: 0;
-    -ms-order: 0;
-    order: 0;
-  }
-  section.icons {
-    -webkit-order: 2;
-    -moz-order: 2;
-    -ms-order: 2;
-    order: 2;
-  }
-  section.main {
-    -webkit-order: 1;
-    -moz-order: 1;
-    -ms-order: 1;
-    order: 1;
-  }
-}
-section.header {
-  background-color: #f7f7f7;
-}
 section.header .container {
   -webkit-align-items: center;
   -moz-align-items: center;
@@ -164,23 +119,8 @@ section.header .container {
   -ms-justify-content: flex-start;
   justify-content: flex-start;
 }
-section.header .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -moz-align-items: flex-start;
-  -ms-align-items: flex-start;
-  align-items: flex-start;
-}
 section.header .name {
-  font-size: 36px;
+  font-size: 30px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   text-transform: none;
@@ -188,8 +128,8 @@ section.header .name {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  color: #111;
   line-height: normal;
+  color: #111;
 }
 section.header .name:hover {
   color: inherit;
@@ -238,6 +178,11 @@ section.header nav a span {
 section.header nav a span:hover {
   color: inherit;
 }
+@media (min-width: 380px) {
+  section.header .name {
+    font-size: 36px;
+  }
+}
 @media (min-width: 600px) {
   section.header {
     background-color: transparent;
@@ -263,69 +208,6 @@ section.header nav a span:hover {
     text-align: left;
   }
 }
-section.icons {
-  background-color: #f7f7f7;
-}
-section.icons .container {
-  -webkit-align-items: flex-start;
-  -moz-align-items: flex-start;
-  -ms-align-items: flex-start;
-  align-items: flex-start;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-}
-section.icons .content a {
-  margin-left: 6px;
-  margin-right: 6px;
-  color: #555;
-  border-bottom: none;
-  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-section.icons .content a:first-child {
-  margin-left: 0;
-}
-section.icons .content a:last-child {
-  margin-right: 0;
-}
-section.icons .content a:hover {
-  color: #111;
-}
-section.icons .content a .icon {
-  font-size: 20px;
-}
-section.icons .content a .icon.larger {
-  font-size: 22px;
-}
-@media (min-width: 600px) {
-  section.icons {
-    background-color: transparent;
-  }
-  section.icons .container {
-    -webkit-justify-content: flex-start;
-    -moz-justify-content: flex-start;
-    -ms-justify-content: flex-start;
-    justify-content: flex-start;
-  }
-  section.icons .content a {
-    margin-left: 3px;
-    margin-right: 3px;
-    color: #666;
-  }
-  section.icons .content a:hover {
-    color: #333;
-  }
-  section.icons .content a .icon {
-    font-size: 18px;
-  }
-  section.icons .content a .icon.larger {
-    font-size: 20px;
-  }
-}
 section.main .container {
   -webkit-align-items: center;
   -moz-align-items: center;
@@ -341,6 +223,9 @@ section.main .content {
   color: #111;
   font-size: 16px;
 }
+section.main .content .title-container {
+  margin-bottom: 10px;
+}
 section.main .content .title-container a:link,
 section.main .content .title-container a:visited {
   border-bottom-color: rgba(17, 17, 17, 0.2);
@@ -349,7 +234,7 @@ section.main .content .title-container a:hover {
   border-bottom-color: rgba(208, 64, 0, 0.2);
 }
 section.main .content .page-heading {
-  font-size: 18px;
+  font-size: 28px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   text-transform: none;
@@ -358,6 +243,7 @@ section.main .content .page-heading {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: #111;
+  line-height: normal;
 }
 section.main .content .page-heading:hover {
   color: inherit;
@@ -375,6 +261,9 @@ section.main .content .meta {
 section.main .content .meta-space {
   margin: 0 6px;
   display: inline;
+}
+section.main article {
+  margin-bottom: 44px;
 }
 section.main .container.f04 {
   -webkit-justify-content: center;
@@ -452,28 +341,12 @@ section {
   padding: 0 16px;
 }
 section.header {
-  padding-top: 32px;
-  padding-bottom: 16px;
-}
-section.icons {
   padding-top: 16px;
-  padding-bottom: 16px;
-}
-section.main {
-  padding-top: 32px;
   padding-bottom: 32px;
 }
 @media (min-width: 600px) {
   .container {
-    margin: 0 30px;
-  }
-  section.header {
-    padding-top: 30px;
-    padding-bottom: 60px;
-  }
-  section.icons {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 0 30px;
   }
   section.main {
     padding-top: 0;
@@ -530,7 +403,7 @@ section.main .content .markdown h3,
 section.main .content .markdown h4,
 section.main .content .markdown h5,
 section.main .content .markdown h6 {
-  font-size: 18px;
+  font-size: 28px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   font-weight: 700;
@@ -538,6 +411,7 @@ section.main .content .markdown h6 {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: #111;
+  line-height: normal;
   text-transform: none;
   margin-top: 1.75rem;
 }
