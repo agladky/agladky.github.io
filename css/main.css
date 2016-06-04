@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Raleway:500);
 .dark {
   color: #333 !important;
 }
@@ -61,7 +60,7 @@ body {
   min-height: 100%;
   min-width: 320px;
   font-weight: 400;
-  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
   color: #111;
   line-height: 1.6;
   text-rendering: optimizeLegibility !important;
@@ -121,7 +120,7 @@ section.header .container {
 }
 section.header .name {
   font-size: 30px;
-  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   text-transform: none;
   font-weight: 700;
@@ -145,7 +144,7 @@ section.header nav {
   font-size: 14px;
   margin-bottom: 16px;
   text-transform: none;
-  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
   margin-top: 13px;
 }
 section.header nav .menu-item-selected {
@@ -178,9 +177,9 @@ section.header nav a span {
 section.header nav a span:hover {
   color: inherit;
 }
-@media (min-width: 380px) {
+@media (min-width: 400px) {
   section.header .name {
-    font-size: 36px;
+    font-size: 40px;
   }
 }
 @media (min-width: 600px) {
@@ -235,7 +234,7 @@ section.main .content .title-container a:hover {
 }
 section.main .content .page-heading {
   font-size: 28px;
-  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   text-transform: none;
   font-weight: 700;
@@ -263,7 +262,7 @@ section.main .content .meta-space {
   display: inline;
 }
 section.main article {
-  margin-bottom: 44px;
+  margin-bottom: 60px;
 }
 section.main .container.f04 {
   -webkit-justify-content: center;
@@ -289,7 +288,7 @@ section.main .container.f04 .content {
 section.main .container.f04 .content .num {
   margin: 30px 0px 30px 0;
   font-weight: 200;
-  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
   font-size: 50px;
 }
 section.main .container.f04 .content .detail {
@@ -404,7 +403,7 @@ section.main .content .markdown h4,
 section.main .content .markdown h5,
 section.main .content .markdown h6 {
   font-size: 28px;
-  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
@@ -449,7 +448,7 @@ section.main .content .markdown code {
 section.main .content .markdown pre {
   /* Hugo specific: consider using the 'highlight' shortcode */
   display: block;
-  margin-bottom: 1.26em;
+  margin-bottom: 0.63em;
   padding: 1rem;
   line-height: 1.5em;
   white-space: pre;
