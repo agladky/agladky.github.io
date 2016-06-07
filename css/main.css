@@ -250,16 +250,7 @@ section.main .content .page-heading:hover {
 section.main .content .meta {
   font-size: 14px;
   color: #666;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
   margin-bottom: 32px;
-}
-section.main .content .meta-space {
-  margin: 0 6px;
-  display: inline;
 }
 section.main article {
   margin-bottom: 60px;
@@ -378,6 +369,15 @@ a:visited {
   border-bottom-color: rgba(112, 144, 176, 0.2);
 }
 a:hover {
+  color: #d04000;
+  border-bottom-color: rgba(208, 64, 0, 0.2);
+}
+a.tag:visited,
+a.tag:link {
+  color: #567;
+  border-bottom-color: rgba(85, 102, 119, 0.2);
+}
+a.tag:hover {
   color: #d04000;
   border-bottom-color: rgba(208, 64, 0, 0.2);
 }
