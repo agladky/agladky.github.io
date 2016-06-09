@@ -255,6 +255,9 @@ section.main .content .meta {
 section.main article {
   margin-bottom: 60px;
 }
+section.main nav {
+  margin-bottom: 40px;
+}
 section.main .container.f04 {
   -webkit-justify-content: center;
   -moz-justify-content: center;
@@ -326,6 +329,9 @@ section.main .container .content .post-item .meta {
   min-width: 100px;
   text-align: right;
   margin-right: 16px;
+}
+section.footer {
+  margin-bottom: 40px;
 }
 section {
   padding: 0 16px;
