@@ -248,8 +248,7 @@ section.main .content .page-heading:hover {
   color: inherit;
 }
 section.main .content .meta {
-  font-size: 14px;
-  color: #666;
+  font-size: 12px;
   margin-bottom: 32px;
 }
 section.main article {
@@ -323,8 +322,7 @@ section.main .container .content .post-item {
   list-style: disc inside;
 }
 section.main .container .content .post-item .meta {
-  font-size: 14px;
-  color: #666;
+  font-size: 12px;
   display: none;
   min-width: 100px;
   text-align: right;
@@ -332,6 +330,7 @@ section.main .container .content .post-item .meta {
 }
 section.footer {
   margin-bottom: 40px;
+  font-size: 14px;
 }
 section {
   padding: 0 16px;
@@ -401,6 +400,9 @@ img.profile {
 }
 .page-heading a {
   color: #111;
+}
+section.main .content .markdown {
+  margin-bottom: 1rem;
 }
 section.main .content .markdown h1,
 section.main .content .markdown h2,
