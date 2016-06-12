@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
+.post-navigation {
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+.post-navigation .post-prev-next {
+  display: inline-block;
+  margin-bottom: 6px;
+}
 .dark {
   color: #333 !important;
 }
@@ -251,9 +259,6 @@ section.main .content .meta {
   font-size: 12px;
   margin-bottom: 32px;
 }
-section.main article {
-  margin-bottom: 60px;
-}
 section.main nav {
   margin-bottom: 40px;
 }
@@ -385,6 +390,9 @@ a.tag:link {
 a.tag:hover {
   color: #d04000;
   border-bottom-color: rgba(208, 64, 0, 0.2);
+}
+article {
+  margin-bottom: 60px;
 }
 img {
   max-width: 100%;
