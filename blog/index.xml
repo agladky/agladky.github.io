@@ -6,8 +6,167 @@
     <description>Recent content in Blog on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Tue, 03 Nov 2015 13:10:07 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2015 13:10:07 +0300</lastBuildDate>
     <atom:link href="http://beta.agladky.ru/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Почему стоит использовать zsh вместо bash</title>
+      <link>http://beta.agladky.ru/blog/why-zsh-is-better-than-bash/</link>
+      <pubDate>Thu, 26 Nov 2015 13:10:07 +0300</pubDate>
+      
+      <guid>http://beta.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
+      <description>
+
+&lt;p&gt;Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомится в &lt;a href=&#34;https://ru.wikipedia.org/wiki/Zsh&#34;&gt;русской&lt;/a&gt; или &lt;a href=&#34;https://en.wikipedia.org/wiki/Z_shell&#34;&gt;английской&lt;/a&gt; википедии.&lt;/p&gt;
+
+&lt;p&gt;Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.&lt;/p&gt;
+
+&lt;h3 id=&#34;автодополнение-для-cd&#34;&gt;Автодополнение для cd&lt;/h3&gt;
+
+&lt;p&gt;Наберем в баш &lt;code&gt;cd&lt;/code&gt; и нажмем таб.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-8iOm_Ix2cxE/VlawDdhnxPI/AAAAAAAAAjo/fybejZjCiJs/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.27.png&#34; alt=&#34;bash cd tab first&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Еще раз.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-9EtosbNV72U/VlawDQ65VCI/AAAAAAAAAkE/hQ1XsEusWbA/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.47.png&#34; alt=&#34;bash cd tab second&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Каждый раз будет выводится только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И, только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.&lt;/p&gt;
+
+&lt;p&gt;Теперь наберем &lt;code&gt;cd&lt;/code&gt; в zsh и нажмем таб.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-BSBLwCuwbGw/VlawDaG8oEI/AAAAAAAAAjw/dB7bM5n6iqg/s640-Ic42/Screenshot%2525202015-11-23%25252009.46.15.png&#34; alt=&#34;zsh cd tab first&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;В строку ввода подставилось первое значение из списка. Нажимаем таб еще раз.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-Dc119BYH764/VlawD4ymcII/AAAAAAAAAkI/V7EzDl0DuJA/s640-Ic42/Screenshot%2525202015-11-23%25252009.47.34.png&#34; alt=&#34;zsh cd tab second&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Подставилось второе значение из списка! Удобно.&lt;/p&gt;
+
+&lt;h3 id=&#34;автодополнение-для-команд-на-примере-git&#34;&gt;Автодополнение для команд на примере git&lt;/h3&gt;
+
+&lt;p&gt;Введем в баш &lt;code&gt;git&lt;/code&gt; и нажмем таб.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-2XI7N9lTfA4/VlawD66cYSI/AAAAAAAAAj4/3Pi57w0iQbA/s640-Ic42/Screenshot%2525202015-11-26%25252009.32.26.png&#34; alt=&#34;bash git tab&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Никакой помощи не появилось. Только отображаются файлы данной директории.&lt;/p&gt;
+
+&lt;p&gt;Проделаем ту же операцию в zsh.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-8dn01qWVJd4/VlawEI4aHTI/AAAAAAAAAjk/i2wF_bGGo7c/s640-Ic42/Screenshot%2525202015-11-26%25252009.33.24.png&#34; alt=&#34;zsh git tab&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Отобразился список команд с описанием. Гораздо информативнее.&lt;/p&gt;
+
+&lt;p&gt;Да, установив пакет bash-completion подобное поведение появится и в баш. Но выводить информацию как в zsh не получится:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Не будет итерации по значениям, как в пункте про &lt;code&gt;cd&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Не будет справочной информации, только список значений.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;раскрытие-полного-пути&#34;&gt;Раскрытие полного пути&lt;/h3&gt;
+
+&lt;p&gt;Zsh поддерживает раскрытие полного пути на основе неполных данных. Введем шаблон пути:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-JkUKjONlTM0/VlawEFd1zdI/AAAAAAAAAkM/cU-dPKShFg8/s640-Ic42/Screenshot%2525202015-11-26%25252009.59.58.png&#34; alt=&#34;zsh path expansion first&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Нажмем tab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-dA_uysuc3-s/VlawEcceJZI/AAAAAAAAAkA/naoYDI9fJQc/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.08.png&#34; alt=&#34;zsh path expansion second&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Путь до директории полностью раскрылся. Не пришлось вводить лишних символов.&lt;/p&gt;
+
+&lt;p&gt;Но что, если заданному пути соответствует несколько путей? Введем &lt;code&gt;cd u/l/g&lt;/code&gt; и нажмем таб.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-RXcaxKd0UZc/VlawEQAE_II/AAAAAAAAAkQ/nePq8mG_mJc/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.31.png&#34; alt=&#34;zsh path expansion third&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Путь раскрылся до возникновения неопределенности. Нажимаем таб еще раз, и перед нами предстанет выбор папки.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-YvpzsGE9ZiU/VlawEt6KbRI/AAAAAAAAAjs/8J7ogcuB5YU/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.46.png&#34; alt=&#34;zsh path expansion third&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Выбираем табом нужную папку. Последующее нажатие таба раскроет задуманный путь до конца.&lt;/p&gt;
+
+&lt;h3 id=&#34;замена-пути&#34;&gt;Замена пути&lt;/h3&gt;
+
+&lt;p&gt;Zsh поддерживает замену части пути. Рассмотрим на примере. Введем &lt;code&gt;cd /usr/local/bin&lt;/code&gt;. Но подождите, я хотел  &lt;code&gt;cd /usr/local/share&lt;/code&gt;!  Не проблема, вводим команду &lt;code&gt;cd bin share&lt;/code&gt; и получаем заветный путь:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-P_Kx_CFBWx4/VlawEm_jwkI/AAAAAAAAAj8/F1bj2sVrwgk/s640-Ic42/Screenshot%2525202015-11-26%25252010.02.49.png&#34; alt=&#34;zsh path replacement first&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Возможно, это не самый убедительный пример. Того же эффекта можно достичь просто написав &lt;code&gt;cd ../share&lt;/code&gt;.  Но рассмотрим следующий случай:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-_eKSxUA5xWc/VlawE9que7I/AAAAAAAAAkU/SuGQ0fm9awE/s640-Ic42/Screenshot%2525202015-11-26%25252010.05.16.png&#34; alt=&#34;zsh path replacement second&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;B баш тут бы пришлось изрядно постараться (&lt;code&gt;cd ../../../&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h3 id=&#34;псевдонимы&#34;&gt;Псевдонимы&lt;/h3&gt;
+
+&lt;p&gt;Обычные псевдонимы задаются так:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ls&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ls --color=auto&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;В zsh существует еще 2 типа псевдонима.&lt;/p&gt;
+
+&lt;p&gt;Первый — &lt;em&gt;глобальный (global)&lt;/em&gt;. Может вызываться в любом месте команды. Задается ключом &lt;code&gt;-g&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; -g &lt;span class=&#34;nv&#34;&gt;gp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;| grep -i&amp;#39;&lt;/span&gt;
+
+$ ps ax gp &lt;span class=&#34;nv&#34;&gt;docker&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; ps ax &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -i docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;В примере, вместо написания &lt;code&gt;| grep -i&lt;/code&gt; в середине выражения использовался псевдоним &lt;code&gt;gp&lt;/code&gt;. Удобно.&lt;/p&gt;
+
+&lt;p&gt;Второй тип — &lt;em&gt;суфиксный (suffix)&lt;/em&gt;. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом &lt;code&gt;-s&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; -s &lt;span class=&#34;nv&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;less -MN&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; -s &lt;span class=&#34;nv&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;chromium&amp;#39;&lt;/span&gt;
+
+$ development.log
+&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; less -MN development.log
+$ index.html
+&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; chromium index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;правая-строка&#34;&gt;Правая строка&lt;/h3&gt;
+
+&lt;p&gt;Zsh позволяет настроить правую строку приглашения. Туда можно выводить, например, текущую дату, или состояние ветки в git. Иллюстрация из &lt;a href=&#34;https://git-scm.com/book/tr/v2/Git-in-Other-Environments-Git-in-Zsh&#34;&gt;книги по git&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-m6u_sxiII2k/VlbDByw8w2I/AAAAAAAAAkw/E1PlhRAqQw0/s640-Ic42/zsh-prompt.png&#34; alt=&#34;zsh right prompt example&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;поиск-в-истории-по-введенной-подстроке&#34;&gt;Поиск в истории по введенной подстроке&lt;/h3&gt;
+
+&lt;p&gt;Одна из самых полезных и удобных вещей, которую позволяет делать zsh. (Включается плагином, history-substring-search в oh-my-zsh, о котором будет ниже).&lt;/p&gt;
+
+&lt;p&gt;Например, вводим &lt;code&gt;git pu&lt;/code&gt; и нажимаем стрелку вверх&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-JcZi_xvm-gM/VlawE0ZiSVI/AAAAAAAAAj0/igudlxn0iDQ/s640-Ic42/Screenshot%2525202015-11-26%25252010.06.25.png&#34; alt=&#34;zsh-history-substring-search&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Сразу получили последний запрос, который соответствует данной строке. Если еще раз нажать стрелку вверх, то перейдем к следующему и т.д.&lt;/p&gt;
+
+&lt;h3 id=&#34;oh-my-zsh&#34;&gt;oh-my-zsh&lt;/h3&gt;
+
+&lt;p&gt;Фреймворк для легкой настройки и установки &lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview&#34;&gt;плагинов&lt;/a&gt; и &lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh/wiki/Themes&#34;&gt;тем оформления&lt;/a&gt;. Содержит в себе уже более 200 плагинов. Проект доступен на &lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Обзор некоторых плагинов, которые установлены на моем компьютере:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;git – добавляет много полезных &lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git&#34;&gt;сокращений&lt;/a&gt; для команд git&amp;rsquo;a.&lt;/li&gt;
+&lt;li&gt;colored-man-pages – добавляет подсветку на man страницы&lt;/li&gt;
+&lt;li&gt;command-not-found – подсказывает название команды, если она была напечатана с ошибкой&lt;/li&gt;
+&lt;li&gt;bwana – позволяет открывать man страницы в браузере&lt;/li&gt;
+&lt;li&gt;sublime – псевдонимы для вызова sublime text&lt;/li&gt;
+&lt;li&gt;history – псевдонимы для истории команд и поиска по ним&lt;/li&gt;
+&lt;li&gt;history-substring-search – реализация поиска по истории команд как было описано выше&lt;/li&gt;
+&lt;li&gt;docker – помощь для команд докера.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Вид одной из самых популярных тем для zsh:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;заключение&#34;&gt;Заключение&lt;/h3&gt;
+
+&lt;p&gt;Я не сомневаюсь, что некоторое из написанного можно достигнуть с помощью различных плагинов и скриптов для bash. Но зачем? Когда уже есть хорошее решение &amp;ldquo;из коробки&amp;rdquo;. Которое работает, и работает очень хорошо.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>C# Enum и Атрибут Flags</title>
