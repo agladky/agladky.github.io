@@ -87,6 +87,202 @@
   
     <article>
       <div class="title-container">
+        <a href="http://beta.agladky.ru/blog/git-cheat-sheet/"><span class="page-heading">
+  
+    Шпаргалка с основными командами для Git
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        
+
+<h3 id="конфигурация">Конфигурация</h3>
+
+<p><code>git config --global user.name &quot;[name]&quot;</code> — установить имя, которое будет прикрепляться к коммиту.</p>
+
+<p><code>git config --global user.email &quot;[email address]&quot;</code> — установить email, который будет прикрепляться к коммиту.</p>
+
+<p><code>git config --global color.ui auto</code> — включить полезную подсветку командной строки.</p>
+
+<p><code>git config --global push.default current</code> — обновлять удаленную ветку с таким же именем, что и локальная, при пуше изменений (если не указано иного).</p>
+
+<p><code>git config --global core.editor [editor]</code> — установить редактор для редактирования сообщений коммита.</p>
+
+<p><code>git config --global diff.tool [tool]</code> — установить программу для разрешения конфликтов при слиянии.</p>
+
+<h3 id="создание-репозиториев">Создание репозиториев</h3>
+
+<p><code>git init [project-name]</code> — создать новый локальный репозиторий с заданным именем.</p>
+
+<p><code>git clone [url]</code> — загрузить проект и его полную историю изменений.</p>
+
+<h3 id="работа-с-изменениями">Работа с изменениями</h3>
+
+<p><code>git status</code> — полный список изменений файлов, ожидающих коммита.</p>
+
+<p><code>git status -s</code> — краткий вид изменений.</p>
+
+<p><code>git diff</code> — показать изменения в файлах, которые еще не были добавлены в индекс коммита (staged).</p>
+
+<p><code>git add [file]</code> — сделать указанный файл готовым для коммита.</p>
+
+<p><code>git add .</code> — сделать все измененные файлы готовыми для коммита.</p>
+
+<p><code>git add '*.txt'</code> — добавить только файлы, соответствующие указанному выражению.</p>
+
+<p><code>git add --patch filename</code> — позволяет выбрать какие изменения из файла добавятся в коммит.</p>
+
+<p><code>git diff --staged</code> — показать что было добавленно в индекс с помощью <code>git add</code>, но еще не было закоммиченно.</p>
+
+<p><code>git diff HEAD</code> — показать что изменилось с последнего коммита.</p>
+
+<p><code>git diff HEAD^</code> — показать что изменилось с предпоследнего коммита.</p>
+
+<p><code>git diff [branch]</code> — сравнить текущую ветку с заданной.</p>
+
+<p><code>git difftool -d</code> — то же самое, что и <code>diff</code>, но показывает изменения в заданной difftool.</p>
+
+<p><code>git difftool -d master..</code> — показать изменения сделанные в текущей ветке.</p>
+
+<p><code>git diff --stat</code> — показать статистику какие файлы были изменены и как.</p>
+
+<p><code>git reset [file]</code> — убрать файлы из индекса коммита (изменения не теряются).</p>
+
+<p><code>git commit</code> — записать изменения в репозиторий. для написания сообщения откроется назначенный редактор.</p>
+
+<p><code>git commit -m &quot;[descriptive message]&quot;</code> — записать изменения с заданным сообщением.</p>
+
+<p><code>git commit --amend</code> — добавить изменения к последнему коммиту.</p>
+
+<h3 id="работа-с-ветками">Работа с ветками</h3>
+
+<p><code>git branch</code> — список всех локальных веток в текущей директории.</p>
+
+<p><code>git branch [branch-name]</code> — создать новую ветку.</p>
+
+<p><code>git checkout [branch-name]</code> — переключиться на указанную ветку и обновить рабочую директорию.</p>
+
+<p><code>git checkout -b &lt;name&gt; &lt;remote&gt;/&lt;branch&gt;</code> — переключиться на удаленную ветку.</p>
+
+<p><code>git checkout [filename]</code> — вернуть файл в первоначальное состояние если он еще не был добавлен в индекс коммита.</p>
+
+<p><code>git merge [branch]</code> — соединить изменения в текущей ветке с изменениями из заданной.</p>
+
+<p><code>git merge --no-ff [branch]</code> — соединить ветки без режима &ldquo;<a href="http://zencoder.ru/git/fast-forward-git">fast forwarding</a>&rdquo;.</p>
+
+<p><code>git branch -a</code> — посмотреть полный список локальных и удаленных веток.</p>
+
+<p><code>git branch -d [branch]</code> — удалить заданную ветку.</p>
+
+<p><code>git branch -D [branch]</code> — принудительно удалить заданную ветку, игнорируя ошибки.</p>
+
+<p><code>git branch -m &lt;oldname&gt; &lt;newname&gt;</code> — переименовать ветку.</p>
+
+<h3 id="работа-с-файлами">Работа с файлами</h3>
+
+<p><code>git rm [file]</code> — удалить файл из рабочей директории и добавить в индекс информацию о удалении.</p>
+
+<p><code>git rm --cached [file]</code> — удалить файл из репозитория, но сохранить его локально.</p>
+
+<p><code>git mv [file-original] [file-renamed]</code> — изменить имя файла и добавить в индекс коммита.</p>
+
+<h3 id="отслеживание-файлов">Отслеживание файлов</h3>
+
+<p><code>.gitignore</code> — текстовый файл, в котором задаются правила для исключения файлов из репозитория. Например:</p>
+
+<ul>
+<li><code>*.log</code></li>
+<li><code>build/</code></li>
+<li><code>temp-*</code></li>
+</ul>
+
+<p><code>git ls-files --other --ignored --exclude-standard</code> — список всех игнорируемых файлов.</p>
+
+<h3 id="сохранение-фрагментов">Сохранение фрагментов</h3>
+
+<p><code>git stash</code> — положить во временное хранилище все отслеживаемые файлы.</p>
+
+<p><code>git stash pop</code> — восстановить последние файлы, положенные во временное хранилище.</p>
+
+<p><code>git stash list</code> — список всех сохраненных изменений во временном хранилище.</p>
+
+<p><code>git stash drop</code> — удалить последние файлы, положенные во временное хранилище.</p>
+
+<h3 id="просмотр-истории">Просмотр истории</h3>
+
+<p><code>git log</code> — список изменения текущей ветки.</p>
+
+<p><code>git log --follow [file]</code> — список изменения текущего файла, включая переименования.</p>
+
+<p><code>git log --pretty=format:&quot;%h %s&quot; --graph</code> — изменение вида отображения истории изменений.</p>
+
+<p><code>git log --author='Name' --after={1.week.ago} --pretty=oneline --abbrev-commit</code> — посмотреть над чем работал заданный пользователь последнюю неделю.</p>
+
+<p><code>git log --no-merges master..</code> — посмотреть историю изменений только для текущей ветке.</p>
+
+<p><code>git diff [file-branch]..[second-branch]</code> — посмотреть различия между двумя заданными ветками.</p>
+
+<p><code>git show [commit]</code> — показать метадату и изменения в заданном коммите.</p>
+
+<p><code>git show [branch]:[file]</code> — посмотреть на файл в другой ветке, не переключаясь на неё.</p>
+
+<h3 id="отмена-коммитов">Отмена коммитов</h3>
+
+<p><code>git reset</code> — убрать изменения из индекса коммита, сами изменения останутся.</p>
+
+<p><code>git reset [commit/tag]</code> — отменить все коммиты после указанного коммита, изменения будут сохранены локально.</p>
+
+<p><code>git reset --hard [commit]</code> — принудительно вернутся в указанному коммиту, не сохраняя историю и изменения.</p>
+
+<h3 id="синхронизация-изменений">Синхронизация изменений</h3>
+
+<p><code>git fetch [bookmark]</code> — загрузить всю историю с заданного удаленного репозитория.</p>
+
+<p><code>git merge [bookmark]/[branch]</code> — слить изменения локальной ветки и заданной удаленной.</p>
+
+<p><code>git push</code> — запушить текущую ветку в удаленную ветку.</p>
+
+<p><code>git push [remote] [branch]</code> — запушить ветку в указанный репозиторий и удаленную ветку.</p>
+
+<p><code>git push [bookmark] :[branch]</code> — в удаленном репозитории удалить заданную ветку.</p>
+
+<p><code>git push -u origin master</code> — если удаленная ветка не установлена как отслеживаемая, то сделать ее такой.</p>
+
+<p><code>git pull</code> — загрузить историю и изменения удаленной ветки и произвести слияние с текущей веткой.</p>
+
+<p><code>git pull [remote][branch]</code> — указать конкретную удаленную ветку для слияния.</p>
+
+<p><code>git remote</code> — посмотреть список доступных удаленных репозиториев.</p>
+
+<p><code>git remote -v</code> — посмотреть детальный список доступных удаленных репозиториев.</p>
+
+<p><code>git remote add [remote][url]</code> — добавить новый удаленный репозиторий.</p>
+
+<h3 id="полезные-ссылки">Полезные ссылки</h3>
+
+<ul>
+<li>19 советов по повседневной работе с Git. <a href="http://www.alexkras.com/19-git-tips-for-everyday-use/">оригинал</a>. <a href="http://habrahabr.ru/company/mailru/blog/267595/">перевод</a>.</li>
+<li>Книга &ldquo;<a href="http://git-scm.com/book/ru/v1">Pro Git</a>&rdquo;. Издание первое, на русском.</li>
+<li>Книга &ldquo;<a href="http://git-scm.com/book/en/v2">Pro Git</a>&rdquo;. Издание второе, на английском.</li>
+<li>Git Rebase: <a href="http://habrahabr.ru/post/161009/">руководство по использованию</a>.</li>
+</ul>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="6 января 2016, 13:10 MSK">
+    6 января 2016
+  </span>
+
+   <a class="tag" href="tags/git">git</a>   
+
+</div>
+
+    </article>
+  
+    <article>
+      <div class="title-container">
         <a href="http://beta.agladky.ru/blog/why-zsh-is-better-than-bash/"><span class="page-heading">
   
     Почему стоит использовать zsh вместо bash
