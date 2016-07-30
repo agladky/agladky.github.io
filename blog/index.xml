@@ -6,8 +6,181 @@
     <description>Recent content in Blog on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Wed, 06 Jan 2016 13:10:07 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jan 2016 13:10:07 +0300</lastBuildDate>
     <atom:link href="http://beta.agladky.ru/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Первый скрипт на Python</title>
+      <link>http://beta.agladky.ru/blog/my-first-python-script/</link>
+      <pubDate>Wed, 20 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>http://beta.agladky.ru/blog/my-first-python-script/</guid>
+      <description>
+
+&lt;p&gt;Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.&lt;/p&gt;
+
+&lt;p&gt;И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в &lt;a href=&#34;https://todoist.com/&#34;&gt;тудуисте&lt;/a&gt;. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня». Это не всегда получается с одной попытки. Время для автоматизации!&lt;/p&gt;
+
+&lt;h3 id=&#34;установка-python-3&#34;&gt;Установка Python 3&lt;/h3&gt;
+
+&lt;p&gt;Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.&lt;/p&gt;
+
+&lt;p&gt;Понадобится менеджер пакетов &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;. У кого нет — советую. Для его установки введем в терминале:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;ruby -e &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Теперь установим третий питон:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;brew install python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Проверить работоспособность можно набрав в консоле &lt;code&gt;python3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;получение-пакета-для-работы-с-тудуистом&#34;&gt;Получение пакета для работы с тудуистом&lt;/h3&gt;
+
+&lt;p&gt;Следующий этап — установка библиотеки для работы с АПИ тудуиста. Воспользуемся менеджером пакетов pip3, который поставляется вместе с Python 3:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;pip3 install todoist-python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Напоминаю о командной оболочке Zsh, о которой я &lt;a href=&#34;http://www.agladky.ru/2015/11/zsh-bash.html&#34;&gt;писал ранее&lt;/a&gt;. Подключив плагины &lt;code&gt;brew&lt;/code&gt; и &lt;code&gt;pip&lt;/code&gt; можно добавить автодополнение для команд и пакетов.&lt;/p&gt;
+
+&lt;h3 id=&#34;среда-разработки&#34;&gt;Среда разработки&lt;/h3&gt;
+
+&lt;p&gt;Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — &lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm CE&lt;/a&gt;. Это бесплатная версия в которой есть все необходимое.&lt;/p&gt;
+
+&lt;h3 id=&#34;стиль-кода-и-именования&#34;&gt;Стиль кода и именования&lt;/h3&gt;
+
+&lt;p&gt;Планирутся отдельная статья. А пока — о стиле именования.&lt;/p&gt;
+
+&lt;p&gt;Имена функций, методов и переменных экземпляров классов должны состоять из маленьких букв, а слова разделяться символами подчеркивания:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;foo_bar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Стиль mixedCase допускается в тех местах, где уже преобладает такой стиль, для сохранения обратной совместимости:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;fooBar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;newValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Для атрибутов и непубличных методов используется один символ подчёркивания перед именем:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_private_value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;итерация-и-получение-значений-из-коллекций&#34;&gt;Итерация и получение значений из коллекций&lt;/h3&gt;
+
+&lt;p&gt;Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?&lt;/p&gt;
+
+&lt;p&gt;Итерация оказалось похожа на &lt;code&gt;foreach&lt;/code&gt; из C#:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_by_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Для получения значения словаря есть 2 способа . Первый — обращение по ключу:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Но, если значения нет, возникнет ошибка – &lt;code&gt;KeyError: &#39;id&#39;&lt;/code&gt;. Поэтому, при неуверенности, используйте &lt;code&gt;get&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Если значение отсутствует, метод вернет значение по-умолчанию — &lt;code&gt;None&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;преобразование-и-работа-с-датой&#34;&gt;Преобразование и работа с датой&lt;/h3&gt;
+
+&lt;p&gt;Рассмотрим как парсить дату, находить дельту, добавлять значения и приводить к определенному строковому формату.&lt;/p&gt;
+
+&lt;p&gt;Разберем построчно код из моего скрипта:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;item_due_date&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strptime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;due_date_utc&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;%a &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%d&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt; %b %Y %H:%M:%S %z&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;delta&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;utcnow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item_due_date&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;item_today_date&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item_due_date&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;timedelta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;days&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;delta&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;days&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;due_date_utc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;item_today_date&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strftime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%d&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;T%H:%M:%S&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;По ключу &lt;code&gt;due_date_utc&lt;/code&gt; получаем дату в формате &lt;code&gt;&amp;quot;Fri 26 Sep 2014 08:25:05 +0000&amp;quot;&lt;/code&gt;. Выражением &lt;code&gt;&#39;%a %d %b %Y %H:%M:%S %z&#39;&lt;/code&gt; переводим в понятный питону формат. &lt;a href=&#34;https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior&#34;&gt;Документация&lt;/a&gt; по значениям переменных из выражения.&lt;/li&gt;
+&lt;li&gt;Находим разницу между текущей датой и датой полученного объекта.&lt;/li&gt;
+&lt;li&gt;Актуализируем дату объекта, добавляя к нему полученную разницу дней.&lt;/li&gt;
+&lt;li&gt;Переведем дату в строку используя &lt;code&gt;%Y-%m-%dT%H:%M:%S&lt;/code&gt; и отправим изменения в тудуист.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;типы-выполнения-модуля-с-кодом&#34;&gt;Типы выполнения модуля с кодом&lt;/h3&gt;
+
+&lt;p&gt;Часто, читая код на гитхабе, встречал конструкцию:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Выясним ее предназначение.&lt;/p&gt;
+
+&lt;p&gt;Когда исполняется файл с кодом, выполняются все команды на нулевом уровне: задаются специальные переменные, импортируются модули, определяются функции и классы. Одна из специальных переменных — &lt;code&gt;__name__&lt;/code&gt;. Она хранит имя модуля, который вызвал скрипт.&lt;/p&gt;
+
+&lt;p&gt;Например, модуль вызвали из файла &lt;code&gt;foo.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;TodoistOverdue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Переменная &lt;code&gt;__name__&lt;/code&gt; примет значение &lt;code&gt;foo&lt;/code&gt;. Если вызвать скрипт напрямую из терминала:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;python TodoistOverdue.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;__name__&lt;/code&gt; инициализируется значением &lt;code&gt;__main__&lt;/code&gt;. И тогда выполнится весть код из условия &lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt;. Получается, модуль может работать и библиотекой и независимым приложением.&lt;/p&gt;
+
+&lt;h3 id=&#34;добавление-атрибутов-командной-строки&#34;&gt;Добавление атрибутов командной строки&lt;/h3&gt;
+
+&lt;p&gt;Мой скрипт может принимать значение токена АПИ тудуиста. Для этого скрипт вызывается с параметром &lt;code&gt;-t&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;python TodoistOverdue.py -t 0123456789abcdef0123456789abcdef01234567
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Рассмотрим построчно, как задавать описание скрипта и определять аргументы:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parser&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argparse&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;Moving overdue tasks for today in todoist&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;parser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;-t&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;--token&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;help&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;Todoist API token&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parse_args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Инициализируем класс &lt;code&gt;ArgumentParser&lt;/code&gt;, помогающий работать с командной строкой, и зададим описание скрипта.&lt;/li&gt;
+&lt;li&gt;Добавим аргумент задаваемый ключом &lt;code&gt;&#39;-t&#39;&lt;/code&gt; или &lt;code&gt;&#39;--token&#39;&lt;/code&gt;. В параметре &lt;code&gt;help&lt;/code&gt; указываем описание, показываемое при вызове скрипта с ключом &lt;code&gt;-h&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Теперь, при запустке скрипта с ключом &lt;code&gt;-t&lt;/code&gt;, в переменной &lt;code&gt;args.token&lt;/code&gt; будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в &lt;a href=&#34;https://docs.python.org/3.5/library/argparse.html&#34;&gt;документации python&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;чтение-и-запись-в-файл-конфигурации&#34;&gt;Чтение и запись в файл конфигурации&lt;/h3&gt;
+
+&lt;p&gt;Полученный токен хранится в конфигурационном файле. Рассмотрим код для доступа, чтения и записи значения:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;configparser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ConfigParser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expanduser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;~&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;/.todoist&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;token&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;token&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;token&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;token&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Global&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;TokenAPI&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Global&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;TokenAPI&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expanduser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;~&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;/.todoist&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;configfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Инициализируем &lt;code&gt;ConfigParser&lt;/code&gt; и читаем файл из домашней директории пользователя. &lt;code&gt;expanduser(&#39;~&#39;)&lt;/code&gt; позволяет получить путь к домашней директории в любой операционной системе.&lt;/li&gt;
+&lt;li&gt;Читаем конфиг как словарь: &lt;code&gt;config[&#39;Global&#39;][&#39;TokenAPI&#39;]&lt;/code&gt;. Сначала обращаемся к секции с значением, следом — к ключу.&lt;/li&gt;
+&lt;li&gt;В блоке &lt;code&gt;else&lt;/code&gt; записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.python.org/3/library/configparser.html&#34;&gt;Документация&lt;/a&gt; для ConfigParser. &lt;a href=&#34;(https://docs.python.org/3.5/tutorial/inputoutput.html)&#34;&gt;Информацию о вводе и выводе&lt;/a&gt; в Python 3.&lt;/p&gt;
+
+&lt;h3 id=&#34;заключение&#34;&gt;Заключение&lt;/h3&gt;
+
+&lt;p&gt;Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.&lt;/p&gt;
+
+&lt;p&gt;Полный скрипт &lt;code&gt;TodoistOverdue.py&lt;/code&gt; из статьи лежит в &lt;a href=&#34;https://gist.github.com/agladky/f7853721841bc4486712&#34;&gt;gist&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;полезные-ссылки&#34;&gt;Полезные ссылки&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Как запускать скрипты в Mac Os X без указании полного пути. &lt;a href=&#34;http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t&#34;&gt;Stackoverflow&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Изучить питон за пару минут (learnxinyminutes.com). &lt;a href=&#34;https://learnxinyminutes.com/docs/ru-ru/python3-ru/&#34;&gt;Русская&lt;/a&gt; и &lt;a href=&#34;https://learnxinyminutes.com/docs/python3/&#34;&gt;английская&lt;/a&gt; версия.&lt;/li&gt;
+&lt;li&gt;Документация для &lt;a href=&#34;https://docs.python.org/3.5/index.html&#34;&gt;Python 3.5.х&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Шпаргалка с основными командами для Git</title>
