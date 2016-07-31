@@ -83,6 +83,379 @@
   
     <article>
       <div class="title-container">
+        <a href="http://beta.agladky.ru/blog/what-is-a-monad-on-csharp-example/"><span class="page-heading">
+  
+    Что такое монады на примере C#
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        
+
+<p>Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:</p>
+
+<blockquote>
+<p>Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?</p>
+</blockquote>
+
+<p>Оригинальный цикл статей доступна по <a href="http://ericlippert.com/category/monads/">тегу monads</a>.</p>
+
+<h3 id="часть-первая">Часть первая</h3>
+
+<p>Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее их выполнений от вычислений. (Определение из википедии).</p>
+
+<p>«Шаблон монады» это еще один шаблон для типов. Как, например, одиночка (синглтон).</p>
+
+<h3 id="часть-вторая">Часть вторая</h3>
+
+<ul>
+<li><code>Nullable&lt;T&gt;</code> — представляет объект типа T, который может быть <code>null</code> (в дальнейшем, подразумевается что <code>Nullable&lt;T&gt;</code> может работать с любым типом данных).</li>
+<li><code>Func&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для бльшей ясности, будет использоваться делегат <code>delegate T OnDemand&lt;T&gt;();</code>).</li>
+<li><code>Lazy&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено в первый раз, а после, закеширован.</li>
+<li><code>Task&lt;T&gt;</code> — представляет объект типа T, который будет вычислен асинхронно и будет доступен в будущем, если уже не вычислен.</li>
+<li><code>IEnumerable&lt;T&gt;</code> — представляет упорядоченную, доступную только для чтения последовательность от нуля и более элементов типа T.</li>
+</ul>
+
+<h3 id="часть-третья">Часть третья</h3>
+
+<p>Первое требование для монад: «если <code>M&lt;T&gt;</code> это тип-монада, тогда должен быть простой путь по превращению любого значение типа <code>T</code> в значение типа <code>M&lt;T&gt;</code>». Например:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleNullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">item</span><span class="p">);</span> <span class="p">}</span>
+<span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleOnDemand</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">item</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleSequence</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">yield</span> <span class="k">return</span> <span class="n">item</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+
+<p>Кажется, что второе требование просто сформулировать: «из монады <code>M&lt;T&gt;</code>можно получить значение типа <code>T</code>». Но не все так однозначно. Начнем с очень специфичного вопроса. Можно легко прибавить единицу к целочисленному типу, но как «прибавить единицу» к типу-монаде обернутого вокруг целочисленного типа?</p>
+
+<p>Для <code>Nullable&lt;T&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">nullable</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">nullable</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nf">CreateSimpleNullable</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span>  
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Т.е. можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">onDemand</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">onDemand</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Т.е. тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
+
+<p>Для <code>Lazy&lt;T&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">lazy</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">lazy</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Для <code>Task&lt;T&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">async</span> <span class="k">static</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Task</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">task</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="k">await</span> <span class="n">task</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>И, наконец, для <code>IEnumerable&lt;T&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">sequence</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">foreach</span><span class="p">(</span><span class="kt">int</span> <span class="n">unwrapped</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Таким образом, одно из полезных правил для шаблона монад — добавление единицы к завернутому целочисленному типу производит другой завернутый целочисленный тип, с сохранением всех особенностей.</p>
+
+<h3 id="часть-четвертая">Часть четвертая</h3>
+
+<p>Напишем метод, который позволит делать оболочку над любыми <code>Nullable&lt;T&gt;</code> функциями, а не только операцией по добавлению единицы:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
+  <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">nullable</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">T</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">nullable</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+    <span class="n">T</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">result</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Теперь метод <code>AddOne(...)</code> будет выглядеть так:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="nf">ApplyFunction</span><span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Но, допустим мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">nullable</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">A</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">nullable</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+    <span class="n">R</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;(</span><span class="n">result</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения предоставляемые в монадическом («расширенном») типе.</p>
+
+<h3 id="часть-пятая">Часть пятая</h3>
+
+<p>Ранее было указано, что можно взять любую функцию с одним параметром и любым не пустым возвращаемым типом и применить эту функцию к монаде с возвращаемым типом <code>M&lt;R&gt;</code>. Любой возвращаемый тип, так? Предположим, что есть функция с одним параметром:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;</span> <span class="n">SafeLog</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;(</span><span class="n">Math</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Обычная функция с одним параметром. Значит, ее можно применить к <code>Nullable&lt;int&gt;</code> и получить обратно&hellip; <code>Nullable&lt;Nullable&lt;double&gt;&gt;</code>! Это неправильно.</p>
+
+<p>Создадим новую версию <code>ApplyFunction</code>, которая избегает описанной проблемы:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">nullable</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">A</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">nullable</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+    <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Просто, не так ли? Создадим функции для остальных операторов:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">onDemand</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span>
+  <span class="p">{</span>
+    <span class="n">A</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">onDemand</span><span class="p">();</span>
+    <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nf">result</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">Lazy</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">lazy</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nf">Lazy</span><span class="p">(()</span> <span class="p">=&gt;</span>
+  <span class="p">{</span>
+    <span class="n">A</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="n">lazy</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+    <span class="n">Lazy</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">Task</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">task</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">A</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="k">await</span> <span class="n">task</span><span class="p">;</span>
+  <span class="n">Task</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+  <span class="k">return</span> <span class="k">await</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">sequence</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">foreach</span><span class="p">(</span><span class="n">A</span> <span class="n">unwrapped</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">);</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="n">R</span> <span class="n">r</span> <span class="k">in</span> <span class="n">result</span><span class="p">)</span>
+      <span class="k">yield</span> <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>В итоге, для «шаблона монады» имеются 3 правила:</p>
+
+<ol>
+<li><p>Всегда существует возможность преобразовать тип <code>T</code> в тип <code>M&lt;T&gt;</code>.</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="k">value</span><span class="p">)</span>
+</code></pre></div></li>
+
+<li><p>Если существует функция преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
+<span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
+</code></pre></div></li>
+
+<li><p>Если существует функция преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
+<span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+</code></pre></div></li>
+</ol>
+
+<p>Но, правило 2 является частным случаем правила 3. Его можно представить в как комбинацию 1 и 3 правила:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+    <span class="n">wrapped</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">A</span> <span class="n">unwrapped</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;(</span><span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">)));</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Остается всего два правила. Они являются полными правилами «шаблона монады»? В принципе, да.</p>
+
+<h3 id="часть-шестая">Часть шестая</h3>
+
+<p>Необходимо, чтобы операции упаковки и распаковки сохраняли значение.</p>
+
+<p>Пусть имеются 2 метода:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+  <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">monad</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span> <span class="p">{...}</span>
+</code></pre></div>
+
+<p>Тогда, результат следующего выражения:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">someMonadValue</span><span class="p">,</span> <span class="n">CreateSimpleM</span><span class="p">)</span>
+</code></pre></div>
+
+<p>по значению идентичен <code>someMonadValue</code>, а результат следующего выражения:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">CreateSimpleM</span><span class="p">(</span><span class="n">someValue</span><span class="p">),</span> <span class="n">someFunction</span><span class="p">)</span>
+</code></pre></div>
+
+<p>по значению идентичен:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">someFunction</span><span class="p">(</span><span class="n">someValue</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="часть-седьмая">Часть седьмая</h3>
+
+<p>Допустим, имеются 2 функции:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">&gt;</span> <span class="m">0</span>
+    <span class="p">?</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;(</span><span class="n">Math</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">:</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
+<span class="n">Func</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;&gt;</span> <span class="n">toDecimal</span> <span class="p">=</span> <span class="n">y</span> <span class="p">=&gt;</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">&lt;</span> <span class="kt">decimal</span><span class="p">.</span><span class="n">MaxValue</span>
+    <span class="p">?</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;((</span><span class="kt">decimal</span><span class="p">)</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">:</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;();</span>
+</code></pre></div>
+
+<p>Тогда, с помощью определенного ранее метода <code>ApplySpecialFunction</code> можно написать следующий метод-помощник:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">ComposeSpecial</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">&gt;(</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">&gt;&gt;</span> <span class="n">f</span><span class="p">,</span>
+  <span class="n">Func</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">g</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>который позволяет объединить определенные выше функции в одну:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;&gt;</span> <span class="n">both</span> <span class="p">=</span> <span class="n">ComposeSpecial</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">toDecimal</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Отсюда следует последнее правило — метод <code>ApplySpecialFunction</code> должен гарантировать работу композиции. Пример:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">&gt;&gt;</span> <span class="n">f</span> <span class="p">=</span> <span class="n">whatever</span><span class="p">;</span>
+<span class="n">Func</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">g</span> <span class="p">=</span> <span class="n">whatever</span><span class="p">;</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">X</span><span class="p">&gt;</span> <span class="n">mx</span> <span class="p">=</span> <span class="n">whatever</span><span class="p">;</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">&gt;</span> <span class="n">my</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;</span> <span class="n">mz1</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">my</span><span class="p">,</span> <span class="n">g</span><span class="p">);</span>
+<span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">h</span> <span class="p">=</span> <span class="n">ComposeSpecial</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">);</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;</span> <span class="n">mz2</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Значения <code>mz1</code> и <code>mz2</code> должны быть одинаковыми.</p>
+
+<p>Наконец, можно полностью описать «шаблон монады» в C#:</p>
+
+<p>Монада это обобщенный тип <code>M&lt;T&gt;</code>, такой что:</p>
+
+<ul>
+<li><p>Для нее существует конструирующий механизм, который принимает на вход переменную типа <code>T</code> и возвращает <code>M&lt;T&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div></li>
+
+<li><p>Если существует способ преобразования значения типа <code>A</code> в <code>M&lt;R&gt;</code>, то можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
+<span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">monad</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+
+<p>Оба этих метода должны подчинятся следующим законам:</p>
+
+<ul>
+<li>Применение функции создающую простую монаду (правило-метод 1) к конкретному экземпляру монады должно приводить к логически идентичному экземпляру монады.</li>
+<li>Применение функции к результату функции создающей простую монаду из определенного значения и применение этой функции к определенному значению напрямую должно приводить к логически идентичным экземплярам монад.</li>
+<li>Результат применения к значению первой функции второй функции и результат применения первоначального значения к функции-композиции первых двух функций должен приводить к двум логически идентичным экземплярам монад.</li>
+</ul>
+
+<h3 id="часть-восьмая">Часть восьмая</h3>
+
+<p>Традиционное имя для функции <code>CreateSimple</code> — <code>unit</code>. В Haskell — <code>return</code>.</p>
+
+<p>Традиционное имя для функции <code>ApplySpecialFunction</code> — <code>bind</code>. В Haskell она является встроенной функцией, для того чтобы применить функцию <code>f</code> на экземпляр монады <code>m</code> необходимо написать <code>m &gt;&gt;= f</code>.</p>
+
+<p>Фактически, функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.</p>
+
+<p>Мой конспект на этом оканчивается. В последующих частях серии рассматривается практическое применение монад в коде.</p>
+
+<ul>
+<li><a href="http://ericlippert.com/2013/03/21/monads-part-nine/">Часть 9</a>. О простых монадах «присоединяющих дополнительные данные к значению».</li>
+<li><a href="http://ericlippert.com/2013/03/25/monads-part-ten/">Часть 10</a>. О запросах и LINQ на примере <code>SelectMany</code>.</li>
+<li><a href="http://ericlippert.com/2013/03/28/monads-part-eleven/">Часть 11</a>. Дополнения к предыдущей главе. Аддитивная монада.</li>
+<li><a href="http://ericlippert.com/2013/04/02/monads-part-twelve/">Часть 12</a>. Продолжение про запросы и <code>SelectMany</code>.</li>
+<li><a href="http://ericlippert.com/2013/04/03/monads-part-thirteen/">Часть 13</a>. О <code>Task</code> монадах.</li>
+</ul>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="27 января 2016, 13:10 MSK">
+    27 января 2016
+  </span>
+
+   <a class="tag" href="tags/.net">.net</a>   <a class="tag" href="tags/functional">functional</a>   
+
+</div>
+
+    </article>
+  
+    <article>
+      <div class="title-container">
         <a href="http://beta.agladky.ru/blog/my-first-python-script/"><span class="page-heading">
   
     Первый скрипт на Python
@@ -93,15 +466,15 @@
       <div class="markdown">
         
 
-<p>Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.</p>
+<p>Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.</p>
 
-<p>И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в <a href="https://todoist.com/">тудуисте</a>. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня». Это не всегда получается с одной попытки. Время для автоматизации!</p>
+<p>И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в <a href="https://todoist.com/">тудуисте</a>. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня». Это не всегда получается с одной попытки. Время для автоматизации!</p>
 
-<h3 id="установка-python-3">Установка Python 3</h3>
+<h3 id="установка-python-3">Установка Python 3</h3>
 
-<p>Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.</p>
+<p>Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.</p>
 
-<p>Понадобится менеджер пакетов <a href="http://brew.sh/">Homebrew</a>. У кого нет — советую. Для его установки введем в терминале:</p>
+<p>Понадобится менеджер пакетов <a href="http://brew.sh/">Homebrew</a>. У кого нет — советую. Для его установки введем в терминале:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 
@@ -109,116 +482,120 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>brew install python3
 </code></pre></div>
 
-<p>Проверить работоспособность можно набрав в консоле <code>python3</code>.</p>
+<p>Проверить работоспособность можно набрав в консоле <code>python3</code>.</p>
 
-<h3 id="получение-пакета-для-работы-с-тудуистом">Получение пакета для работы с тудуистом</h3>
+<h3 id="получение-пакета-для-работы-с-тудуистом">Получение пакета для работы с тудуистом</h3>
 
-<p>Следующий этап — установка библиотеки для работы с АПИ тудуиста. Воспользуемся менеджером пакетов pip3, который поставляется вместе с Python 3:</p>
+<p>Следующий этап — установка библиотеки для работы с АПИ тудуиста. Воспользуемся менеджером пакетов pip3, который поставляется вместе с Python 3:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>pip3 install todoist-python
 </code></pre></div>
 
-<p>Напоминаю о командной оболочке Zsh, о которой я <a href="http://www.agladky.ru/2015/11/zsh-bash.html">писал ранее</a>. Подключив плагины <code>brew</code> и <code>pip</code> можно добавить автодополнение для команд и пакетов.</p>
+<p>Напоминаю о командной оболочке Zsh, о которой я <a href="http://www.agladky.ru/2015/11/zsh-bash.html">писал ранее</a>. Подключив плагины <code>brew</code> и <code>pip</code> можно добавить автодополнение для команд и пакетов.</p>
 
 <h3 id="среда-разработки">Среда разработки</h3>
 
-<p>Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — <a href="https://www.jetbrains.com/pycharm/">PyCharm CE</a>. Это бесплатная версия в которой есть все необходимое.</p>
+<p>Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — <a href="https://www.jetbrains.com/pycharm/">PyCharm CE</a>. Это бесплатная версия в которой есть все необходимое.</p>
 
-<h3 id="стиль-кода-и-именования">Стиль кода и именования</h3>
+<h3 id="стиль-кода-и-именования">Стиль кода и именования</h3>
 
-<p>Планирутся отдельная статья. А пока — о стиле именования.</p>
+<p>Планирутся отдельная статья. А пока — о стиле именования.</p>
 
-<p>Имена функций, методов и переменных экземпляров классов должны состоять из маленьких букв, а слова разделяться символами подчеркивания:</p>
+<p>Имена функций, методов и переменных экземпляров классов должны состоять из маленьких букв, а слова разделяться символами подчеркивания:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">foo_bar</span><span class="p">(</span><span class="n">new_value</span><span class="p">):</span>
 </code></pre></div>
 
-<p>Стиль mixedCase допускается в тех местах, где уже преобладает такой стиль, для сохранения обратной совместимости:</p>
+<p>Стиль mixedCase допускается в тех местах, где уже преобладает такой стиль, для сохранения обратной совместимости:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">fooBar</span><span class="p">(</span><span class="n">newValue</span><span class="p">):</span>
 </code></pre></div>
 
-<p>Для атрибутов и непубличных методов используется один символ подчёркивания перед именем:</p>
+<p>Для атрибутов и непубличных методов используется один символ подчёркивания перед именем:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">_private_value</span> <span class="o">=</span> <span class="mi">3</span>
 </code></pre></div>
 
-<h3 id="итерация-и-получение-значений-из-коллекций">Итерация и получение значений из коллекций</h3>
+<h3 id="итерация-и-получение-значений-из-коллекций">Итерация и получение значений из коллекций</h3>
 
-<p>Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?</p>
+<p>Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?</p>
 
-<p>Итерация оказалось похожа на <code>foreach</code> из C#:</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">for</span> <span class="n">overdue_item</span> <span class="ow">in</span> <span class="n">overdue_items</span><span class="p">:</span>
+<p>Итерация оказалось похожа на <code>foreach</code> из C#:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">for</span> <span class="n">overdue_item</span> <span class="ow">in</span> <span class="n">overdue_items</span><span class="p">:</span>
     <span class="n">item</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="n">overdue_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
     <span class="k">print</span> <span class="n">item</span>
 </code></pre></div>
 
-<p>Для получения значения словаря есть 2 способа . Первый — обращение по ключу:</p>
+<p>Для получения значения словаря есть 2 способа . Первый — обращение по ключу:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">overdue_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
 </code></pre></div>
 
-<p>Но, если значения нет, возникнет ошибка – <code>KeyError: 'id'</code>. Поэтому, при неуверенности, используйте <code>get</code>:</p>
+<p>Но, если значения нет, возникнет ошибка — <code>KeyError: 'id'</code>. Поэтому, при неуверенности, используйте <code>get</code>:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">overdue_item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Если значение отсутствует, метод вернет значение по-умолчанию — <code>None</code>.</p>
+<p>Если значение отсутствует, метод вернет значение по-умолчанию — <code>None</code>.</p>
 
-<h3 id="преобразование-и-работа-с-датой">Преобразование и работа с датой</h3>
+<h3 id="преобразование-и-работа-с-датой">Преобразование и работа с датой</h3>
 
-<p>Рассмотрим как парсить дату, находить дельту, добавлять значения и приводить к определенному строковому формату.</p>
+<p>Рассмотрим как парсить дату, находить дельту, добавлять значения и приводить к определенному строковому формату.</p>
 
-<p>Разберем построчно код из моего скрипта:</p>
+<p>Разберем построчно код из моего скрипта:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">item_due_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;due_date_utc&#39;</span><span class="p">],</span> <span class="s1">&#39;%a </span><span class="si">%d</span><span class="s1"> %b %Y %H:%M:%S %z&#39;</span><span class="p">)</span>
-<span class="n">delta</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">-</span> <span class="n">item_due_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">-</span> <span class="n">item_due_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
 <span class="n">item_today_date</span> <span class="o">=</span> <span class="n">item_due_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">delta</span><span class="o">.</span><span class="n">days</span><span class="p">)</span>
 <span class="n">item</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">due_date_utc</span><span class="o">=</span><span class="n">item_today_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S&#39;</span><span class="p">))</span>
 </code></pre></div>
 
 <ol>
-<li>По ключу <code>due_date_utc</code> получаем дату в формате <code>&quot;Fri 26 Sep 2014 08:25:05 +0000&quot;</code>. Выражением <code>'%a %d %b %Y %H:%M:%S %z'</code> переводим в понятный питону формат. <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">Документация</a> по значениям переменных из выражения.</li>
-<li>Находим разницу между текущей датой и датой полученного объекта.</li>
-<li>Актуализируем дату объекта, добавляя к нему полученную разницу дней.</li>
-<li>Переведем дату в строку используя <code>%Y-%m-%dT%H:%M:%S</code> и отправим изменения в тудуист.</li>
+<li>По ключу <code>due_date_utc</code> получаем дату в формате <code>&quot;Fri 26 Sep 2014 08:25:05 +0000&quot;</code>. Выражением <code>%a %d %b %Y %H:%M:%S %z</code> переводим в понятный питону формат. <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">Документация</a> по значениям переменных из выражения.</li>
+<li>Находим разницу между текущей датой и датой полученного объекта.</li>
+<li>Актуализируем дату объекта, добавляя к нему полученную разницу дней.</li>
+<li>Переведем дату в строку используя <code>%Y-%m-%dT%H:%M:%S</code> и отправим изменения в тудуист.</li>
 </ol>
 
-<h3 id="типы-выполнения-модуля-с-кодом">Типы выполнения модуля с кодом</h3>
+<h3 id="типы-выполнения-модуля-с-кодом">Типы выполнения модуля с кодом</h3>
 
-<p>Часто, читая код на гитхабе, встречал конструкцию:</p>
+<p>Часто, читая код на гитхабе, встречал конструкцию:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="o">...</span>
 </code></pre></div>
 
-<p>Выясним ее предназначение.</p>
+<p>Выясним ее предназначение.</p>
 
-<p>Когда исполняется файл с кодом, выполняются все команды на нулевом уровне: задаются специальные переменные, импортируются модули, определяются функции и классы. Одна из специальных переменных — <code>__name__</code>. Она хранит имя модуля, который вызвал скрипт.</p>
+<p>Когда исполняется файл с кодом, выполняются все команды на нулевом уровне: задаются специальные переменные, импортируются модули, определяются функции и классы. Одна из специальных переменных — <code>__name__</code>. Она хранит имя модуля, который вызвал скрипт.</p>
 
-<p>Например, модуль вызвали из файла <code>foo.py</code>:</p>
+<p>Например, модуль вызвали из файла <code>foo.py</code>:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">import</span> <span class="nn">TodoistOverdue</span>
 </code></pre></div>
 
-<p>Переменная <code>__name__</code> примет значение <code>foo</code>. Если вызвать скрипт напрямую из терминала:</p>
+<p>Переменная <code>__name__</code> примет значение <code>foo</code>. Если вызвать скрипт напрямую из терминала:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>python TodoistOverdue.py
 </code></pre></div>
 
-<p><code>__name__</code> инициализируется значением <code>__main__</code>. И тогда выполнится весть код из условия <code>if __name__ == &quot;__main__&quot;:</code>. Получается, модуль может работать и библиотекой и независимым приложением.</p>
+<p><code>__name__</code> инициализируется значением <code>__main__</code>. И тогда выполнится весть код из условия <code>if __name__ == &quot;__main__&quot;:</code>. Получается, модуль может работать и библиотекой и независимым приложением.</p>
 
 <h3 id="добавление-атрибутов-командной-строки">Добавление атрибутов командной строки</h3>
 
-<p>Мой скрипт может принимать значение токена АПИ тудуиста. Для этого скрипт вызывается с параметром <code>-t</code>:</p>
+<p>Мой скрипт может принимать значение токена АПИ тудуиста. Для этого скрипт вызывается с параметром <code>-t</code>:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>python TodoistOverdue.py -t 0123456789abcdef0123456789abcdef01234567
 </code></pre></div>
 
-<p>Рассмотрим построчно, как задавать описание скрипта и определять аргументы:</p>
+<p>Рассмотрим построчно, как задавать описание скрипта и определять аргументы:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Moving overdue tasks for today in todoist&quot;</span><span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;--token&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Todoist API token&quot;</span><span class="p">)</span>
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 </code></pre></div>
 
 <ol>
-<li>Инициализируем класс <code>ArgumentParser</code>, помогающий работать с командной строкой, и зададим описание скрипта.</li>
-<li>Добавим аргумент задаваемый ключом <code>'-t'</code> или <code>'--token'</code>. В параметре <code>help</code> указываем описание, показываемое при вызове скрипта с ключом <code>-h</code>.</li>
-<li>Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.</li>
+<li>Инициализируем класс <code>ArgumentParser</code>, помогающий работать с командной строкой, и зададим описание скрипта.</li>
+<li>Добавим аргумент задаваемый ключом <code>’-t’</code> или <code>’--token’</code>. В параметре <code>help</code> указываем описание, показываемое при вызове скрипта с ключом <code>-h</code>.</li>
+<li>Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.</li>
 </ol>
 
-<p>Теперь, при запустке скрипта с ключом <code>-t</code>, в переменной <code>args.token</code> будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в <a href="https://docs.python.org/3.5/library/argparse.html">документации python</a>.</p>
+<p>Теперь, при запустке скрипта с ключом <code>-t</code>, в переменной <code>args.token</code> будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в <a href="https://docs.python.org/3.5/library/argparse.html">документации python</a>.</p>
 
-<h3 id="чтение-и-запись-в-файл-конфигурации">Чтение и запись в файл конфигурации</h3>
+<h3 id="чтение-и-запись-в-файл-конфигурации">Чтение и запись в файл конфигурации</h3>
+
+<p>Полученный токен хранится в конфигурационном файле. Рассмотрим код для доступа, чтения и записи значения:</p>
+
+<h3 id="чтение-и-запись-в-файл-конфигурации-1">Чтение и запись в файл конфигурации</h3>
 
 <p>Полученный токен хранится в конфигурационном файле. Рассмотрим код для доступа, чтения и записи значения:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
@@ -233,28 +610,26 @@
 </code></pre></div>
 
 <ol>
-<li>Инициализируем <code>ConfigParser</code> и читаем файл из домашней директории пользователя. <code>expanduser('~')</code> позволяет получить путь к домашней директории в любой операционной системе.</li>
-<li>Читаем конфиг как словарь: <code>config['Global']['TokenAPI']</code>. Сначала обращаемся к секции с значением, следом — к ключу.</li>
-<li>В блоке <code>else</code> записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.</li>
+<li>Инициализируем <code>ConfigParser</code> и читаем файл из домашней директории пользователя. <code>expanduser('~')</code> позволяет получить путь к домашней директории в любой операционной системе.</li>
+<li>Читаем конфиг как словарь: <code>config['Global']['TokenAPI']</code>. Сначала обращаемся к секции с значением, следом — к ключу.</li>
+<li>В блоке <code>else</code> записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.</li>
 </ol>
 
-<p>Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.</p>
+<p>Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.</p>
 
-<p><a href="https://docs.python.org/3/library/configparser.html">Документация</a> для ConfigParser. <a href="(https://docs.python.org/3.5/tutorial/inputoutput.html)">Информацию о вводе и выводе</a> в Python 3.</p>
+<p><a href="https://docs.python.org/3/library/configparser.html">Документация</a> для ConfigParser. <a href="(https://docs.python.org/3.5/tutorial/inputoutput.html)">Информацию о вводе и выводе</a> в Python 3.</p>
 
 <h3 id="заключение">Заключение</h3>
 
-<p>Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.</p>
+<p>Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.</p>
 
-<p>Полный скрипт <code>TodoistOverdue.py</code> из статьи лежит в <a href="https://gist.github.com/agladky/f7853721841bc4486712">gist</a>.</p>
+<p>Полный скрипт <code>TodoistOverdue.py</code> из статьи лежит в <a href="https://gist.github.com/agladky/f7853721841bc4486712">gist</a>.</p>
 
 <h3 id="полезные-ссылки">Полезные ссылки</h3>
 
-<ul>
-<li>Как запускать скрипты в Mac Os X без указании полного пути. <a href="http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t">Stackoverflow</a>.</li>
-<li>Изучить питон за пару минут (learnxinyminutes.com). <a href="https://learnxinyminutes.com/docs/ru-ru/python3-ru/">Русская</a> и <a href="https://learnxinyminutes.com/docs/python3/">английская</a> версия.</li>
-<li>Документация для <a href="https://docs.python.org/3.5/index.html">Python 3.5.х</a>.</li>
-</ul>
+<p>— Как запускать скрипты в Mac Os X без указании полного пути. <a href="http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t">Stackoverflow</a>.
+— Изучить питон за пару минут (learnxinyminutes.com). <a href="https://learnxinyminutes.com/docs/ru-ru/python3-ru/">Русская</a> и <a href="https://learnxinyminutes.com/docs/python3/">английская</a> версия.
+— Документация для <a href="https://docs.python.org/3.5/index.html">Python 3.5.х</a>.</p>
 
       </div>
       <div class="meta">
