@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Блог Анатолия Гладкого</title>
+    <link>http://beta.agladky.ru/tags/javascript/</link>
+    <description>Recent content in Javascript on Блог Анатолия Гладкого</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-RU</language>
+    <lastBuildDate>Tue, 02 Feb 2016 13:10:07 +0300</lastBuildDate>
+    <atom:link href="http://beta.agladky.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Различия операторов == и === в JavaScript</title>
+      <link>http://beta.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
+      <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>http://beta.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
+      <description>&lt;p&gt;Каждый раз я с опаской заменяю &lt;code&gt;==&lt;/code&gt; на &lt;code&gt;===&lt;/code&gt; — боюсь сломать логическое выражение. Ведь оператор равенства &lt;code&gt;==&lt;/code&gt; реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.&lt;/p&gt;
+
+&lt;p&gt;Операторы &lt;code&gt;==&lt;/code&gt; и &lt;code&gt;===&lt;/code&gt; проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) &lt;code&gt;===&lt;/code&gt; проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) &lt;code&gt;==&lt;/code&gt; проверяет по менее строгим правилам, допускающим преобразования типов.&lt;/p&gt;
+
+&lt;p&gt;Оператор идентичности &lt;code&gt;===&lt;/code&gt; вычисляет значения своих операндов, а затем сравнивает, без преобразования типов. Он руководствуется правилами:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Если у значений разные типы — они не идентичны.&lt;/li&gt;
+&lt;li&gt;Если оба значения или &lt;code&gt;null&lt;/code&gt; или &lt;code&gt;undefined&lt;/code&gt; — они идентичны.&lt;/li&gt;
+&lt;li&gt;Если оба значения или &lt;code&gt;true&lt;/code&gt; или &lt;code&gt;false&lt;/code&gt; — они идентичны.&lt;/li&gt;
+&lt;li&gt;Если одно или оба значения — &lt;code&gt;NaN&lt;/code&gt; — они не идентичны. (Значение &lt;code&gt;NaN&lt;/code&gt; никогда не идентично никакому значению, даже самому себе. Чтобы проверить значение &lt;code&gt;x&lt;/code&gt; на &lt;code&gt;NaN&lt;/code&gt;, используйте выражение &lt;code&gt;x !== x&lt;/code&gt;. Только для &lt;code&gt;NaN&lt;/code&gt; такая проверка вернет &lt;code&gt;true&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Если оба операнда это числа с одним и тем же значением — они идентичны. Если одно число равно &lt;code&gt;0&lt;/code&gt;, а другое &lt;code&gt;-0&lt;/code&gt;, они также идентичны.&lt;/li&gt;
+&lt;li&gt;Если оба значения это строки и содержат одни и те же 16-битные значения в одинаковых позициях — они идентичны. Две строки могут иметь один и тот же смысл и одинаково выглядеть на экране, но содержать отличающиеся последовательности 16-битных значений. Интерпретатор JavaScript не выполняет нормализацию символов юникода, поэтому подобные пары строк не считаются операторами &lt;code&gt;===&lt;/code&gt; и &lt;code&gt;==&lt;/code&gt; ни равными, ни идентичными.&lt;/li&gt;
+&lt;li&gt;Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже если у обоих объектов одинаковые свойства.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Оператор равенства &lt;code&gt;==&lt;/code&gt; похож на оператор идентичности, но он использует менее строгие правила. Если у значений разные типы — они преобразуются и сравниваются:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Если у значений одинаковый тип, они проверяются на идентичность, как описано выше.&lt;/li&gt;
+&lt;li&gt;Если значения не относятся к одному типу, оператор &lt;code&gt;==&lt;/code&gt; считает их равными, при следующих правилах:
+
+&lt;ul&gt;
+&lt;li&gt;Если одно значение &lt;code&gt;null&lt;/code&gt;, а другое &lt;code&gt;undefined&lt;/code&gt; — они равны.&lt;/li&gt;
+&lt;li&gt;Если одно значение число, а другое строка, то строка преобразуется в число и выполняется сравнение.&lt;/li&gt;
+&lt;li&gt;Если одно значение — &lt;code&gt;true&lt;/code&gt;, оно перед сравнением преобразуется в &lt;code&gt;1&lt;/code&gt;. Если — &lt;code&gt;false&lt;/code&gt;, оно преобразуется в &lt;code&gt;0&lt;/code&gt; и сравнение выполняется снова.&lt;/li&gt;
+&lt;li&gt;Если одно значение число или строка, а другое — объект, то перед сравнением объект преобразуется в простой тип. Встроенные классы преобразуются методом &lt;code&gt;valueOf()&lt;/code&gt;, если не получилось, то &lt;code&gt;toString()&lt;/code&gt;. Класс &lt;code&gt;Date&lt;/code&gt; всегда выполняет преобразование &lt;code&gt;toString()&lt;/code&gt;. Не базовые объекты джаваскрипта сами определяют способ преобразования в простые типы.&lt;/li&gt;
+&lt;li&gt;Любые другие комбинации значений не равны.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Правила преобразования типов и сравнения значений для оператора равенства &lt;code&gt;==&lt;/code&gt; сложные и труднозапоминаемые. Интересные случаи:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;           &lt;span class=&#34;c1&#34;&gt;// false&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;             &lt;span class=&#34;c1&#34;&gt;// true&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;// true&lt;/span&gt;
+
+&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;false&amp;#39;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// false&lt;/span&gt;
+&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// true&lt;/span&gt;
+
+&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;undefined&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// false&lt;/span&gt;
+&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;// false&lt;/span&gt;
+&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;undefined&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// true&lt;/span&gt;
+
+&lt;span class=&#34;s1&#34;&gt;&amp;#39; \t\r\n &amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;// true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Особый случай — сравнение литерал с объектом:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;abc&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;abc&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// true&lt;/span&gt;
+&lt;span class=&#34;s2&#34;&gt;&amp;quot;abc&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;abc&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Здесь, оператор &lt;code&gt;==&lt;/code&gt; проверяет значение объектов и возвращает &lt;code&gt;true&lt;/code&gt;. Оператор &lt;code&gt;===&lt;/code&gt; возвращает &lt;code&gt;false&lt;/code&gt;, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.&lt;/p&gt;
+
+&lt;p&gt;В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта &lt;a href=&#34;http://dorey.github.io/JavaScript-Equality-Table/&#34;&gt;dorey.github.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Для оператора &lt;code&gt;==&lt;/code&gt; (или &lt;code&gt;!=&lt;/code&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-RCcoFw_NFT4/VrAxefBPSiI/AAAAAAAAAlk/-Ml2va5hHdg/s640-Ic42/Screenshot%2525202016-02-02%25252007.23.08.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Для оператора &lt;code&gt;===&lt;/code&gt; (или &lt;code&gt;!==&lt;/code&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-37_7dZNdH8g/VrAxeSUggfI/AAAAAAAAAlo/-dgAJViJLnQ/s640-Ic42/Screenshot%2525202016-02-02%25252007.23.34.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Из таблиц следует вывод, что поведение &lt;code&gt;==&lt;/code&gt; не очевидно и может только запутать. Используя &lt;code&gt;===&lt;/code&gt; можно быть уверенным в возвращаемом значении.&lt;/p&gt;
+
+&lt;p&gt;Интересная статья: &lt;a href=&#34;http://www.2ality.com/2011/12/strict-equality-exemptions.html&#34;&gt;When is it OK to use == in JavaScript?&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

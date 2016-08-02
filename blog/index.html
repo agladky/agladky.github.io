@@ -83,6 +83,96 @@
   
     <article>
       <div class="title-container">
+        <a href="http://beta.agladky.ru/blog/differences-comparison-operators-in-javascript/"><span class="page-heading">
+  
+    Различия операторов == и === в JavaScript
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        <p>Каждый раз я с опаской заменяю <code>==</code> на <code>===</code> — боюсь сломать логическое выражение. Ведь оператор равенства <code>==</code> реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.</p>
+
+<p>Операторы <code>==</code> и <code>===</code> проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) <code>===</code> проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) <code>==</code> проверяет по менее строгим правилам, допускающим преобразования типов.</p>
+
+<p>Оператор идентичности <code>===</code> вычисляет значения своих операндов, а затем сравнивает, без преобразования типов. Он руководствуется правилами:</p>
+
+<ul>
+<li>Если у значений разные типы — они не идентичны.</li>
+<li>Если оба значения или <code>null</code> или <code>undefined</code> — они идентичны.</li>
+<li>Если оба значения или <code>true</code> или <code>false</code> — они идентичны.</li>
+<li>Если одно или оба значения — <code>NaN</code> — они не идентичны. (Значение <code>NaN</code> никогда не идентично никакому значению, даже самому себе. Чтобы проверить значение <code>x</code> на <code>NaN</code>, используйте выражение <code>x !== x</code>. Только для <code>NaN</code> такая проверка вернет <code>true</code>).</li>
+<li>Если оба операнда это числа с одним и тем же значением — они идентичны. Если одно число равно <code>0</code>, а другое <code>-0</code>, они также идентичны.</li>
+<li>Если оба значения это строки и содержат одни и те же 16-битные значения в одинаковых позициях — они идентичны. Две строки могут иметь один и тот же смысл и одинаково выглядеть на экране, но содержать отличающиеся последовательности 16-битных значений. Интерпретатор JavaScript не выполняет нормализацию символов юникода, поэтому подобные пары строк не считаются операторами <code>===</code> и <code>==</code> ни равными, ни идентичными.</li>
+<li>Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже если у обоих объектов одинаковые свойства.</li>
+</ul>
+
+<p>Оператор равенства <code>==</code> похож на оператор идентичности, но он использует менее строгие правила. Если у значений разные типы — они преобразуются и сравниваются:</p>
+
+<ul>
+<li>Если у значений одинаковый тип, они проверяются на идентичность, как описано выше.</li>
+<li>Если значения не относятся к одному типу, оператор <code>==</code> считает их равными, при следующих правилах:
+
+<ul>
+<li>Если одно значение <code>null</code>, а другое <code>undefined</code> — они равны.</li>
+<li>Если одно значение число, а другое строка, то строка преобразуется в число и выполняется сравнение.</li>
+<li>Если одно значение — <code>true</code>, оно перед сравнением преобразуется в <code>1</code>. Если — <code>false</code>, оно преобразуется в <code>0</code> и сравнение выполняется снова.</li>
+<li>Если одно значение число или строка, а другое — объект, то перед сравнением объект преобразуется в простой тип. Встроенные классы преобразуются методом <code>valueOf()</code>, если не получилось, то <code>toString()</code>. Класс <code>Date</code> всегда выполняет преобразование <code>toString()</code>. Не базовые объекты джаваскрипта сами определяют способ преобразования в простые типы.</li>
+<li>Любые другие комбинации значений не равны.</li>
+</ul></li>
+</ul>
+
+<p>Правила преобразования типов и сравнения значений для оператора равенства <code>==</code> сложные и труднозапоминаемые. Интересные случаи:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>           <span class="c1">// false</span>
+<span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>             <span class="c1">// true</span>
+<span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>            <span class="c1">// true</span>
+
+<span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span>    <span class="c1">// false</span>
+<span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>        <span class="c1">// true</span>
+
+<span class="kc">false</span> <span class="o">==</span> <span class="kc">undefined</span>  <span class="c1">// false</span>
+<span class="kc">false</span> <span class="o">==</span> <span class="kc">null</span>       <span class="c1">// false</span>
+<span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true</span>
+
+<span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true</span>
+</code></pre></div>
+
+<p>Особый случай — сравнение литерал с объектом:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="s2">&quot;abc&quot;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>    <span class="c1">// true</span>
+<span class="s2">&quot;abc&quot;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>   <span class="c1">// false</span>
+</code></pre></div>
+
+<p>Здесь, оператор <code>==</code> проверяет значение объектов и возвращает <code>true</code>. Оператор <code>===</code> возвращает <code>false</code>, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.</p>
+
+<p>В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта <a href="http://dorey.github.io/JavaScript-Equality-Table/">dorey.github.io</a>.</p>
+
+<p>Для оператора <code>==</code> (или <code>!=</code>):</p>
+
+<p><img src="https://lh3.googleusercontent.com/-RCcoFw_NFT4/VrAxefBPSiI/AAAAAAAAAlk/-Ml2va5hHdg/s640-Ic42/Screenshot%2525202016-02-02%25252007.23.08.png" alt="" /></p>
+
+<p>Для оператора <code>===</code> (или <code>!==</code>):</p>
+
+<p><img src="https://lh3.googleusercontent.com/-37_7dZNdH8g/VrAxeSUggfI/AAAAAAAAAlo/-dgAJViJLnQ/s640-Ic42/Screenshot%2525202016-02-02%25252007.23.34.png" alt="" /></p>
+
+<p>Из таблиц следует вывод, что поведение <code>==</code> не очевидно и может только запутать. Используя <code>===</code> можно быть уверенным в возвращаемом значении.</p>
+
+<p>Интересная статья: <a href="http://www.2ality.com/2011/12/strict-equality-exemptions.html">When is it OK to use == in JavaScript?</a></p>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="2 февраля 2016, 13:10 MSK">
+    2 февраля 2016
+  </span>
+
+   <a class="tag" href="tags/javascript">javascript</a>   
+
+</div>
+
+    </article>
+  
+    <article>
+      <div class="title-container">
         <a href="http://beta.agladky.ru/blog/what-is-a-monad-on-csharp-example/"><span class="page-heading">
   
     Что такое монады на примере C#
@@ -617,7 +707,7 @@
 
 <p>Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.</p>
 
-<p><a href="https://docs.python.org/3/library/configparser.html">Документация</a> для ConfigParser. <a href="(https://docs.python.org/3.5/tutorial/inputoutput.html)">Информацию о вводе и выводе</a> в Python 3.</p>
+<p><a href="https://docs.python.org/3/library/configparser.html">Документация</a> для ConfigParser. <a href="https://docs.python.org/3.5/tutorial/inputoutput.html">Информацию о вводе и выводе</a> в Python 3.</p>
 
 <h3 id="заключение">Заключение</h3>
 
