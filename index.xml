@@ -6,8 +6,26 @@
     <description>Recent content on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Wed, 17 Feb 2016 13:10:07 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 25 Feb 2016 13:10:07 +0300</lastBuildDate>
     <atom:link href="http://beta.agladky.ru/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Перетаскивание кода в окно Watch в Visual Studio</title>
+      <link>http://beta.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
+      <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>http://beta.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
+      <description>&lt;p&gt;Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://dailydotnettips.com/wp-content/uploads/2016/02/CopyWatch.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://dailydotnettips.com/wp-content/uploads/2016/02/CopyWatch2w.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Сайт с полезными советами для .Net разработчиков — &lt;a href=&#34;http://dailydotnettips.com/&#34;&gt;dailydotnettips.com&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Новый оператор ?. в C# 6</title>
