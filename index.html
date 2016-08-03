@@ -83,6 +83,133 @@
   
     <article>
       <div class="title-container">
+        <a href="http://beta.agladky.ru/blog/new-if-null-operator-csharp-6/"><span class="page-heading">
+  
+    Новый оператор ?. в C# 6
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        
+
+<p>Одно из нововведений в С# 6 — оператор <code>?.</code>. Давайте рассмотрим, где и как его использовать.</p>
+
+<h3 id="преобразование-цепочки-вызовов">Преобразование цепочки вызовов</h3>
+
+<p>С новым оператором уменьшается количество проверок на <code>null</code> в цепочке вызовов:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span>
+  <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">.</span><span class="n">GetDocument</span><span class="p">()</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span>
+    <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">.</span><span class="n">GetDocument</span><span class="p">().</span><span class="n">Name</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Перепишем в одну строчку используя <code>?.</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">?.</span><span class="n">GetDocument</span><span class="p">()?.</span><span class="n">Name</span><span class="p">;</span>
+</code></pre></div>
+
+<p><code>documentName</code> примет значение <code>null</code>, если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>.</p>
+
+<p>Второй вариант компактнее. Так же, в первом блоке кода метод <code>GetDocument()</code> вызывается два раза, а во втором — один. Для реализации подобного поведения без использования <code>?.</code> нужна дополнительная переменная для сохранения значения из <code>GetDocument()</code>.</p>
+
+<h3 id="использование-с-индексатором">Использование с индексатором</h3>
+
+<p>Рассмотрим получение значения из коллекции по индексу, с проверкой набора значений на <code>null</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">?</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">:</span> <span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+
+<p>С новым оператором проверка на <code>null</code> условным оператором не расписывается. Бонус — выражение в 2 раза короче:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?[</span><span class="n">index</span><span class="p">];</span>
+</code></pre></div>
+
+<h3 id="оборачивание-в-нулевые-типы">Оборачивание в нулевые типы</h3>
+
+<p>Результат выполнения <code>String.Equals()</code> — <code>bool</code>. Скомпилируется ли следующий код?</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">public</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">String</span> <span class="n">str</span> <span class="p">=</span> <span class="s">&quot;x&quot;</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">result</span> <span class="p">=</span> <span class="n">str</span><span class="p">?.</span><span class="n">Equals</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Нет. Возникнет ошибка: <code>Cannot implicitly convert type ’bool?’ to ’bool’</code>. Такое поведение ожидаемо, так как <code>str?.Equals(&quot;x&quot;)</code> вернет <code>null</code> если переменная <code>str</code> не инициализирована и <code>bool</code> в остальных случаях.</p>
+
+<p>В подобных ситуациях, при использовании оператора <code>?.</code>, возвращаемый тип функции <code>T</code> будет оборачиваться в <code>Nullable&lt;T&gt;</code>.</p>
+
+<h3 id="использование-в-условии">Использование в условии</h3>
+
+<p>Есть задача — проверить коллекцию на наличие в ней элементов. Типичный код:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Any</span><span class="p">())</span>
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Tasks has items!&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Попробуем переписать:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">())</span>
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Tasks has items!&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Код не скомпилируется. Как написано в предыдущем пункте, <code>taskManager.Tasks?.Any()</code> вернет <code>Nullable&lt;bool&gt;</code> тип, который нельзя однозначно трактовать в условии <code>if</code>. Дополним код:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">()</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span>
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Tasks has items!&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Работает. И на одно условие стало меньше.</p>
+
+<p>Комбинируя с оператором <code>??</code> перепишем в эквивалентный код:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">()</span> <span class="p">??</span> <span class="k">false</span><span class="p">)</span>
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Tasks has items!&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="комбинация-с-оператором">Комбинация с оператором ??</h3>
+
+<p>Оператор <code>??</code> называется оператором объединения со значением <code>null</code>. Если операция возвращает <code>null</code>, оператор <code>??</code> подставит значение из правой части выражения.</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">?.</span><span class="n">GetDocument</span><span class="p">()?.</span><span class="n">Name</span> <span class="p">??</span> <span class="s">&quot;No Name&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>, то переменная примет значение <code>&quot;No Name&quot;</code>.</p>
+
+<h3 id="использование-с-делегатами">Использование с делегатами</h3>
+
+<p>Стандартный код для вызова делегата:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="kt">var</span> <span class="n">handler</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PropertyChanged</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">handler</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+  <span class="n">handler</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Используя <code>?.</code>, больше не надо каждый раз писать такой код, делегат вызывается одной строкой:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">PropertyChanged</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Компилятор создает код для вычисления PropertyChanged только один раз, запоминая результат во временной переменной.</p>
+
+<p>Обратите внимание, следующий код вызовет ошибку:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">PropertyChanged</span><span class="p">?(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Вызов метода <code>Invoke</code> обязателен.</p>
+
+<h3 id="полезные-ссылки">Полезные ссылки</h3>
+
+<ul>
+<li><a href="https://msdn.microsoft.com/ru-ru/library/ms173224.aspx">Оператор ??</a></li>
+<li><a href="https://msdn.microsoft.com/ru-RU/library/dn986595.aspx">Операторы ?. и ?</a></li>
+<li><a href="https://msdn.microsoft.com/ru-ru/magazine/dn802602.aspx">Новый и более совершенный C# 6.0</a></li>
+</ul>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="17 февраля 2016, 13:10 MSK">
+    17 февраля 2016
+  </span>
+
+   <a class="tag" href="tags/.net">.net</a>   
+
+</div>
+
+    </article>
+  
+    <article>
+      <div class="title-container">
         <a href="http://beta.agladky.ru/blog/differences-comparison-operators-in-javascript/"><span class="page-heading">
   
     Различия операторов == и === в JavaScript
