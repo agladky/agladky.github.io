@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>.Net on Блог Анатолия Гладкого</title>
-    <link>http://beta.agladky.ru/tags/index.net/</link>
+    <link>http://www.agladky.ru/tags/index.net/</link>
     <description>Recent content in .Net on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Thu, 25 Feb 2016 13:10:07 +0300</lastBuildDate>
-    <atom:link href="http://beta.agladky.ru/tags/.net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.agladky.ru/tags/.net/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Перетаскивание кода в окно Watch в Visual Studio</title>
-      <link>http://beta.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
+      <link>http://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
       <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://beta.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
+      <guid>http://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
       <description>&lt;p&gt;Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://dailydotnettips.com/wp-content/uploads/2016/02/CopyWatch.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -29,10 +29,10 @@
     
     <item>
       <title>Новый оператор ?. в C# 6</title>
-      <link>http://beta.agladky.ru/blog/new-if-null-operator-csharp-6/</link>
+      <link>http://www.agladky.ru/blog/new-if-null-operator-csharp-6/</link>
       <pubDate>Wed, 17 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://beta.agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
+      <guid>http://www.agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
       <description>
 
 &lt;p&gt;Одно из нововведений в С# 6 — оператор &lt;code&gt;?.&lt;/code&gt;. Давайте рассмотрим, где и как его использовать.&lt;/p&gt;
@@ -141,10 +141,10 @@
     
     <item>
       <title>Что такое монады на примере C#</title>
-      <link>http://beta.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
+      <link>http://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
       <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://beta.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
+      <guid>http://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
       <description>
 
 &lt;p&gt;Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:&lt;/p&gt;
@@ -499,10 +499,10 @@
     
     <item>
       <title>C# Enum и Атрибут Flags</title>
-      <link>http://beta.agladky.ru/blog/flags-enums-in-csharp/</link>
+      <link>http://www.agladky.ru/blog/flags-enums-in-csharp/</link>
       <pubDate>Tue, 03 Nov 2015 13:10:07 +0300</pubDate>
       
-      <guid>http://beta.agladky.ru/blog/flags-enums-in-csharp/</guid>
+      <guid>http://www.agladky.ru/blog/flags-enums-in-csharp/</guid>
       <description>
 
 &lt;p&gt;Возникают ситуации, когда переменная должна хранить несколько значений типа перечисления. Например, используемые области логирования: &lt;em&gt;Warning + Info&lt;/em&gt;, или сочетания цветов: &lt;em&gt;Red + Blue + Green&lt;/em&gt;.&lt;/p&gt;

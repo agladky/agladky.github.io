@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on Блог Анатолия Гладкого</title>
-    <link>http://beta.agladky.ru/tags/shell/</link>
+    <link>http://www.agladky.ru/tags/shell/</link>
     <description>Recent content in Shell on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Thu, 26 Nov 2015 13:10:07 +0300</lastBuildDate>
-    <atom:link href="http://beta.agladky.ru/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.agladky.ru/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Почему стоит использовать zsh вместо bash</title>
-      <link>http://beta.agladky.ru/blog/why-zsh-is-better-than-bash/</link>
+      <link>http://www.agladky.ru/blog/why-zsh-is-better-than-bash/</link>
       <pubDate>Thu, 26 Nov 2015 13:10:07 +0300</pubDate>
       
-      <guid>http://beta.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
+      <guid>http://www.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
       <description>
 
 &lt;p&gt;Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомится в &lt;a href=&#34;https://ru.wikipedia.org/wiki/Zsh&#34;&gt;русской&lt;/a&gt; или &lt;a href=&#34;https://en.wikipedia.org/wiki/Z_shell&#34;&gt;английской&lt;/a&gt; википедии.&lt;/p&gt;

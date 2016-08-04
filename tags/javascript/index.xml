@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Блог Анатолия Гладкого</title>
-    <link>http://beta.agladky.ru/tags/javascript/</link>
+    <link>http://www.agladky.ru/tags/javascript/</link>
     <description>Recent content in Javascript on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Tue, 02 Feb 2016 13:10:07 +0300</lastBuildDate>
-    <atom:link href="http://beta.agladky.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.agladky.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Различия операторов == и === в JavaScript</title>
-      <link>http://beta.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
+      <link>http://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
       <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://beta.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
+      <guid>http://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
       <description>&lt;p&gt;Каждый раз я с опаской заменяю &lt;code&gt;==&lt;/code&gt; на &lt;code&gt;===&lt;/code&gt; — боюсь сломать логическое выражение. Ведь оператор равенства &lt;code&gt;==&lt;/code&gt; реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.&lt;/p&gt;
 
 &lt;p&gt;Операторы &lt;code&gt;==&lt;/code&gt; и &lt;code&gt;===&lt;/code&gt; проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) &lt;code&gt;===&lt;/code&gt; проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) &lt;code&gt;==&lt;/code&gt; проверяет по менее строгим правилам, допускающим преобразования типов.&lt;/p&gt;
