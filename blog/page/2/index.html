@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:description" content="Блог Анатолия Гладкого" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Блог Анатолия Гладкого" />
+
+  
+
+
+  <base href="http://www.agladky.ru/">
+  <title>
+    
+    
+       Blog 
+    
+  </title>
+  <link rel="canonical" href="http://www.agladky.ru/blog/">
+  
+
+<script type="text/javascript">
+  var baseURL = 'http:\/\/www.agladky.ru\/';
+  var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+  if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+    window.location.protocol = 'https:';
+  }
+</script>
+
+
+
+<script src="http://www.agladky.ru/js/likely.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="http://www.agladky.ru/css/reset.css">
+<link rel="stylesheet" href="http://www.agladky.ru/css/pygments.css">
+<link rel="stylesheet" href="http://www.agladky.ru/css/main.css">
+<link rel="stylesheet" href="http://www.agladky.ru/css/likely.css">
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+  href="http://www.agladky.ru/img/leaf.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="ru">
+
+<section class="header">
+  <div class="container">
+    <div class="content">
+      
+        <span class="name">Блог Анатолия Гладкого</span>
+      
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="main">
+  <div class="container">
+    <div class="content">
+      <main>
+  
+  
+    <article>
+      <div class="title-container">
+        <a href="http://www.agladky.ru/blog/how-to-test-abstract-classes/"><span class="page-heading">
+  
+    Как тестировать абстрактные классы
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        
+
+<p>Абстрактные классы сложно тестировать. Рассмотрим ситуации применения абстрактных классов и последующего рефакторинга для проведения юнит тестирования.</p>
+
+<h3 id="выделить-реальный-интерфейс">Выделить реальный интерфейс</h3>
+
+<p>Существует специализированный абстрактный класс, но все клиенты используют его конкретные реализации через единый публичный интерфейс:</p>
+
+<p><img src="https://lh3.googleusercontent.com/-Q17gK6ru1Ao/Vh6PH2fppfI/AAAAAAAAAiM/zeQXaGI1myw/s640-Ic42/Situation1_before_my.png" alt="" title="Cитуация 1 до" /></p>
+
+<p>Классы-потомки реализуют интерфейс определенный абстрактными методами класса. Для повышения тестируемости этот интерфейс выделяется. Абстрактный класс превращается в конкретный и в его конструктор передается объект классов-потомков, реализующих выделенный интерфейс.</p>
+
+<p>Применяется шаблон проектирования <a href="https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">стратегия</a>.</p>
+
+<p><img src="https://lh3.googleusercontent.com/-jgWvDdeAlao/Vh6PH2OF0CI/AAAAAAAAAiA/5EoJ4lRRonE/s640-Ic42/Situation1_after_my.png" alt="" title="Cитуация 1 после" /></p>
+
+<p>Бывший абстрактный класс теперь тестируется используя мок-объект нового интерфейса. Все просто.</p>
+
+<h3 id="выделить-хелпер">Выделить хелпер</h3>
+
+<p>Абстрактный класс используется для исключения повторений в наследуемых классах. Классы-потомки используются напрямую.</p>
+
+<p><img src="https://lh3.googleusercontent.com/-HxhHgIWdCds/Vh6PINmZ0NI/AAAAAAAAAiI/20-toWjmQHE/s640-Ic42/Situation2_before_my.png" alt="" title="Cитуация 2 до" /></p>
+
+<p>Абстрактный класс работает как хелпер (helper).</p>
+
+<p>Чтобы повысить тестируемость, не повторяющийся код переносится в существующие классы. Оставшиеся методы выделяются в хелпер и передаются через интерфейс в конструкторы конкретных классов.</p>
+
+<p><img src="https://lh3.googleusercontent.com/-9oAhCjCnrFc/Vh6PH7B1ffI/AAAAAAAAAiE/q06QyuW6SAc/s640-Ic42/Situation2_after_my.png" alt="" title="Cитуация 2 после" /></p>
+
+<p>Базовый класс удаляется. Этот способ снова приводит дизайн к конкретным классам, которые просто и легко тестировать.</p>
+
+<h3 id="совет">Совет</h3>
+
+<p>Предпочитайте сложную сеть простых объектов над простой сетью сложных. Ключ к трестируемому коду — маленькие строительные блоки и слабая связанность.</p>
+
+<h3 id="комбинация-ситуаций">Комбинация ситуаций</h3>
+
+<p>Встречаются ситуации когда базовый класс содержит как публичный интерфейс, так и защищенные методы-помощники. В этом случае вспомогательные методы отправляются в один класс (ситуация 2), а для наследников реализуется шаблон стратегия (ситуация 1).</p>
+
+<p>Когда в абстрактном классе часть методов виртуальные, а часть реализованные, еще возможно провести рефакторинг. Например, превратить классы наследники в стратегию. Но, такой случай — хороший индикатор, что ответственности требуют пересмотра.</p>
+
+<p>Пишите в комментариях примеры когда сложно обойтись без абстрактного класса.</p>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="5 сентября 2015, 13:10 MSK">
+    5 сентября 2015
+  </span>
+
+   <a class="tag" href="tags/test">test</a>   
+
+</div>
+
+    </article>
+  
+
+  
+  
+  <nav>
+    
+      <a href="http://www.agladky.ru/blog/">← Ранее</a>  
+    
+    
+  
+  </nav>
+
+</main>
+
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+<div class="container">
+  <div class="content">
+    <span>© Анатолий Гладкий, 2016 </span><a class="rss" href="http://www.agladky.ru/index.xml">РСС</a>
+    <br />
+    <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+  </div>
+</div>
+</section>
+
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-75808442-1");
+    pageTracker._trackPageview();
+  } catch (err) {}
+</script>
+
+
+
+</body>
+
+</html>
+
