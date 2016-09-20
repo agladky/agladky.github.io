@@ -108,7 +108,7 @@
 
 <p><code>documentName</code> примет значение <code>null</code>, если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>.</p>
 
-<p>Второй вариант компактнее. Так же, в первом блоке кода метод <code>GetDocument()</code> вызывается два раза, а во втором — один. Для реализации подобного поведения без использования <code>?.</code> нужна дополнительная переменная для сохранения значения из <code>GetDocument()</code>.</p>
+<p>Второй вариант компактнее. Также, в первом блоке кода метод <code>GetDocument()</code> вызывается два раза, а во втором — один. Для реализации подобного поведения без использования <code>?.</code> нужна дополнительная переменная для сохранения значения из <code>GetDocument()</code>.</p>
 
 <h3 id="использование-с-индексатором">Использование с индексатором</h3>
 
@@ -153,7 +153,7 @@
 
 <p>Работает. И на одно условие стало меньше.</p>
 
-<p>Комбинируя с оператором <code>??</code> перепишем в эквивалентный код:</p>
+<p>Комбинируя с оператором <code>??</code>, перепишем в эквивалентный код:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">()</span> <span class="p">??</span> <span class="k">false</span><span class="p">)</span>
   <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Tasks has items!&quot;</span><span class="p">);</span>
 </code></pre></div>

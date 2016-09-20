@@ -31,7 +31,7 @@
 
 &lt;p&gt;Не приглянулась ни одна &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;тема из каталога&lt;/a&gt;. Написал свою. Это отняло много времени. Очень. Забросил написание статей на полгода. Из полученных плюсов — прокачал навыки верстки, получил опыт работы с CSS препроцессором &lt;a href=&#34;http://lesscss.org/&#34;&gt;less&lt;/a&gt;. Узнал о &lt;a href=&#34;https://ru.bem.info/&#34;&gt;БЭМ методологии&lt;/a&gt;, но не успел применить. Не пожалел что потратил на тему столько времени.&lt;/p&gt;
 
-&lt;p&gt;Как перфекционист, полировал бы тему и дальше. Но, в какой-то момент понял — надо выпускать. Последовал &lt;a href=&#34;https://www.artlebedev.ru/kovodstvo/sections/167/&#34;&gt;методу прогрессивного джипега&lt;/a&gt; — доделал критическое, остальное по мере сил и времени. Из крупного — не стал доделывать страницу о себе. Она пока повисит в закрепленном посте у которого, при выходе нового, обновляется время, что бы он оставался вверху. Без решения остановки, делал бы тему еще полгода и не выпускал новые посты.&lt;/p&gt;
+&lt;p&gt;Как перфекционист, полировал бы тему и дальше. Но, в какой-то момент понял — надо выпускать. Последовал &lt;a href=&#34;https://www.artlebedev.ru/kovodstvo/sections/167/&#34;&gt;методу прогрессивного джипега&lt;/a&gt; — доделал критическое, остальное по мере сил и времени. Из крупного — не стал доделывать страницу о себе. Она пока повисит в закрепленном посте у которого, при выходе нового, обновляется время, чтобы он оставался вверху. Без решения остановки, делал бы тему еще полгода и не выпускал новые посты.&lt;/p&gt;
 
 &lt;h3 id=&#34;редактура&#34;&gt;Редактура&lt;/h3&gt;
 
@@ -39,7 +39,7 @@
 
 &lt;h3 id=&#34;ощущения&#34;&gt;Ощущения&lt;/h3&gt;
 
-&lt;p&gt;Мне понравилось писать свой блог для статического хостинга. Никаких админок, только редактор и код. Он так же подойдет для небольшого сайта о компании или продукте. Буду и дальше использовать &lt;a href=&#34;https://pages.github.com/&#34;&gt;github pages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Мне понравилось писать свой блог для статического хостинга. Никаких админок, только редактор и код. Он также подойдет для небольшого сайта о компании или продукте. Буду и дальше использовать &lt;a href=&#34;https://pages.github.com/&#34;&gt;github pages&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -51,9 +51,9 @@
       <guid>http://www.agladky.ru/blog/listen-razbor-poletov/</guid>
       <description>&lt;p&gt;Не каждый день встретишь человека с такой уверенностью в своей правоте и идущего против системы.&lt;/p&gt;
 
-&lt;p&gt;Послушал &lt;a href=&#34;http://razbor-poletov.com/2016/03/episode-105.html&#34;&gt;105 серию подкаста «Разбор полетов»&lt;/a&gt;. Веселый выпуск. Гость, Егор Бугаенко, убеждён что большинство использует ООП не правильно. Не понимают парадигмы. Ведущие с ним не соглашаются. Море троллинга и споров. Послушайте, узнаете как далеко можно зайти в своих убеждениях.&lt;/p&gt;
+&lt;p&gt;Послушал &lt;a href=&#34;http://razbor-poletov.com/2016/03/episode-105.html&#34;&gt;105 серию подкаста «Разбор полетов»&lt;/a&gt;. Веселый выпуск. Гость, Егор Бугаенко, убеждён что большинство использует ООП неправильно. Не понимают парадигмы. Ведущие с ним не соглашаются. Море троллинга и споров. Послушайте, узнаете как далеко можно зайти в своих убеждениях.&lt;/p&gt;
 
-&lt;p&gt;После, советую пролистать &lt;a href=&#34;http://www.yegor256.com/&#34;&gt;блог Егора&lt;/a&gt;. Прав он или нет, но интересные мысли подчерпнете.&lt;/p&gt;
+&lt;p&gt;После, советую пролистать &lt;a href=&#34;http://www.yegor256.com/&#34;&gt;блог Егора&lt;/a&gt;. Прав он или нет, но интересные мысли почерпнете.&lt;/p&gt;
 </description>
     </item>
     
@@ -99,7 +99,7 @@
 
 &lt;p&gt;&lt;code&gt;documentName&lt;/code&gt; примет значение &lt;code&gt;null&lt;/code&gt;, если &lt;code&gt;CurrentTask&lt;/code&gt;, &lt;code&gt;GetDocument()&lt;/code&gt; или &lt;code&gt;Name&lt;/code&gt; вернет &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Второй вариант компактнее. Так же, в первом блоке кода метод &lt;code&gt;GetDocument()&lt;/code&gt; вызывается два раза, а во втором — один. Для реализации подобного поведения без использования &lt;code&gt;?.&lt;/code&gt; нужна дополнительная переменная для сохранения значения из &lt;code&gt;GetDocument()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Второй вариант компактнее. Также, в первом блоке кода метод &lt;code&gt;GetDocument()&lt;/code&gt; вызывается два раза, а во втором — один. Для реализации подобного поведения без использования &lt;code&gt;?.&lt;/code&gt; нужна дополнительная переменная для сохранения значения из &lt;code&gt;GetDocument()&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;использование-с-индексатором&#34;&gt;Использование с индексатором&lt;/h3&gt;
 
@@ -144,7 +144,7 @@
 
 &lt;p&gt;Работает. И на одно условие стало меньше.&lt;/p&gt;
 
-&lt;p&gt;Комбинируя с оператором &lt;code&gt;??&lt;/code&gt; перепишем в эквивалентный код:&lt;/p&gt;
+&lt;p&gt;Комбинируя с оператором &lt;code&gt;??&lt;/code&gt;, перепишем в эквивалентный код:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;taskManager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tasks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Any&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;??&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
   &lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;Tasks has items!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -206,7 +206,7 @@
 &lt;li&gt;Если одно или оба значения — &lt;code&gt;NaN&lt;/code&gt; — они не идентичны. (Значение &lt;code&gt;NaN&lt;/code&gt; никогда не идентично никакому значению, даже самому себе. Чтобы проверить значение &lt;code&gt;x&lt;/code&gt; на &lt;code&gt;NaN&lt;/code&gt;, используйте выражение &lt;code&gt;x !== x&lt;/code&gt;. Только для &lt;code&gt;NaN&lt;/code&gt; такая проверка вернет &lt;code&gt;true&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Если оба операнда это числа с одним и тем же значением — они идентичны. Если одно число равно &lt;code&gt;0&lt;/code&gt;, а другое &lt;code&gt;-0&lt;/code&gt;, они также идентичны.&lt;/li&gt;
 &lt;li&gt;Если оба значения это строки и содержат одни и те же 16-битные значения в одинаковых позициях — они идентичны. Две строки могут иметь один и тот же смысл и одинаково выглядеть на экране, но содержать отличающиеся последовательности 16-битных значений. Интерпретатор JavaScript не выполняет нормализацию символов юникода, поэтому подобные пары строк не считаются операторами &lt;code&gt;===&lt;/code&gt; и &lt;code&gt;==&lt;/code&gt; ни равными, ни идентичными.&lt;/li&gt;
-&lt;li&gt;Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже если у обоих объектов одинаковые свойства.&lt;/li&gt;
+&lt;li&gt;Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже при идентичных свойствах.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Оператор равенства &lt;code&gt;==&lt;/code&gt; похож на оператор идентичности, но он использует менее строгие правила. Если у значений разные типы — они преобразуются и сравниваются:&lt;/p&gt;
@@ -276,11 +276,11 @@
 &lt;p&gt;Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Оригинальный цикл статей доступна по &lt;a href=&#34;http://ericlippert.com/category/monads/&#34;&gt;тегу monads&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Оригинальный цикл статей доступен по &lt;a href=&#34;http://ericlippert.com/category/monads/&#34;&gt;тегу monads&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;часть-первая&#34;&gt;Часть первая&lt;/h3&gt;
 
-&lt;p&gt;Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее их выполнений от вычислений. (Определение из википедии).&lt;/p&gt;
+&lt;p&gt;Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее, их выполнений от вычислений. (Определение из википедии).&lt;/p&gt;
 
 &lt;p&gt;«Шаблон монады» это еще один шаблон для типов. Как, например, одиночка (синглтон).&lt;/p&gt;
 
@@ -288,7 +288,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Nullable&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который может быть &lt;code&gt;null&lt;/code&gt; (в дальнейшем, подразумевается что &lt;code&gt;Nullable&amp;lt;T&amp;gt;&lt;/code&gt; может работать с любым типом данных).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Func&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для бльшей ясности, будет использоваться делегат &lt;code&gt;delegate T OnDemand&amp;lt;T&amp;gt;();&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Func&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для большей ясности, будет использоваться делегат &lt;code&gt;delegate T OnDemand&amp;lt;T&amp;gt;();&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Lazy&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен отложено в первый раз, а после, закеширован.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Task&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен асинхронно и будет доступен в будущем, если уже не вычислен.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt; — представляет упорядоченную, доступную только для чтения последовательность от нуля и более элементов типа T.&lt;/li&gt;
@@ -318,7 +318,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Т.е. можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для &lt;code&gt;OnDemand&amp;lt;T&amp;gt;()&lt;/code&gt;, который обернут вокруг &lt;code&gt;DateTime.Now.Seconds&lt;/code&gt;, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:&lt;/p&gt;
+&lt;p&gt;То есть можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для &lt;code&gt;OnDemand&amp;lt;T&amp;gt;()&lt;/code&gt;, который обернут вокруг &lt;code&gt;DateTime.Now.Seconds&lt;/code&gt;, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnDemand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AddOne&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnDemand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onDemand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
   &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt;
@@ -330,7 +330,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Т.е. тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.&lt;/p&gt;
+&lt;p&gt;То есть тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.&lt;/p&gt;
 
 &lt;p&gt;Для &lt;code&gt;Lazy&amp;lt;T&amp;gt;&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Lazy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AddOne&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Lazy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lazy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -391,7 +391,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Но, допустим мы хотим функцию которая принимает тип &lt;code&gt;int&lt;/code&gt; и возвращает &lt;code&gt;double&lt;/code&gt;. Например, поделить 2 целых числа и получить результат типа &lt;code&gt;double&lt;/code&gt;. Для этого, перепишем метод &lt;code&gt;ApplyFunction&lt;/code&gt; в следующий вид:&lt;/p&gt;
+&lt;p&gt;Но, допустим, мы хотим функцию которая принимает тип &lt;code&gt;int&lt;/code&gt; и возвращает &lt;code&gt;double&lt;/code&gt;. Например, поделить 2 целых числа и получить результат типа &lt;code&gt;double&lt;/code&gt;. Для этого, перепишем метод &lt;code&gt;ApplyFunction&lt;/code&gt; в следующий вид:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Nullable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApplyFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;
   &lt;span class=&#34;n&#34;&gt;Nullable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nullable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
   &lt;span class=&#34;n&#34;&gt;Func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -407,7 +407,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt; в монадические типы из &lt;code&gt;М&amp;lt;А&amp;gt;&lt;/code&gt; в &lt;code&gt;М&amp;lt;R&amp;gt;&lt;/code&gt; такие, что сохраняется действие функции и значения предоставляемые в монадическом («расширенном») типе.&lt;/p&gt;
+&lt;p&gt;Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt; в монадические типы из &lt;code&gt;М&amp;lt;А&amp;gt;&lt;/code&gt; в &lt;code&gt;М&amp;lt;R&amp;gt;&lt;/code&gt; такие, что сохраняется действие функции и значения, предоставляемые в монадическом («расширенном») типе.&lt;/p&gt;
 
 &lt;h3 id=&#34;часть-пятая&#34;&gt;Часть пятая&lt;/h3&gt;
 
@@ -486,20 +486,20 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;В итоге, для «шаблона монады» имеются 3 правила:&lt;/p&gt;
+&lt;p&gt;В итоге для «шаблона монады» имеются 3 правила:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Всегда существует возможность преобразовать тип &lt;code&gt;T&lt;/code&gt; в тип &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateSimpleM&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Если существует функция преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Если существует функция, преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApplyFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrapped&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Если существует функция преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Если существует функция, преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApplySpecialFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrapped&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -579,7 +579,7 @@
 
 &lt;p&gt;Наконец, можно полностью описать «шаблон монады» в C#:&lt;/p&gt;
 
-&lt;p&gt;Монада это обобщенный тип &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;, такой что:&lt;/p&gt;
+&lt;p&gt;Монада — это обобщенный тип &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;, такой что:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Для нее существует конструирующий механизм, который принимает на вход переменную типа &lt;code&gt;T&lt;/code&gt; и возвращает &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;:&lt;/p&gt;
@@ -592,7 +592,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Оба этих метода должны подчинятся следующим законам:&lt;/p&gt;
+&lt;p&gt;Оба этих метода должны подчиняться следующим законам:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Применение функции создающую простую монаду (правило-метод 1) к конкретному экземпляру монады должно приводить к логически идентичному экземпляру монады.&lt;/li&gt;
@@ -606,7 +606,7 @@
 
 &lt;p&gt;Традиционное имя для функции &lt;code&gt;ApplySpecialFunction&lt;/code&gt; — &lt;code&gt;bind&lt;/code&gt;. В Haskell она является встроенной функцией, для того чтобы применить функцию &lt;code&gt;f&lt;/code&gt; на экземпляр монады &lt;code&gt;m&lt;/code&gt; необходимо написать &lt;code&gt;m &amp;gt;&amp;gt;= f&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Фактически, функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.&lt;/p&gt;
+&lt;p&gt;Фактически функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.&lt;/p&gt;
 
 &lt;p&gt;Мой конспект на этом оканчивается. В последующих частях серии рассматривается практическое применение монад в коде.&lt;/p&gt;
 
@@ -634,7 +634,7 @@
 
 &lt;h3 id=&#34;установка-python-3&#34;&gt;Установка Python 3&lt;/h3&gt;
 
-&lt;p&gt;Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.&lt;/p&gt;
+&lt;p&gt;Не нашел причин, чтобы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.&lt;/p&gt;
 
 &lt;p&gt;Понадобится менеджер пакетов &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;. У кого нет — советую. Для его установки введем в терминале:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;ruby -e &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
@@ -644,7 +644,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;brew install python3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Проверить работоспособность можно набрав в консоле &lt;code&gt;python3&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Проверить работоспособность можно набрав в консоли &lt;code&gt;python3&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;получение-пакета-для-работы-с-тудуистом&#34;&gt;Получение пакета для работы с тудуистом&lt;/h3&gt;
 
@@ -656,7 +656,7 @@
 
 &lt;h3 id=&#34;среда-разработки&#34;&gt;Среда разработки&lt;/h3&gt;
 
-&lt;p&gt;Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — &lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm CE&lt;/a&gt;. Это бесплатная версия в которой есть все необходимое.&lt;/p&gt;
+&lt;p&gt;Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому я воспользовался IDE от JetBrains — &lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm CE&lt;/a&gt;. Это бесплатная версия, в которой есть все необходимое.&lt;/p&gt;
 
 &lt;h3 id=&#34;стиль-кода-и-именования&#34;&gt;Стиль кода и именования&lt;/h3&gt;
 
@@ -678,7 +678,7 @@
 
 &lt;p&gt;Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?&lt;/p&gt;
 
-&lt;p&gt;Итерация оказалось похожа на &lt;code&gt;foreach&lt;/code&gt; из C#:&lt;/p&gt;
+&lt;p&gt;Итерация оказалась похожа на &lt;code&gt;foreach&lt;/code&gt; из C#:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_by_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;
@@ -688,11 +688,11 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Но, если значения нет, возникнет ошибка — &lt;code&gt;KeyError: &#39;id&#39;&lt;/code&gt;. Поэтому, при неуверенности, используйте &lt;code&gt;get&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Но, если значения нет, возникнет ошибка — &lt;code&gt;KeyError: &#39;id&#39;&lt;/code&gt;. Поэтому при неуверенности, используйте &lt;code&gt;get&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Если значение отсутствует, метод вернет значение по-умолчанию — &lt;code&gt;None&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Если значение отсутствует, метод вернет значение по умолчанию — &lt;code&gt;None&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;преобразование-и-работа-с-датой&#34;&gt;Преобразование и работа с датой&lt;/h3&gt;
 
@@ -747,11 +747,11 @@
 
 &lt;ol&gt;
 &lt;li&gt;Инициализируем класс &lt;code&gt;ArgumentParser&lt;/code&gt;, помогающий работать с командной строкой, и зададим описание скрипта.&lt;/li&gt;
-&lt;li&gt;Добавим аргумент задаваемый ключом &lt;code&gt;’-t’&lt;/code&gt; или &lt;code&gt;’--token’&lt;/code&gt;. В параметре &lt;code&gt;help&lt;/code&gt; указываем описание, показываемое при вызове скрипта с ключом &lt;code&gt;-h&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Добавим аргумент, задаваемый ключом &lt;code&gt;’-t’&lt;/code&gt; или &lt;code&gt;’--token’&lt;/code&gt;. В параметре &lt;code&gt;help&lt;/code&gt; указываем описание, показываемое при вызове скрипта с ключом &lt;code&gt;-h&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Теперь, при запустке скрипта с ключом &lt;code&gt;-t&lt;/code&gt;, в переменной &lt;code&gt;args.token&lt;/code&gt; будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в &lt;a href=&#34;https://docs.python.org/3.5/library/argparse.html&#34;&gt;документации python&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Теперь, при запуске скрипта с ключом &lt;code&gt;-t&lt;/code&gt;, в переменной &lt;code&gt;args.token&lt;/code&gt; будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в &lt;a href=&#34;https://docs.python.org/3.5/library/argparse.html&#34;&gt;документации python&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;чтение-и-запись-в-файл-конфигурации&#34;&gt;Чтение и запись в файл конфигурации&lt;/h3&gt;
 
@@ -773,8 +773,8 @@
 
 &lt;ol&gt;
 &lt;li&gt;Инициализируем &lt;code&gt;ConfigParser&lt;/code&gt; и читаем файл из домашней директории пользователя. &lt;code&gt;expanduser(&#39;~&#39;)&lt;/code&gt; позволяет получить путь к домашней директории в любой операционной системе.&lt;/li&gt;
-&lt;li&gt;Читаем конфиг как словарь: &lt;code&gt;config[&#39;Global&#39;][&#39;TokenAPI&#39;]&lt;/code&gt;. Сначала обращаемся к секции с значением, следом — к ключу.&lt;/li&gt;
-&lt;li&gt;В блоке &lt;code&gt;else&lt;/code&gt; записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.&lt;/li&gt;
+&lt;li&gt;Читаем конфиг как словарь: &lt;code&gt;config[&#39;Global&#39;][&#39;TokenAPI&#39;]&lt;/code&gt;. Сначала обращаемся к секции со значением, следом — к ключу.&lt;/li&gt;
+&lt;li&gt;В блоке &lt;code&gt;else&lt;/code&gt; записываем значение токена, если оно было указано при запуске. После конфигурационный файл записывается на диск.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.&lt;/p&gt;
@@ -783,14 +783,14 @@
 
 &lt;h3 id=&#34;заключение&#34;&gt;Заключение&lt;/h3&gt;
 
-&lt;p&gt;Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.&lt;/p&gt;
+&lt;p&gt;Знакомство с языком Python оставило приятное впечатление. Как минимум его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Он также хорош для быстрого написания прототипа идеи, засевшей у вас в голове.&lt;/p&gt;
 
 &lt;p&gt;Полный скрипт &lt;code&gt;TodoistOverdue.py&lt;/code&gt; из статьи лежит в &lt;a href=&#34;https://gist.github.com/agladky/f7853721841bc4486712&#34;&gt;gist&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;полезные-ссылки&#34;&gt;Полезные ссылки&lt;/h3&gt;
 
-&lt;p&gt;— Как запускать скрипты в Mac Os X без указании полного пути. &lt;a href=&#34;http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t&#34;&gt;Stackoverflow&lt;/a&gt;.
-— Изучить питон за пару минут (learnxinyminutes.com). &lt;a href=&#34;https://learnxinyminutes.com/docs/ru-ru/python3-ru/&#34;&gt;Русская&lt;/a&gt; и &lt;a href=&#34;https://learnxinyminutes.com/docs/python3/&#34;&gt;английская&lt;/a&gt; версия.
+&lt;p&gt;— Как запускать скрипты в Mac Os X без указания полного пути. &lt;a href=&#34;http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t&#34;&gt;Stackoverflow&lt;/a&gt;.
+— Изучить питон за несколько минут (learnxinyminutes.com). &lt;a href=&#34;https://learnxinyminutes.com/docs/ru-ru/python3-ru/&#34;&gt;Русская&lt;/a&gt; и &lt;a href=&#34;https://learnxinyminutes.com/docs/python3/&#34;&gt;английская&lt;/a&gt; версия.
 — Документация для &lt;a href=&#34;https://docs.python.org/3.5/index.html&#34;&gt;Python 3.5.х&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
@@ -849,7 +849,7 @@
 
 &lt;p&gt;&lt;code&gt;git difftool -d&lt;/code&gt; — то же самое, что и &lt;code&gt;diff&lt;/code&gt;, но показывает изменения в заданной difftool.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git difftool -d master..&lt;/code&gt; — показать изменения сделанные в текущей ветке.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git difftool -d master..&lt;/code&gt; — показать изменения, сделанные в текущей ветке.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git diff --stat&lt;/code&gt; — показать статистику какие файлы были изменены и как.&lt;/p&gt;
 
@@ -887,7 +887,7 @@
 
 &lt;h3 id=&#34;работа-с-файлами&#34;&gt;Работа с файлами&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;git rm [file]&lt;/code&gt; — удалить файл из рабочей директории и добавить в индекс информацию о удалении.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git rm [file]&lt;/code&gt; — удалить файл из рабочей директории и добавить в индекс информацию об удалении.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git rm --cached [file]&lt;/code&gt; — удалить файл из репозитория, но сохранить его локально.&lt;/p&gt;
 
@@ -925,7 +925,7 @@
 
 &lt;p&gt;&lt;code&gt;git log --author=&#39;Name&#39; --after={1.week.ago} --pretty=oneline --abbrev-commit&lt;/code&gt; — посмотреть над чем работал заданный пользователь последнюю неделю.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git log --no-merges master..&lt;/code&gt; — посмотреть историю изменений только для текущей ветке.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git log --no-merges master..&lt;/code&gt; — посмотреть историю изменений только для текущей ветки.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git diff [file-branch]..[second-branch]&lt;/code&gt; — посмотреть различия между двумя заданными ветками.&lt;/p&gt;
 
@@ -939,7 +939,7 @@
 
 &lt;p&gt;&lt;code&gt;git reset [commit/tag]&lt;/code&gt; — отменить все коммиты после указанного коммита, изменения будут сохранены локально.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git reset --hard [commit]&lt;/code&gt; — принудительно вернутся в указанному коммиту, не сохраняя историю и изменения.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git reset --hard [commit]&lt;/code&gt; — принудительно вернутся к указанному коммиту, не сохраняя историю и изменения.&lt;/p&gt;
 
 &lt;h3 id=&#34;синхронизация-изменений&#34;&gt;Синхронизация изменений&lt;/h3&gt;
 
@@ -984,7 +984,7 @@
       <guid>http://www.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
       <description>
 
-&lt;p&gt;Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомится в &lt;a href=&#34;https://ru.wikipedia.org/wiki/Zsh&#34;&gt;русской&lt;/a&gt; или &lt;a href=&#34;https://en.wikipedia.org/wiki/Z_shell&#34;&gt;английской&lt;/a&gt; википедии.&lt;/p&gt;
+&lt;p&gt;Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в &lt;a href=&#34;https://ru.wikipedia.org/wiki/Zsh&#34;&gt;русской&lt;/a&gt; или &lt;a href=&#34;https://en.wikipedia.org/wiki/Z_shell&#34;&gt;английской&lt;/a&gt; википедии.&lt;/p&gt;
 
 &lt;p&gt;Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.&lt;/p&gt;
 
@@ -998,7 +998,7 @@
 
 &lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-9EtosbNV72U/VlawDQ65VCI/AAAAAAAAAkE/hQ1XsEusWbA/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.47.png&#34; alt=&#34;bash cd tab second&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Каждый раз будет выводится только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И, только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.&lt;/p&gt;
+&lt;p&gt;Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.&lt;/p&gt;
 
 &lt;p&gt;Теперь наберем &lt;code&gt;cd&lt;/code&gt; в zsh и нажмем таб.&lt;/p&gt;
 
@@ -1024,7 +1024,7 @@
 
 &lt;p&gt;Отобразился список команд с описанием. Это гораздо информативнее.&lt;/p&gt;
 
-&lt;p&gt;Да, установив пакет bash-completion подобное поведение появится и в баше. Но выводить информацию как в zsh не получится:&lt;/p&gt;
+&lt;p&gt;Да, установив пакет bash-completion, подобное поведение появится и в баше. Но выводить информацию как в zsh не получится:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Не будет итерации по значениям, как в пункте про &lt;code&gt;cd&lt;/code&gt;;&lt;/li&gt;
@@ -1082,7 +1082,7 @@ $ ps ax gp &lt;span class=&#34;nv&#34;&gt;docker&lt;/span&gt;
 
 &lt;p&gt;В примере, вместо написания &lt;code&gt;| grep -i&lt;/code&gt;, в середине выражения, использовался псевдоним &lt;code&gt;gp&lt;/code&gt;. Удобно.&lt;/p&gt;
 
-&lt;p&gt;Второй тип — &lt;em&gt;суфиксный (suffix)&lt;/em&gt;. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом &lt;code&gt;-s&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Второй тип — &lt;em&gt;суффиксный (suffix)&lt;/em&gt;. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом &lt;code&gt;-s&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; -s &lt;span class=&#34;nv&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;less -MN&amp;#39;&lt;/span&gt;
 &lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; -s &lt;span class=&#34;nv&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;chromium&amp;#39;&lt;/span&gt;
 
@@ -1161,7 +1161,7 @@ $ index.html
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myProperties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AllowedColors&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Red&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Green&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Blue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Логическое И (&lt;code&gt;&amp;amp;&lt;/code&gt;) помогает при нахождения значения флага:&lt;/p&gt;
+&lt;p&gt;Логическое И (&lt;code&gt;&amp;amp;&lt;/code&gt;) помогает при нахождении значения флага:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myProperties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AllowedColors&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Yellow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Yellow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
     &lt;span class=&#34;c1&#34;&gt;// Yellow has been set...&lt;/span&gt;
@@ -1215,7 +1215,7 @@ $ index.html
 
 &lt;h3 id=&#34;битовое-представление&#34;&gt;Битовое представление&lt;/h3&gt;
 
-&lt;p&gt;Описанное выше работает благодаря битовому представлению значений флагов при проставление степени двойки:&lt;/p&gt;
+&lt;p&gt;Описанное выше работает благодаря битовому представлению значений флагов при проставлении степени двойки:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Yellow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;00000001&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Green&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;00000010&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Red&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;00000100&lt;/span&gt;
@@ -1230,7 +1230,7 @@ $ index.html
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myProperties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AllowedColors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;00001110&lt;/span&gt;
              &lt;span class=&#34;n&#34;&gt;MyColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Green&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;00000010&lt;/span&gt;
              &lt;span class=&#34;p&#34;&gt;-----------------------&lt;/span&gt;
-                            &lt;span class=&#34;m&#34;&gt;00000010&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Это тоже самое, что и MyColor.Green!&lt;/span&gt;
+                            &lt;span class=&#34;m&#34;&gt;00000010&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Это то же самое, что и MyColor.Green!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&#34;полезные-ссылки&#34;&gt;Полезные ссылки&lt;/h3&gt;
@@ -1259,7 +1259,7 @@ $ index.html
 
 &lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/-Q17gK6ru1Ao/Vh6PH2fppfI/AAAAAAAAAiM/zeQXaGI1myw/s640-Ic42/Situation1_before_my.png&#34; alt=&#34;&#34; title=&#34;Cитуация 1 до&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Классы-потомки реализуют интерфейс определенный абстрактными методами класса. Для повышения тестируемости этот интерфейс выделяется. Абстрактный класс превращается в конкретный и в его конструктор передается объект классов-потомков, реализующих выделенный интерфейс.&lt;/p&gt;
+&lt;p&gt;Классы-потомки реализуют интерфейс, определенный абстрактными методами класса. Для повышения тестируемости этот интерфейс выделяется. Абстрактный класс превращается в конкретный и в его конструктор передается объект классов-потомков, реализующих выделенный интерфейс.&lt;/p&gt;
 
 &lt;p&gt;Применяется шаблон проектирования &lt;a href=&#34;https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)&#34;&gt;стратегия&lt;/a&gt;.&lt;/p&gt;
 

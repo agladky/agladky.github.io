@@ -113,7 +113,7 @@
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Логическое И (<code>&amp;</code>) помогает при нахождения значения флага:</p>
+<p>Логическое И (<code>&amp;</code>) помогает при нахождении значения флага:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// Yellow has been set...</span>
@@ -167,7 +167,7 @@
 
 <h3 id="битовое-представление">Битовое представление</h3>
 
-<p>Описанное выше работает благодаря битовому представлению значений флагов при проставление степени двойки:</p>
+<p>Описанное выше работает благодаря битовому представлению значений флагов при проставлении степени двойки:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Yellow</span><span class="p">:</span> <span class="m">00000001</span>
 <span class="n">Green</span><span class="p">:</span>  <span class="m">00000010</span>
 <span class="n">Red</span><span class="p">:</span>    <span class="m">00000100</span>
@@ -182,7 +182,7 @@
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
              <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">:</span> <span class="m">00000010</span>
              <span class="p">-----------------------</span>
-                            <span class="m">00000010</span> <span class="c1">// Это тоже самое, что и MyColor.Green!</span>
+                            <span class="m">00000010</span> <span class="c1">// Это то же самое, что и MyColor.Green!</span>
 </code></pre></div>
 
 <h3 id="полезные-ссылки">Полезные ссылки</h3>

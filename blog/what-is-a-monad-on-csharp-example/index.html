@@ -98,11 +98,11 @@
 <p>Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?</p>
 </blockquote>
 
-<p>Оригинальный цикл статей доступна по <a href="http://ericlippert.com/category/monads/">тегу monads</a>.</p>
+<p>Оригинальный цикл статей доступен по <a href="http://ericlippert.com/category/monads/">тегу monads</a>.</p>
 
 <h3 id="часть-первая">Часть первая</h3>
 
-<p>Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее их выполнений от вычислений. (Определение из википедии).</p>
+<p>Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее, их выполнений от вычислений. (Определение из википедии).</p>
 
 <p>«Шаблон монады» это еще один шаблон для типов. Как, например, одиночка (синглтон).</p>
 
@@ -110,7 +110,7 @@
 
 <ul>
 <li><code>Nullable&lt;T&gt;</code> — представляет объект типа T, который может быть <code>null</code> (в дальнейшем, подразумевается что <code>Nullable&lt;T&gt;</code> может работать с любым типом данных).</li>
-<li><code>Func&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для бльшей ясности, будет использоваться делегат <code>delegate T OnDemand&lt;T&gt;();</code>).</li>
+<li><code>Func&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для большей ясности, будет использоваться делегат <code>delegate T OnDemand&lt;T&gt;();</code>).</li>
 <li><code>Lazy&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено в первый раз, а после, закеширован.</li>
 <li><code>Task&lt;T&gt;</code> — представляет объект типа T, который будет вычислен асинхронно и будет доступен в будущем, если уже не вычислен.</li>
 <li><code>IEnumerable&lt;T&gt;</code> — представляет упорядоченную, доступную только для чтения последовательность от нуля и более элементов типа T.</li>
@@ -140,7 +140,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Т.е. можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
+<p>То есть можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">onDemand</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span>
@@ -152,7 +152,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Т.е. тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
+<p>То есть тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
 
 <p>Для <code>Lazy&lt;T&gt;</code>:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">lazy</span><span class="p">)</span>
@@ -213,7 +213,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Но, допустим мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
+<p>Но, допустим, мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
   <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
   <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
@@ -229,7 +229,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения предоставляемые в монадическом («расширенном») типе.</p>
+<p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения, предоставляемые в монадическом («расширенном») типе.</p>
 
 <h3 id="часть-пятая">Часть пятая</h3>
 
@@ -308,20 +308,20 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>В итоге, для «шаблона монады» имеются 3 правила:</p>
+<p>В итоге для «шаблона монады» имеются 3 правила:</p>
 
 <ol>
 <li><p>Всегда существует возможность преобразовать тип <code>T</code> в тип <code>M&lt;T&gt;</code>.</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="k">value</span><span class="p">)</span>
 </code></pre></div></li>
 
-<li><p>Если существует функция преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<li><p>Если существует функция, преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
 </code></pre></div></li>
 
-<li><p>Если существует функция преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<li><p>Если существует функция, преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
@@ -401,7 +401,7 @@
 
 <p>Наконец, можно полностью описать «шаблон монады» в C#:</p>
 
-<p>Монада это обобщенный тип <code>M&lt;T&gt;</code>, такой что:</p>
+<p>Монада — это обобщенный тип <code>M&lt;T&gt;</code>, такой что:</p>
 
 <ul>
 <li><p>Для нее существует конструирующий механизм, который принимает на вход переменную типа <code>T</code> и возвращает <code>M&lt;T&gt;</code>:</p>
@@ -414,7 +414,7 @@
 </code></pre></div></li>
 </ul>
 
-<p>Оба этих метода должны подчинятся следующим законам:</p>
+<p>Оба этих метода должны подчиняться следующим законам:</p>
 
 <ul>
 <li>Применение функции создающую простую монаду (правило-метод 1) к конкретному экземпляру монады должно приводить к логически идентичному экземпляру монады.</li>
@@ -428,7 +428,7 @@
 
 <p>Традиционное имя для функции <code>ApplySpecialFunction</code> — <code>bind</code>. В Haskell она является встроенной функцией, для того чтобы применить функцию <code>f</code> на экземпляр монады <code>m</code> необходимо написать <code>m &gt;&gt;= f</code>.</p>
 
-<p>Фактически, функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.</p>
+<p>Фактически функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.</p>
 
 <p>Мой конспект на этом оканчивается. В последующих частях серии рассматривается практическое применение монад в коде.</p>
 

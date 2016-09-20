@@ -23,7 +23,7 @@
 
 &lt;h3 id=&#34;установка-python-3&#34;&gt;Установка Python 3&lt;/h3&gt;
 
-&lt;p&gt;Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.&lt;/p&gt;
+&lt;p&gt;Не нашел причин, чтобы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.&lt;/p&gt;
 
 &lt;p&gt;Понадобится менеджер пакетов &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;. У кого нет — советую. Для его установки введем в терминале:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;ruby -e &lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
@@ -33,7 +33,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span&gt;&lt;/span&gt;brew install python3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Проверить работоспособность можно набрав в консоле &lt;code&gt;python3&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Проверить работоспособность можно набрав в консоли &lt;code&gt;python3&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;получение-пакета-для-работы-с-тудуистом&#34;&gt;Получение пакета для работы с тудуистом&lt;/h3&gt;
 
@@ -45,7 +45,7 @@
 
 &lt;h3 id=&#34;среда-разработки&#34;&gt;Среда разработки&lt;/h3&gt;
 
-&lt;p&gt;Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — &lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm CE&lt;/a&gt;. Это бесплатная версия в которой есть все необходимое.&lt;/p&gt;
+&lt;p&gt;Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому я воспользовался IDE от JetBrains — &lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm CE&lt;/a&gt;. Это бесплатная версия, в которой есть все необходимое.&lt;/p&gt;
 
 &lt;h3 id=&#34;стиль-кода-и-именования&#34;&gt;Стиль кода и именования&lt;/h3&gt;
 
@@ -67,7 +67,7 @@
 
 &lt;p&gt;Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?&lt;/p&gt;
 
-&lt;p&gt;Итерация оказалось похожа на &lt;code&gt;foreach&lt;/code&gt; из C#:&lt;/p&gt;
+&lt;p&gt;Итерация оказалась похожа на &lt;code&gt;foreach&lt;/code&gt; из C#:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_by_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;
@@ -77,11 +77,11 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Но, если значения нет, возникнет ошибка — &lt;code&gt;KeyError: &#39;id&#39;&lt;/code&gt;. Поэтому, при неуверенности, используйте &lt;code&gt;get&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Но, если значения нет, возникнет ошибка — &lt;code&gt;KeyError: &#39;id&#39;&lt;/code&gt;. Поэтому при неуверенности, используйте &lt;code&gt;get&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;overdue_item&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Если значение отсутствует, метод вернет значение по-умолчанию — &lt;code&gt;None&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Если значение отсутствует, метод вернет значение по умолчанию — &lt;code&gt;None&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;преобразование-и-работа-с-датой&#34;&gt;Преобразование и работа с датой&lt;/h3&gt;
 
@@ -136,11 +136,11 @@
 
 &lt;ol&gt;
 &lt;li&gt;Инициализируем класс &lt;code&gt;ArgumentParser&lt;/code&gt;, помогающий работать с командной строкой, и зададим описание скрипта.&lt;/li&gt;
-&lt;li&gt;Добавим аргумент задаваемый ключом &lt;code&gt;’-t’&lt;/code&gt; или &lt;code&gt;’--token’&lt;/code&gt;. В параметре &lt;code&gt;help&lt;/code&gt; указываем описание, показываемое при вызове скрипта с ключом &lt;code&gt;-h&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Добавим аргумент, задаваемый ключом &lt;code&gt;’-t’&lt;/code&gt; или &lt;code&gt;’--token’&lt;/code&gt;. В параметре &lt;code&gt;help&lt;/code&gt; указываем описание, показываемое при вызове скрипта с ключом &lt;code&gt;-h&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Теперь, при запустке скрипта с ключом &lt;code&gt;-t&lt;/code&gt;, в переменной &lt;code&gt;args.token&lt;/code&gt; будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в &lt;a href=&#34;https://docs.python.org/3.5/library/argparse.html&#34;&gt;документации python&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Теперь, при запуске скрипта с ключом &lt;code&gt;-t&lt;/code&gt;, в переменной &lt;code&gt;args.token&lt;/code&gt; будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в &lt;a href=&#34;https://docs.python.org/3.5/library/argparse.html&#34;&gt;документации python&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;чтение-и-запись-в-файл-конфигурации&#34;&gt;Чтение и запись в файл конфигурации&lt;/h3&gt;
 
@@ -162,8 +162,8 @@
 
 &lt;ol&gt;
 &lt;li&gt;Инициализируем &lt;code&gt;ConfigParser&lt;/code&gt; и читаем файл из домашней директории пользователя. &lt;code&gt;expanduser(&#39;~&#39;)&lt;/code&gt; позволяет получить путь к домашней директории в любой операционной системе.&lt;/li&gt;
-&lt;li&gt;Читаем конфиг как словарь: &lt;code&gt;config[&#39;Global&#39;][&#39;TokenAPI&#39;]&lt;/code&gt;. Сначала обращаемся к секции с значением, следом — к ключу.&lt;/li&gt;
-&lt;li&gt;В блоке &lt;code&gt;else&lt;/code&gt; записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.&lt;/li&gt;
+&lt;li&gt;Читаем конфиг как словарь: &lt;code&gt;config[&#39;Global&#39;][&#39;TokenAPI&#39;]&lt;/code&gt;. Сначала обращаемся к секции со значением, следом — к ключу.&lt;/li&gt;
+&lt;li&gt;В блоке &lt;code&gt;else&lt;/code&gt; записываем значение токена, если оно было указано при запуске. После конфигурационный файл записывается на диск.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.&lt;/p&gt;
@@ -172,14 +172,14 @@
 
 &lt;h3 id=&#34;заключение&#34;&gt;Заключение&lt;/h3&gt;
 
-&lt;p&gt;Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.&lt;/p&gt;
+&lt;p&gt;Знакомство с языком Python оставило приятное впечатление. Как минимум его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Он также хорош для быстрого написания прототипа идеи, засевшей у вас в голове.&lt;/p&gt;
 
 &lt;p&gt;Полный скрипт &lt;code&gt;TodoistOverdue.py&lt;/code&gt; из статьи лежит в &lt;a href=&#34;https://gist.github.com/agladky/f7853721841bc4486712&#34;&gt;gist&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;полезные-ссылки&#34;&gt;Полезные ссылки&lt;/h3&gt;
 
-&lt;p&gt;— Как запускать скрипты в Mac Os X без указании полного пути. &lt;a href=&#34;http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t&#34;&gt;Stackoverflow&lt;/a&gt;.
-— Изучить питон за пару минут (learnxinyminutes.com). &lt;a href=&#34;https://learnxinyminutes.com/docs/ru-ru/python3-ru/&#34;&gt;Русская&lt;/a&gt; и &lt;a href=&#34;https://learnxinyminutes.com/docs/python3/&#34;&gt;английская&lt;/a&gt; версия.
+&lt;p&gt;— Как запускать скрипты в Mac Os X без указания полного пути. &lt;a href=&#34;http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t&#34;&gt;Stackoverflow&lt;/a&gt;.
+— Изучить питон за несколько минут (learnxinyminutes.com). &lt;a href=&#34;https://learnxinyminutes.com/docs/ru-ru/python3-ru/&#34;&gt;Русская&lt;/a&gt; и &lt;a href=&#34;https://learnxinyminutes.com/docs/python3/&#34;&gt;английская&lt;/a&gt; версия.
 — Документация для &lt;a href=&#34;https://docs.python.org/3.5/index.html&#34;&gt;Python 3.5.х&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>

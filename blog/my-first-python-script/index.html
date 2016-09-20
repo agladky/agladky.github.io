@@ -98,7 +98,7 @@
 
 <h3 id="установка-python-3">Установка Python 3</h3>
 
-<p>Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.</p>
+<p>Не нашел причин, чтобы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.</p>
 
 <p>Понадобится менеджер пакетов <a href="http://brew.sh/">Homebrew</a>. У кого нет — советую. Для его установки введем в терминале:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
@@ -108,7 +108,7 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>brew install python3
 </code></pre></div>
 
-<p>Проверить работоспособность можно набрав в консоле <code>python3</code>.</p>
+<p>Проверить работоспособность можно набрав в консоли <code>python3</code>.</p>
 
 <h3 id="получение-пакета-для-работы-с-тудуистом">Получение пакета для работы с тудуистом</h3>
 
@@ -120,7 +120,7 @@
 
 <h3 id="среда-разработки">Среда разработки</h3>
 
-<p>Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — <a href="https://www.jetbrains.com/pycharm/">PyCharm CE</a>. Это бесплатная версия в которой есть все необходимое.</p>
+<p>Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому я воспользовался IDE от JetBrains — <a href="https://www.jetbrains.com/pycharm/">PyCharm CE</a>. Это бесплатная версия, в которой есть все необходимое.</p>
 
 <h3 id="стиль-кода-и-именования">Стиль кода и именования</h3>
 
@@ -142,7 +142,7 @@
 
 <p>Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?</p>
 
-<p>Итерация оказалось похожа на <code>foreach</code> из C#:</p>
+<p>Итерация оказалась похожа на <code>foreach</code> из C#:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">for</span> <span class="n">overdue_item</span> <span class="ow">in</span> <span class="n">overdue_items</span><span class="p">:</span>
     <span class="n">item</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="n">overdue_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
     <span class="k">print</span> <span class="n">item</span>
@@ -152,11 +152,11 @@
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">overdue_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
 </code></pre></div>
 
-<p>Но, если значения нет, возникнет ошибка — <code>KeyError: 'id'</code>. Поэтому, при неуверенности, используйте <code>get</code>:</p>
+<p>Но, если значения нет, возникнет ошибка — <code>KeyError: 'id'</code>. Поэтому при неуверенности, используйте <code>get</code>:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">overdue_item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Если значение отсутствует, метод вернет значение по-умолчанию — <code>None</code>.</p>
+<p>Если значение отсутствует, метод вернет значение по умолчанию — <code>None</code>.</p>
 
 <h3 id="преобразование-и-работа-с-датой">Преобразование и работа с датой</h3>
 
@@ -211,11 +211,11 @@
 
 <ol>
 <li>Инициализируем класс <code>ArgumentParser</code>, помогающий работать с командной строкой, и зададим описание скрипта.</li>
-<li>Добавим аргумент задаваемый ключом <code>’-t’</code> или <code>’--token’</code>. В параметре <code>help</code> указываем описание, показываемое при вызове скрипта с ключом <code>-h</code>.</li>
+<li>Добавим аргумент, задаваемый ключом <code>’-t’</code> или <code>’--token’</code>. В параметре <code>help</code> указываем описание, показываемое при вызове скрипта с ключом <code>-h</code>.</li>
 <li>Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.</li>
 </ol>
 
-<p>Теперь, при запустке скрипта с ключом <code>-t</code>, в переменной <code>args.token</code> будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в <a href="https://docs.python.org/3.5/library/argparse.html">документации python</a>.</p>
+<p>Теперь, при запуске скрипта с ключом <code>-t</code>, в переменной <code>args.token</code> будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в <a href="https://docs.python.org/3.5/library/argparse.html">документации python</a>.</p>
 
 <h3 id="чтение-и-запись-в-файл-конфигурации">Чтение и запись в файл конфигурации</h3>
 
@@ -237,8 +237,8 @@
 
 <ol>
 <li>Инициализируем <code>ConfigParser</code> и читаем файл из домашней директории пользователя. <code>expanduser('~')</code> позволяет получить путь к домашней директории в любой операционной системе.</li>
-<li>Читаем конфиг как словарь: <code>config['Global']['TokenAPI']</code>. Сначала обращаемся к секции с значением, следом — к ключу.</li>
-<li>В блоке <code>else</code> записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.</li>
+<li>Читаем конфиг как словарь: <code>config['Global']['TokenAPI']</code>. Сначала обращаемся к секции со значением, следом — к ключу.</li>
+<li>В блоке <code>else</code> записываем значение токена, если оно было указано при запуске. После конфигурационный файл записывается на диск.</li>
 </ol>
 
 <p>Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.</p>
@@ -247,14 +247,14 @@
 
 <h3 id="заключение">Заключение</h3>
 
-<p>Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.</p>
+<p>Знакомство с языком Python оставило приятное впечатление. Как минимум его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Он также хорош для быстрого написания прототипа идеи, засевшей у вас в голове.</p>
 
 <p>Полный скрипт <code>TodoistOverdue.py</code> из статьи лежит в <a href="https://gist.github.com/agladky/f7853721841bc4486712">gist</a>.</p>
 
 <h3 id="полезные-ссылки">Полезные ссылки</h3>
 
-<p>— Как запускать скрипты в Mac Os X без указании полного пути. <a href="http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t">Stackoverflow</a>.
-— Изучить питон за пару минут (learnxinyminutes.com). <a href="https://learnxinyminutes.com/docs/ru-ru/python3-ru/">Русская</a> и <a href="https://learnxinyminutes.com/docs/python3/">английская</a> версия.
+<p>— Как запускать скрипты в Mac Os X без указания полного пути. <a href="http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t">Stackoverflow</a>.
+— Изучить питон за несколько минут (learnxinyminutes.com). <a href="https://learnxinyminutes.com/docs/ru-ru/python3-ru/">Русская</a> и <a href="https://learnxinyminutes.com/docs/python3/">английская</a> версия.
 — Документация для <a href="https://docs.python.org/3.5/index.html">Python 3.5.х</a>.</p>
 
         </div>

@@ -111,7 +111,7 @@
 
 <p>Не приглянулась ни одна <a href="http://themes.gohugo.io/">тема из каталога</a>. Написал свою. Это отняло много времени. Очень. Забросил написание статей на полгода. Из полученных плюсов — прокачал навыки верстки, получил опыт работы с CSS препроцессором <a href="http://lesscss.org/">less</a>. Узнал о <a href="https://ru.bem.info/">БЭМ методологии</a>, но не успел применить. Не пожалел что потратил на тему столько времени.</p>
 
-<p>Как перфекционист, полировал бы тему и дальше. Но, в какой-то момент понял — надо выпускать. Последовал <a href="https://www.artlebedev.ru/kovodstvo/sections/167/">методу прогрессивного джипега</a> — доделал критическое, остальное по мере сил и времени. Из крупного — не стал доделывать страницу о себе. Она пока повисит в закрепленном посте у которого, при выходе нового, обновляется время, что бы он оставался вверху. Без решения остановки, делал бы тему еще полгода и не выпускал новые посты.</p>
+<p>Как перфекционист, полировал бы тему и дальше. Но, в какой-то момент понял — надо выпускать. Последовал <a href="https://www.artlebedev.ru/kovodstvo/sections/167/">методу прогрессивного джипега</a> — доделал критическое, остальное по мере сил и времени. Из крупного — не стал доделывать страницу о себе. Она пока повисит в закрепленном посте у которого, при выходе нового, обновляется время, чтобы он оставался вверху. Без решения остановки, делал бы тему еще полгода и не выпускал новые посты.</p>
 
 <h3 id="редактура">Редактура</h3>
 
@@ -119,7 +119,7 @@
 
 <h3 id="ощущения">Ощущения</h3>
 
-<p>Мне понравилось писать свой блог для статического хостинга. Никаких админок, только редактор и код. Он так же подойдет для небольшого сайта о компании или продукте. Буду и дальше использовать <a href="https://pages.github.com/">github pages</a>.</p>
+<p>Мне понравилось писать свой блог для статического хостинга. Никаких админок, только редактор и код. Он также подойдет для небольшого сайта о компании или продукте. Буду и дальше использовать <a href="https://pages.github.com/">github pages</a>.</p>
 
       </div>
       <div class="meta">
@@ -146,9 +146,9 @@
       <div class="markdown">
         <p>Не каждый день встретишь человека с такой уверенностью в своей правоте и идущего против системы.</p>
 
-<p>Послушал <a href="http://razbor-poletov.com/2016/03/episode-105.html">105 серию подкаста «Разбор полетов»</a>. Веселый выпуск. Гость, Егор Бугаенко, убеждён что большинство использует ООП не правильно. Не понимают парадигмы. Ведущие с ним не соглашаются. Море троллинга и споров. Послушайте, узнаете как далеко можно зайти в своих убеждениях.</p>
+<p>Послушал <a href="http://razbor-poletov.com/2016/03/episode-105.html">105 серию подкаста «Разбор полетов»</a>. Веселый выпуск. Гость, Егор Бугаенко, убеждён что большинство использует ООП неправильно. Не понимают парадигмы. Ведущие с ним не соглашаются. Море троллинга и споров. Послушайте, узнаете как далеко можно зайти в своих убеждениях.</p>
 
-<p>После, советую пролистать <a href="http://www.yegor256.com/">блог Егора</a>. Прав он или нет, но интересные мысли подчерпнете.</p>
+<p>После, советую пролистать <a href="http://www.yegor256.com/">блог Егора</a>. Прав он или нет, но интересные мысли почерпнете.</p>
 
       </div>
       <div class="meta">
@@ -224,7 +224,7 @@
 
 <p><code>documentName</code> примет значение <code>null</code>, если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>.</p>
 
-<p>Второй вариант компактнее. Так же, в первом блоке кода метод <code>GetDocument()</code> вызывается два раза, а во втором — один. Для реализации подобного поведения без использования <code>?.</code> нужна дополнительная переменная для сохранения значения из <code>GetDocument()</code>.</p>
+<p>Второй вариант компактнее. Также, в первом блоке кода метод <code>GetDocument()</code> вызывается два раза, а во втором — один. Для реализации подобного поведения без использования <code>?.</code> нужна дополнительная переменная для сохранения значения из <code>GetDocument()</code>.</p>
 
 <h3 id="использование-с-индексатором">Использование с индексатором</h3>
 
@@ -269,7 +269,7 @@
 
 <p>Работает. И на одно условие стало меньше.</p>
 
-<p>Комбинируя с оператором <code>??</code> перепишем в эквивалентный код:</p>
+<p>Комбинируя с оператором <code>??</code>, перепишем в эквивалентный код:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">()</span> <span class="p">??</span> <span class="k">false</span><span class="p">)</span>
   <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Tasks has items!&quot;</span><span class="p">);</span>
 </code></pre></div>
@@ -346,7 +346,7 @@
 <li>Если одно или оба значения — <code>NaN</code> — они не идентичны. (Значение <code>NaN</code> никогда не идентично никакому значению, даже самому себе. Чтобы проверить значение <code>x</code> на <code>NaN</code>, используйте выражение <code>x !== x</code>. Только для <code>NaN</code> такая проверка вернет <code>true</code>).</li>
 <li>Если оба операнда это числа с одним и тем же значением — они идентичны. Если одно число равно <code>0</code>, а другое <code>-0</code>, они также идентичны.</li>
 <li>Если оба значения это строки и содержат одни и те же 16-битные значения в одинаковых позициях — они идентичны. Две строки могут иметь один и тот же смысл и одинаково выглядеть на экране, но содержать отличающиеся последовательности 16-битных значений. Интерпретатор JavaScript не выполняет нормализацию символов юникода, поэтому подобные пары строк не считаются операторами <code>===</code> и <code>==</code> ни равными, ни идентичными.</li>
-<li>Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже если у обоих объектов одинаковые свойства.</li>
+<li>Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже при идентичных свойствах.</li>
 </ul>
 
 <p>Оператор равенства <code>==</code> похож на оператор идентичности, но он использует менее строгие правила. Если у значений разные типы — они преобразуются и сравниваются:</p>
@@ -431,11 +431,11 @@
 <p>Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?</p>
 </blockquote>
 
-<p>Оригинальный цикл статей доступна по <a href="http://ericlippert.com/category/monads/">тегу monads</a>.</p>
+<p>Оригинальный цикл статей доступен по <a href="http://ericlippert.com/category/monads/">тегу monads</a>.</p>
 
 <h3 id="часть-первая">Часть первая</h3>
 
-<p>Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее их выполнений от вычислений. (Определение из википедии).</p>
+<p>Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее, их выполнений от вычислений. (Определение из википедии).</p>
 
 <p>«Шаблон монады» это еще один шаблон для типов. Как, например, одиночка (синглтон).</p>
 
@@ -443,7 +443,7 @@
 
 <ul>
 <li><code>Nullable&lt;T&gt;</code> — представляет объект типа T, который может быть <code>null</code> (в дальнейшем, подразумевается что <code>Nullable&lt;T&gt;</code> может работать с любым типом данных).</li>
-<li><code>Func&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для бльшей ясности, будет использоваться делегат <code>delegate T OnDemand&lt;T&gt;();</code>).</li>
+<li><code>Func&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для большей ясности, будет использоваться делегат <code>delegate T OnDemand&lt;T&gt;();</code>).</li>
 <li><code>Lazy&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено в первый раз, а после, закеширован.</li>
 <li><code>Task&lt;T&gt;</code> — представляет объект типа T, который будет вычислен асинхронно и будет доступен в будущем, если уже не вычислен.</li>
 <li><code>IEnumerable&lt;T&gt;</code> — представляет упорядоченную, доступную только для чтения последовательность от нуля и более элементов типа T.</li>
@@ -473,7 +473,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Т.е. можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
+<p>То есть можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">onDemand</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span>
@@ -485,7 +485,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Т.е. тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
+<p>То есть тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
 
 <p>Для <code>Lazy&lt;T&gt;</code>:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">lazy</span><span class="p">)</span>
@@ -546,7 +546,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Но, допустим мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
+<p>Но, допустим, мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
   <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
   <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
@@ -562,7 +562,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения предоставляемые в монадическом («расширенном») типе.</p>
+<p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения, предоставляемые в монадическом («расширенном») типе.</p>
 
 <h3 id="часть-пятая">Часть пятая</h3>
 
@@ -641,20 +641,20 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>В итоге, для «шаблона монады» имеются 3 правила:</p>
+<p>В итоге для «шаблона монады» имеются 3 правила:</p>
 
 <ol>
 <li><p>Всегда существует возможность преобразовать тип <code>T</code> в тип <code>M&lt;T&gt;</code>.</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="k">value</span><span class="p">)</span>
 </code></pre></div></li>
 
-<li><p>Если существует функция преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<li><p>Если существует функция, преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
 </code></pre></div></li>
 
-<li><p>Если существует функция преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<li><p>Если существует функция, преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
@@ -734,7 +734,7 @@
 
 <p>Наконец, можно полностью описать «шаблон монады» в C#:</p>
 
-<p>Монада это обобщенный тип <code>M&lt;T&gt;</code>, такой что:</p>
+<p>Монада — это обобщенный тип <code>M&lt;T&gt;</code>, такой что:</p>
 
 <ul>
 <li><p>Для нее существует конструирующий механизм, который принимает на вход переменную типа <code>T</code> и возвращает <code>M&lt;T&gt;</code>:</p>
@@ -747,7 +747,7 @@
 </code></pre></div></li>
 </ul>
 
-<p>Оба этих метода должны подчинятся следующим законам:</p>
+<p>Оба этих метода должны подчиняться следующим законам:</p>
 
 <ul>
 <li>Применение функции создающую простую монаду (правило-метод 1) к конкретному экземпляру монады должно приводить к логически идентичному экземпляру монады.</li>
@@ -761,7 +761,7 @@
 
 <p>Традиционное имя для функции <code>ApplySpecialFunction</code> — <code>bind</code>. В Haskell она является встроенной функцией, для того чтобы применить функцию <code>f</code> на экземпляр монады <code>m</code> необходимо написать <code>m &gt;&gt;= f</code>.</p>
 
-<p>Фактически, функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.</p>
+<p>Фактически функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.</p>
 
 <p>Мой конспект на этом оканчивается. В последующих частях серии рассматривается практическое применение монад в коде.</p>
 
@@ -804,7 +804,7 @@
 
 <h3 id="установка-python-3">Установка Python 3</h3>
 
-<p>Не нашел причин, что бы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.</p>
+<p>Не нашел причин, чтобы начать знакомство не с 3 версией питона. И, так как в Mac OS X El Capitan, установлена версия 2.7, то рассмотрим простой способ установки Python 3.</p>
 
 <p>Понадобится менеджер пакетов <a href="http://brew.sh/">Homebrew</a>. У кого нет — советую. Для его установки введем в терминале:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
@@ -814,7 +814,7 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>brew install python3
 </code></pre></div>
 
-<p>Проверить работоспособность можно набрав в консоле <code>python3</code>.</p>
+<p>Проверить работоспособность можно набрав в консоли <code>python3</code>.</p>
 
 <h3 id="получение-пакета-для-работы-с-тудуистом">Получение пакета для работы с тудуистом</h3>
 
@@ -826,7 +826,7 @@
 
 <h3 id="среда-разработки">Среда разработки</h3>
 
-<p>Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому, я воспользовался IDE от JetBrains — <a href="https://www.jetbrains.com/pycharm/">PyCharm CE</a>. Это бесплатная версия в которой есть все необходимое.</p>
+<p>Автодополнение, рефакторинг, отладка — все это помогает на любых стадиях изучения языка. Поэтому я воспользовался IDE от JetBrains — <a href="https://www.jetbrains.com/pycharm/">PyCharm CE</a>. Это бесплатная версия, в которой есть все необходимое.</p>
 
 <h3 id="стиль-кода-и-именования">Стиль кода и именования</h3>
 
@@ -848,7 +848,7 @@
 
 <p>Библиотека todoist возвращает на запрос о просроченных задачах словарь или список. Возник вопрос: как работать с коллекциями?</p>
 
-<p>Итерация оказалось похожа на <code>foreach</code> из C#:</p>
+<p>Итерация оказалась похожа на <code>foreach</code> из C#:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">for</span> <span class="n">overdue_item</span> <span class="ow">in</span> <span class="n">overdue_items</span><span class="p">:</span>
     <span class="n">item</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="n">overdue_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
     <span class="k">print</span> <span class="n">item</span>
@@ -858,11 +858,11 @@
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">overdue_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
 </code></pre></div>
 
-<p>Но, если значения нет, возникнет ошибка — <code>KeyError: 'id'</code>. Поэтому, при неуверенности, используйте <code>get</code>:</p>
+<p>Но, если значения нет, возникнет ошибка — <code>KeyError: 'id'</code>. Поэтому при неуверенности, используйте <code>get</code>:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">overdue_item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Если значение отсутствует, метод вернет значение по-умолчанию — <code>None</code>.</p>
+<p>Если значение отсутствует, метод вернет значение по умолчанию — <code>None</code>.</p>
 
 <h3 id="преобразование-и-работа-с-датой">Преобразование и работа с датой</h3>
 
@@ -917,11 +917,11 @@
 
 <ol>
 <li>Инициализируем класс <code>ArgumentParser</code>, помогающий работать с командной строкой, и зададим описание скрипта.</li>
-<li>Добавим аргумент задаваемый ключом <code>’-t’</code> или <code>’--token’</code>. В параметре <code>help</code> указываем описание, показываемое при вызове скрипта с ключом <code>-h</code>.</li>
+<li>Добавим аргумент, задаваемый ключом <code>’-t’</code> или <code>’--token’</code>. В параметре <code>help</code> указываем описание, показываемое при вызове скрипта с ключом <code>-h</code>.</li>
 <li>Переводим строки аргументов в объекты и присваиваем их как атрибуты к переменной.</li>
 </ol>
 
-<p>Теперь, при запустке скрипта с ключом <code>-t</code>, в переменной <code>args.token</code> будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в <a href="https://docs.python.org/3.5/library/argparse.html">документации python</a>.</p>
+<p>Теперь, при запуске скрипта с ключом <code>-t</code>, в переменной <code>args.token</code> будет храниться значение введенного токена. Про остальные параметры и методы можно узнать в <a href="https://docs.python.org/3.5/library/argparse.html">документации python</a>.</p>
 
 <h3 id="чтение-и-запись-в-файл-конфигурации">Чтение и запись в файл конфигурации</h3>
 
@@ -943,8 +943,8 @@
 
 <ol>
 <li>Инициализируем <code>ConfigParser</code> и читаем файл из домашней директории пользователя. <code>expanduser('~')</code> позволяет получить путь к домашней директории в любой операционной системе.</li>
-<li>Читаем конфиг как словарь: <code>config['Global']['TokenAPI']</code>. Сначала обращаемся к секции с значением, следом — к ключу.</li>
-<li>В блоке <code>else</code> записываем значение токена, если оно было указано при запуске. После — конфигурационный файл записывается на диск.</li>
+<li>Читаем конфиг как словарь: <code>config['Global']['TokenAPI']</code>. Сначала обращаемся к секции со значением, следом — к ключу.</li>
+<li>В блоке <code>else</code> записываем значение токена, если оно было указано при запуске. После конфигурационный файл записывается на диск.</li>
 </ol>
 
 <p>Мне понравилось, как просто записать изменения в файл. В C# для этого надо открывать потоки, указывать дополнительную информацию, здесь это просто 2 строчки. Возьми это и запиши сюда, все.</p>
@@ -953,14 +953,14 @@
 
 <h3 id="заключение">Заключение</h3>
 
-<p>Первое знакомство с языком Python оставило приятное впечатление. Как минимум, его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Она так же хорош для быстрого написания прототипа идеи, засевшей у вас в голове.</p>
+<p>Знакомство с языком Python оставило приятное впечатление. Как минимум его стоит изучить на базовом уровне, чтобы автоматизировать происходящие вокруг вас процессы. Он также хорош для быстрого написания прототипа идеи, засевшей у вас в голове.</p>
 
 <p>Полный скрипт <code>TodoistOverdue.py</code> из статьи лежит в <a href="https://gist.github.com/agladky/f7853721841bc4486712">gist</a>.</p>
 
 <h3 id="полезные-ссылки">Полезные ссылки</h3>
 
-<p>— Как запускать скрипты в Mac Os X без указании полного пути. <a href="http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t">Stackoverflow</a>.
-— Изучить питон за пару минут (learnxinyminutes.com). <a href="https://learnxinyminutes.com/docs/ru-ru/python3-ru/">Русская</a> и <a href="https://learnxinyminutes.com/docs/python3/">английская</a> версия.
+<p>— Как запускать скрипты в Mac Os X без указания полного пути. <a href="http://stackoverflow.com/questions/4718071/how-can-i-run-my-python-script-from-the-terminal-in-mac-os-x-without-having-to-t">Stackoverflow</a>.
+— Изучить питон за несколько минут (learnxinyminutes.com). <a href="https://learnxinyminutes.com/docs/ru-ru/python3-ru/">Русская</a> и <a href="https://learnxinyminutes.com/docs/python3/">английская</a> версия.
 — Документация для <a href="https://docs.python.org/3.5/index.html">Python 3.5.х</a>.</p>
 
       </div>
@@ -1034,7 +1034,7 @@
 
 <p><code>git difftool -d</code> — то же самое, что и <code>diff</code>, но показывает изменения в заданной difftool.</p>
 
-<p><code>git difftool -d master..</code> — показать изменения сделанные в текущей ветке.</p>
+<p><code>git difftool -d master..</code> — показать изменения, сделанные в текущей ветке.</p>
 
 <p><code>git diff --stat</code> — показать статистику какие файлы были изменены и как.</p>
 
@@ -1072,7 +1072,7 @@
 
 <h3 id="работа-с-файлами">Работа с файлами</h3>
 
-<p><code>git rm [file]</code> — удалить файл из рабочей директории и добавить в индекс информацию о удалении.</p>
+<p><code>git rm [file]</code> — удалить файл из рабочей директории и добавить в индекс информацию об удалении.</p>
 
 <p><code>git rm --cached [file]</code> — удалить файл из репозитория, но сохранить его локально.</p>
 
@@ -1110,7 +1110,7 @@
 
 <p><code>git log --author='Name' --after={1.week.ago} --pretty=oneline --abbrev-commit</code> — посмотреть над чем работал заданный пользователь последнюю неделю.</p>
 
-<p><code>git log --no-merges master..</code> — посмотреть историю изменений только для текущей ветке.</p>
+<p><code>git log --no-merges master..</code> — посмотреть историю изменений только для текущей ветки.</p>
 
 <p><code>git diff [file-branch]..[second-branch]</code> — посмотреть различия между двумя заданными ветками.</p>
 
@@ -1124,7 +1124,7 @@
 
 <p><code>git reset [commit/tag]</code> — отменить все коммиты после указанного коммита, изменения будут сохранены локально.</p>
 
-<p><code>git reset --hard [commit]</code> — принудительно вернутся в указанному коммиту, не сохраняя историю и изменения.</p>
+<p><code>git reset --hard [commit]</code> — принудительно вернутся к указанному коммиту, не сохраняя историю и изменения.</p>
 
 <h3 id="синхронизация-изменений">Синхронизация изменений</h3>
 
@@ -1184,7 +1184,7 @@
       <div class="markdown">
         
 
-<p>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомится в <a href="https://ru.wikipedia.org/wiki/Zsh">русской</a> или <a href="https://en.wikipedia.org/wiki/Z_shell">английской</a> википедии.</p>
+<p>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в <a href="https://ru.wikipedia.org/wiki/Zsh">русской</a> или <a href="https://en.wikipedia.org/wiki/Z_shell">английской</a> википедии.</p>
 
 <p>Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.</p>
 
@@ -1198,7 +1198,7 @@
 
 <p><img src="https://lh3.googleusercontent.com/-9EtosbNV72U/VlawDQ65VCI/AAAAAAAAAkE/hQ1XsEusWbA/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.47.png" alt="bash cd tab second" /></p>
 
-<p>Каждый раз будет выводится только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И, только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.</p>
+<p>Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.</p>
 
 <p>Теперь наберем <code>cd</code> в zsh и нажмем таб.</p>
 
@@ -1224,7 +1224,7 @@
 
 <p>Отобразился список команд с описанием. Это гораздо информативнее.</p>
 
-<p>Да, установив пакет bash-completion подобное поведение появится и в баше. Но выводить информацию как в zsh не получится:</p>
+<p>Да, установив пакет bash-completion, подобное поведение появится и в баше. Но выводить информацию как в zsh не получится:</p>
 
 <ul>
 <li>Не будет итерации по значениям, как в пункте про <code>cd</code>;</li>
@@ -1282,7 +1282,7 @@ $ ps ax gp <span class="nv">docker</span>
 
 <p>В примере, вместо написания <code>| grep -i</code>, в середине выражения, использовался псевдоним <code>gp</code>. Удобно.</p>
 
-<p>Второй тип — <em>суфиксный (suffix)</em>. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом <code>-s</code>.</p>
+<p>Второй тип — <em>суффиксный (suffix)</em>. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом <code>-s</code>.</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> -s <span class="nv">log</span><span class="o">=</span><span class="s1">&#39;less -MN&#39;</span>
 <span class="nb">alias</span> -s <span class="nv">html</span><span class="o">=</span><span class="s1">&#39;chromium&#39;</span>
 
@@ -1376,7 +1376,7 @@ $ index.html
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Логическое И (<code>&amp;</code>) помогает при нахождения значения флага:</p>
+<p>Логическое И (<code>&amp;</code>) помогает при нахождении значения флага:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// Yellow has been set...</span>
@@ -1430,7 +1430,7 @@ $ index.html
 
 <h3 id="битовое-представление">Битовое представление</h3>
 
-<p>Описанное выше работает благодаря битовому представлению значений флагов при проставление степени двойки:</p>
+<p>Описанное выше работает благодаря битовому представлению значений флагов при проставлении степени двойки:</p>
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Yellow</span><span class="p">:</span> <span class="m">00000001</span>
 <span class="n">Green</span><span class="p">:</span>  <span class="m">00000010</span>
 <span class="n">Red</span><span class="p">:</span>    <span class="m">00000100</span>
@@ -1445,7 +1445,7 @@ $ index.html
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
              <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">:</span> <span class="m">00000010</span>
              <span class="p">-----------------------</span>
-                            <span class="m">00000010</span> <span class="c1">// Это тоже самое, что и MyColor.Green!</span>
+                            <span class="m">00000010</span> <span class="c1">// Это то же самое, что и MyColor.Green!</span>
 </code></pre></div>
 
 <h3 id="полезные-ссылки">Полезные ссылки</h3>

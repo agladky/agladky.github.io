@@ -63,7 +63,7 @@
 
 &lt;p&gt;&lt;code&gt;git difftool -d&lt;/code&gt; — то же самое, что и &lt;code&gt;diff&lt;/code&gt;, но показывает изменения в заданной difftool.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git difftool -d master..&lt;/code&gt; — показать изменения сделанные в текущей ветке.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git difftool -d master..&lt;/code&gt; — показать изменения, сделанные в текущей ветке.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git diff --stat&lt;/code&gt; — показать статистику какие файлы были изменены и как.&lt;/p&gt;
 
@@ -101,7 +101,7 @@
 
 &lt;h3 id=&#34;работа-с-файлами&#34;&gt;Работа с файлами&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;git rm [file]&lt;/code&gt; — удалить файл из рабочей директории и добавить в индекс информацию о удалении.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git rm [file]&lt;/code&gt; — удалить файл из рабочей директории и добавить в индекс информацию об удалении.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git rm --cached [file]&lt;/code&gt; — удалить файл из репозитория, но сохранить его локально.&lt;/p&gt;
 
@@ -139,7 +139,7 @@
 
 &lt;p&gt;&lt;code&gt;git log --author=&#39;Name&#39; --after={1.week.ago} --pretty=oneline --abbrev-commit&lt;/code&gt; — посмотреть над чем работал заданный пользователь последнюю неделю.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git log --no-merges master..&lt;/code&gt; — посмотреть историю изменений только для текущей ветке.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git log --no-merges master..&lt;/code&gt; — посмотреть историю изменений только для текущей ветки.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git diff [file-branch]..[second-branch]&lt;/code&gt; — посмотреть различия между двумя заданными ветками.&lt;/p&gt;
 
@@ -153,7 +153,7 @@
 
 &lt;p&gt;&lt;code&gt;git reset [commit/tag]&lt;/code&gt; — отменить все коммиты после указанного коммита, изменения будут сохранены локально.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git reset --hard [commit]&lt;/code&gt; — принудительно вернутся в указанному коммиту, не сохраняя историю и изменения.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git reset --hard [commit]&lt;/code&gt; — принудительно вернутся к указанному коммиту, не сохраняя историю и изменения.&lt;/p&gt;
 
 &lt;h3 id=&#34;синхронизация-изменений&#34;&gt;Синхронизация изменений&lt;/h3&gt;
 

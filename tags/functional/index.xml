@@ -23,11 +23,11 @@
 &lt;p&gt;Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Оригинальный цикл статей доступна по &lt;a href=&#34;http://ericlippert.com/category/monads/&#34;&gt;тегу monads&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Оригинальный цикл статей доступен по &lt;a href=&#34;http://ericlippert.com/category/monads/&#34;&gt;тегу monads&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;часть-первая&#34;&gt;Часть первая&lt;/h3&gt;
 
-&lt;p&gt;Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее их выполнений от вычислений. (Определение из википедии).&lt;/p&gt;
+&lt;p&gt;Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее, их выполнений от вычислений. (Определение из википедии).&lt;/p&gt;
 
 &lt;p&gt;«Шаблон монады» это еще один шаблон для типов. Как, например, одиночка (синглтон).&lt;/p&gt;
 
@@ -35,7 +35,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Nullable&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который может быть &lt;code&gt;null&lt;/code&gt; (в дальнейшем, подразумевается что &lt;code&gt;Nullable&amp;lt;T&amp;gt;&lt;/code&gt; может работать с любым типом данных).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Func&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для бльшей ясности, будет использоваться делегат &lt;code&gt;delegate T OnDemand&amp;lt;T&amp;gt;();&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Func&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для большей ясности, будет использоваться делегат &lt;code&gt;delegate T OnDemand&amp;lt;T&amp;gt;();&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Lazy&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен отложено в первый раз, а после, закеширован.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Task&amp;lt;T&amp;gt;&lt;/code&gt; — представляет объект типа T, который будет вычислен асинхронно и будет доступен в будущем, если уже не вычислен.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt; — представляет упорядоченную, доступную только для чтения последовательность от нуля и более элементов типа T.&lt;/li&gt;
@@ -65,7 +65,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Т.е. можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для &lt;code&gt;OnDemand&amp;lt;T&amp;gt;()&lt;/code&gt;, который обернут вокруг &lt;code&gt;DateTime.Now.Seconds&lt;/code&gt;, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:&lt;/p&gt;
+&lt;p&gt;То есть можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для &lt;code&gt;OnDemand&amp;lt;T&amp;gt;()&lt;/code&gt;, который обернут вокруг &lt;code&gt;DateTime.Now.Seconds&lt;/code&gt;, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnDemand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AddOne&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnDemand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onDemand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
   &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt;
@@ -77,7 +77,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Т.е. тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.&lt;/p&gt;
+&lt;p&gt;То есть тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.&lt;/p&gt;
 
 &lt;p&gt;Для &lt;code&gt;Lazy&amp;lt;T&amp;gt;&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Lazy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AddOne&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Lazy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lazy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -138,7 +138,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Но, допустим мы хотим функцию которая принимает тип &lt;code&gt;int&lt;/code&gt; и возвращает &lt;code&gt;double&lt;/code&gt;. Например, поделить 2 целых числа и получить результат типа &lt;code&gt;double&lt;/code&gt;. Для этого, перепишем метод &lt;code&gt;ApplyFunction&lt;/code&gt; в следующий вид:&lt;/p&gt;
+&lt;p&gt;Но, допустим, мы хотим функцию которая принимает тип &lt;code&gt;int&lt;/code&gt; и возвращает &lt;code&gt;double&lt;/code&gt;. Например, поделить 2 целых числа и получить результат типа &lt;code&gt;double&lt;/code&gt;. Для этого, перепишем метод &lt;code&gt;ApplyFunction&lt;/code&gt; в следующий вид:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Nullable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApplyFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;
   &lt;span class=&#34;n&#34;&gt;Nullable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nullable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
   &lt;span class=&#34;n&#34;&gt;Func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -154,7 +154,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt; в монадические типы из &lt;code&gt;М&amp;lt;А&amp;gt;&lt;/code&gt; в &lt;code&gt;М&amp;lt;R&amp;gt;&lt;/code&gt; такие, что сохраняется действие функции и значения предоставляемые в монадическом («расширенном») типе.&lt;/p&gt;
+&lt;p&gt;Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt; в монадические типы из &lt;code&gt;М&amp;lt;А&amp;gt;&lt;/code&gt; в &lt;code&gt;М&amp;lt;R&amp;gt;&lt;/code&gt; такие, что сохраняется действие функции и значения, предоставляемые в монадическом («расширенном») типе.&lt;/p&gt;
 
 &lt;h3 id=&#34;часть-пятая&#34;&gt;Часть пятая&lt;/h3&gt;
 
@@ -233,20 +233,20 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;В итоге, для «шаблона монады» имеются 3 правила:&lt;/p&gt;
+&lt;p&gt;В итоге для «шаблона монады» имеются 3 правила:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Всегда существует возможность преобразовать тип &lt;code&gt;T&lt;/code&gt; в тип &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateSimpleM&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Если существует функция преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Если существует функция, преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;R&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApplyFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrapped&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Если существует функция преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Если существует функция, преобразующая &lt;code&gt;A&lt;/code&gt; в &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;, тогда можно применить эту функцию к экземпляру &lt;code&gt;M&amp;lt;A&amp;gt;&lt;/code&gt; и получить экземпляр &lt;code&gt;M&amp;lt;R&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApplySpecialFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;(&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrapped&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -326,7 +326,7 @@
 
 &lt;p&gt;Наконец, можно полностью описать «шаблон монады» в C#:&lt;/p&gt;
 
-&lt;p&gt;Монада это обобщенный тип &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;, такой что:&lt;/p&gt;
+&lt;p&gt;Монада — это обобщенный тип &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;, такой что:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Для нее существует конструирующий механизм, который принимает на вход переменную типа &lt;code&gt;T&lt;/code&gt; и возвращает &lt;code&gt;M&amp;lt;T&amp;gt;&lt;/code&gt;:&lt;/p&gt;
@@ -339,7 +339,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Оба этих метода должны подчинятся следующим законам:&lt;/p&gt;
+&lt;p&gt;Оба этих метода должны подчиняться следующим законам:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Применение функции создающую простую монаду (правило-метод 1) к конкретному экземпляру монады должно приводить к логически идентичному экземпляру монады.&lt;/li&gt;
@@ -353,7 +353,7 @@
 
 &lt;p&gt;Традиционное имя для функции &lt;code&gt;ApplySpecialFunction&lt;/code&gt; — &lt;code&gt;bind&lt;/code&gt;. В Haskell она является встроенной функцией, для того чтобы применить функцию &lt;code&gt;f&lt;/code&gt; на экземпляр монады &lt;code&gt;m&lt;/code&gt; необходимо написать &lt;code&gt;m &amp;gt;&amp;gt;= f&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Фактически, функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.&lt;/p&gt;
+&lt;p&gt;Фактически функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.&lt;/p&gt;
 
 &lt;p&gt;Мой конспект на этом оканчивается. В последующих частях серии рассматривается практическое применение монад в коде.&lt;/p&gt;
 
