@@ -87,6 +87,132 @@
   
     <article>
       <div class="title-container">
+        <a href="http://www.agladky.ru/blog/flags-enums-in-csharp/"><span class="page-heading">
+  
+    C# Enum и Атрибут Flags
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        
+
+<p>Возникают ситуации, когда переменная должна хранить несколько значений типа перечисления. Например, используемые области логирования: <em>Warning + Info</em>, или сочетания цветов: <em>Red + Blue + Green</em>.</p>
+
+<p>Для хранения в переменной нескольких флагов, значениям енама присваиваются степени двойки:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="na">[Flags]</span>
+<span class="k">public</span> <span class="k">enum</span> <span class="n">MyColors</span>
+<span class="p">{</span>
+    <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span>
+    <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+    <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span>
+    <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Значения <em>2, 4, 8</em> используются для <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8">операторов смещения</a>, таких как побитовое И (AND), ИЛИ (OR) и исключающее ИЛИ (XOR).</p>
+
+<h3 id="операции-над-переменной">Операции над переменной</h3>
+
+<p>Логическое ИЛИ (<code>|</code>) применяется для помещения нескольких значений флагов в одну переменную:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Логическое И (<code>&amp;</code>) помогает при нахождении значения флага:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Yellow has been set...</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Green has been set...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Начиная с .Net 4 можно использовать сокращенную версию, без явного указания <code>&amp;</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">.</span><span class="n">HasFlag</span><span class="p">(</span><span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// Yellow has been set...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Операция XOR (’^’) исключает значения из переменной:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
+<span class="c1">// Удаляем значение используя оператор смещения XOR.</span>
+<span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">^</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;My colors are {0}&quot;</span><span class="p">,</span> <span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">);</span>
+<span class="c1">// Output: My colors are Red, Blue</span>
+</code></pre></div>
+
+<h3 id="атрибут-flags">Атрибут Flags</h3>
+
+<p>Атрибут <code>[Flags]</code> необязательный и используется для красивого вывода при вызове <code>.ToString()</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">enum</span> <span class="n">Colors</span> <span class="p">{</span> <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span> <span class="p">}</span>
+<span class="na">[Flags]</span> <span class="k">enum</span> <span class="n">ColorsFlags</span> <span class="p">{</span> <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span> <span class="p">}</span>
+<span class="p">...</span>
+<span class="kt">var</span> <span class="n">str1</span> <span class="p">=</span> <span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="n">Yellow</span> <span class="p">|</span> <span class="n">Colors</span><span class="p">.</span><span class="n">Red</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span> <span class="c1">// &quot;5&quot;</span>
+<span class="kt">var</span> <span class="n">str2</span> <span class="p">=</span> <span class="p">(</span><span class="n">ColorsFlags</span><span class="p">.</span><span class="n">Yellow</span> <span class="p">|</span> <span class="n">ColorsFlags</span><span class="p">.</span><span class="n">Red</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span> <span class="c1">// &quot;Yellow, Red&quot;</span>
+</code></pre></div>
+
+<p>Так же, атрибут <code>[Flags]</code> не присваивает значениям степень двойки. Если не проставить вручную, то значения инициализируются как в обычном енаме.</p>
+
+<p>Неправильное объявление:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="na">[Flags]</span>
+<span class="k">public</span> <span class="k">enum</span> <span class="n">MyColors</span>
+<span class="p">{</span>
+    <span class="n">Yellow</span><span class="p">,</span>
+    <span class="n">Green</span><span class="p">,</span>
+    <span class="n">Red</span><span class="p">,</span>
+    <span class="n">Blue</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Присвоенные значения: <em>Yellow = 0, Green = 1, Red = 2, Blue = 3</em>. Они не подходят для использования операций смещения.</p>
+
+<h3 id="битовое-представление">Битовое представление</h3>
+
+<p>Описанное выше работает благодаря битовому представлению значений флагов при проставлении степени двойки:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Yellow</span><span class="p">:</span> <span class="m">00000001</span>
+<span class="n">Green</span><span class="p">:</span>  <span class="m">00000010</span>
+<span class="n">Red</span><span class="p">:</span>    <span class="m">00000100</span>
+<span class="n">Blue</span><span class="p">:</span>   <span class="m">00001000</span>
+</code></pre></div>
+
+<p>Значение переменной <code>AllowedColors</code> после присваивания <em>Red, Green</em> и <em>Blue</em> c использованием операции ИЛИ (<code>|</code>):</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
+</code></pre></div>
+
+<p>Теперь, для проверки вхождения значения <em>Green</em> в переменную используем операцию смещения И (<code>&amp;</code>):</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
+             <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">:</span> <span class="m">00000010</span>
+             <span class="p">-----------------------</span>
+                            <span class="m">00000010</span> <span class="c1">// Это то же самое, что и MyColor.Green!</span>
+</code></pre></div>
+
+<h3 id="полезные-ссылки">Полезные ссылки</h3>
+
+<ul>
+<li>What does the [Flags] Enum Attribute mean in csharp? – <a href="http://stackoverflow.com/questions/8447/what-does-the-flags-enum-attribute-mean-in-c">Stackoverflow.com</a></li>
+<li>Типы перечислений – <a href="https://msdn.microsoft.com/ru-ru/library/cc138362.aspx">msdn.microsoft.com</a></li>
+<li>FlagsAttribute (класс) – <a href="https://msdn.microsoft.com/ru-ru/library/system.flagsattribute(v=vs.110).aspx">msdn.microsoft.com</a></li>
+</ul>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="3 ноября 2015, 13:10 MSK">
+    3 ноября 2015
+  </span>
+
+   <a class="tag" href="tags/.net">.net</a>   
+
+</div>
+
+    </article>
+  
+    <article>
+      <div class="title-container">
         <a href="http://www.agladky.ru/blog/how-to-test-abstract-classes/"><span class="page-heading">
   
     Как тестировать абстрактные классы

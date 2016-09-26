@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Блог Анатолия Гладкого</title>
-    <link>http://www.agladky.ru/blog/</link>
-    <description>Recent content in Blog on Блог Анатолия Гладкого</description>
+    <title>Blog-rss on Блог Анатолия Гладкого</title>
+    <link>http://www.agladky.ru/blog/index.xml</link>
+    <description>Recent content in Blog-rss on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Sat, 10 Sep 2016 11:13:23 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 26 Sep 2016 07:31:46 +0300</lastBuildDate>
     <atom:link href="http://www.agladky.ru/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Обо мне</title>
+      <link>http://www.agladky.ru/blog/about-me/</link>
+      <pubDate>Mon, 26 Sep 2016 07:31:46 +0300</pubDate>
+      
+      <guid>http://www.agladky.ru/blog/about-me/</guid>
+      <description>&lt;div&gt;
+&lt;img style=&#34;float:left; border-radius:50%; margin-right:20px;&#34; src=&#34;https://lh3.googleusercontent.com/W-ilP5I0xXC4xj68hGswl4n1Rw3HG2kLGjxSE3y8rQrqTmHYHXMKMzNwgdnE1ilcw-5leHujgBec4RvmarfuFNurfwLMymph0Mc2NEioEa5tS47oOopVD56d-IMH-dXO8vrBwPKTNxxNZHmdrx8JUM5bSrO62O6s5NadlhBc6ur51AgJdEnQiWORCQ2kIwaTKVN5daTedUbldqO7JgTQUkgqxK32MBqmPiDstDjzyegtqc7Xrhcp4294xZQHlIIFqAQeDMiQeRhY2WpXnPuM0D4H3QuC8-B3TYzatGWKdWKyMzRJesLWGQlp1uyWB9PWYLKItUANhb9jrvkPiWre4y0_SOxQbpKixd7AZFbZiL-9f6I071-G-GF18zoxTQYE35PGDwhYL5k0EP1TAWhTaCsAAktQNpLG9GQbQzeiabadSupZCSOqHmSocdncEou0NhC_R0wN4ZYfbFiyxREPxnyijhWep6qW-zlRCLnrCqPaxRYwD8nt9qyxLAcMKj2fZhEncvR4FSN4Th0gpGGeq19UV7ABSmVhbded2tL-AqekL7OjvFvx8dyVVnYWA4xRifNcuDr-Q6jQXWu3EnpTenWE5o9brEgiiWAVrxF5XgcqSsRo=s120-no&#34;&gt;
+&lt;p&gt;
+Я разработчик на платформе .NET Framework.
+Интересуюсь проектированием, дизайном и веб-технологиями.
+&lt;/p&gt;
+&lt;p&gt;
+Для связи: &lt;a href=&#34;mailto:me@agladky.ru&#34;&gt;me@agladky.ru&lt;/a&gt; и &lt;a href=&#34;https://telegram.me/agladky&#34;&gt;телеграм&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+Новые посты советую получать через &lt;a class=&#34;rss&#34; href=&#34;http://www.agladky.ru/index.xml&#34;&gt;РСС&lt;/a&gt;. Также сообщаю о них в &lt;a href=&#34;https://twitter.com/agladky&#34;&gt;твитере&lt;/a&gt;, &lt;a href=&#34;https://www.facebook.com/agladkiy&#34;&gt;фейсбуке&lt;/a&gt; и &lt;a href=&#34;https://plus.google.com/u/0/110229193673754543757&#34;&gt;гугл плюсе&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/agladky&#34;&gt;Мой гитхаб.&lt;/a&gt; Последний проект — &lt;a href=&#34;https://github.com/agladky/todoist-overdue-alfred&#34;&gt;todoist-overdue-alfred&lt;/a&gt;. Расширение для альфреда. Перемещает на сегодня все просроченные задачи в &lt;a href=&#34;https://todoist.com/&#34;&gt;тудуисте&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Перешел на статический блог</title>
