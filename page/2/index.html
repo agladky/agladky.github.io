@@ -274,6 +274,307 @@
 
     </article>
   
+    <article>
+      <div class="title-container">
+        <a href="http://www.agladky.ru/blog/async-await-example/"><span class="page-heading">
+  
+    Сравнение async await и Task.ContinueWith()
+  
+</span>
+</a>
+      </div>
+      <div class="markdown">
+        
+
+<p>Это краткая выжимка из рабочего доклада, который я готовил для объяснения работы с async/await в C#.  Для наглядности, параллельно рассматривается подход с использованием блока <code>ContinueWith</code>.</p>
+
+<h3 id="основные-паттерны-асинхронного-программирования">Основные паттерны асинхронного программирования</h3>
+
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/ms228963.aspx">Asynchronous Programming Model (APM)</a></li>
+<li><a href="https://msdn.microsoft.com/en-us/library/ms228969.aspx">Event Asynchronous Pattern (EAP)</a></li>
+<li><a href="https://msdn.microsoft.com/en-us/library/hh873175.aspx">Task Asynchronous Pattern (TAP)</a>
+
+<ul>
+<li>Задачи представляют параллельные операции</li>
+<li>Могут выполняться на отдельном или разных потоках.</li>
+<li>Могут быть скомбинированы и выстроены в цепочку вызовов.</li>
+</ul></li>
+</ul>
+
+<h3 id="async-await-синтаксическая-обертка-над-задачами">async/await — синтаксическая обертка над задачами</h3>
+
+<ul>
+<li><code>await</code> ставит на паузу текущий метод, ожидая выполнения задачи.</li>
+<li>Выглядит как блокирующая (синхронная) операция.</li>
+<li>Не блокирует текущий поток.</li>
+<li>Выполнение продолжается в том же контексте, из которого была вызвана задача, если явно не указано иное.</li>
+<li>Ключевое слово <code>async</code> указывается, чтобы среда исполнения воспринимала <code>await</code> как ключевое слово.</li>
+<li><code>await</code> метод начинает выполняться синхронно. Если он уже закончил свое выполнение то новый поток не создается. Все продолжается в том же потоке. Подробнее в <a href="http://stackoverflow.com/questions/17380070/c-sharp-async-awaitable-clarification">ответе на stackoverflow.com</a>.</li>
+<li><code>await</code> работает с любым типом, для которого реализован метод <code>GetAwaiter()</code>. Подробнее в статье - <a href="http://blogs.msdn.com/b/pfxteam/archive/2011/01/13/10115642.aspx">await anything</a>.</li>
+</ul>
+
+<h3 id="демонстрационное-приложение">Демонстрационное приложение</h3>
+
+<p>Примеры показываются на тестовом Windows Form приложении. <a href="https://github.com/agladky/async_await_article">GitHub репозиторий с приложением</a>.</p>
+
+<p><img src="https://lh3.googleusercontent.com/0OGyGjQfwFN5kVsnTmga0ed2yFkPNNMd_QWj8QBg8qOJqIQMU4o65DA1WUToyN0WVp7h_2UAkYXe_F1SLwcBZAE5fHzS3kYqLGluZkQpy7Wk2KapxVAByTO_jRd-0LYOztTe2YyU_YZEilg-RZbLXwXJHM4MnD_6ca5HHZcF9FWs1gPNZ9kkX1jw8vxAx94MFI-QF1Ne0xH2kltdjl_m7_Mwga2dZNNWivRdldwpC9DZ5ygfbzwG2FciaeEXYDmAvuC7tBCbwnR2jkDRgGBH9QZ0W1Yemgcow2JwDRjtQ-xdZTTxJZUno5F5G1W8Aiq4xacfxRkz1t8Tfbs08MEardybolFMZXwBDega35UXnq1L4CPinN3J5lEDiiWtDPzP3Bum_UBSgzDEKMvfbzvhJV9Nw7qex0diBmMa8K9M5cLvWRvU1r0mCbIsqyxxc494FxQ3JxrGNIPZPs_AaQgr85iaoIWf8WuKHDERVCJQCnjEYqf5ckxHC_WFlNPqxawhc6_-WTH8QsQ38YLTujMX7Xl48M_6jWGsMJNEXQDj8MbhFhV4sg2Q30IoA4wpb8gVmyhH=w561-h277-no" alt="async/await app" /></p>
+
+<p>Асинхронные действия лежат в <code>PeopleRepositoryAsync</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PeopleRepositoryAsync</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">GetPeopleList</span><span class="p">()</span>
+    <span class="p">{</span>        
+        <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">2000</span><span class="p">);</span>                       
+        <span class="k">return</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span>
+        <span class="p">{</span>
+            <span class="s">&quot;John Smith&quot;</span><span class="p">,</span>  
+            <span class="s">&quot;Ivan Ivanov&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Joao Fetucini&quot;</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Метод <code>GetPeopleList()</code> асинхронно ожидает 2 секунды и возвращает список пользователей.</p>
+
+<h3 id="первое-сравнение-tap-и-async-await-подхода">Первое сравнение TAP и async/await подхода</h3>
+
+<h4 id="реализация-с-task-и-continuewith">Реализация с Task и ContinueWith</h4>
+
+<p>Добавим код для получения списка пользователей в обработчик нажатия кнопки &ldquo;Fetch Data (with Task)&rdquo; - <code>buttonTask_Click</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">peopleTask</span> <span class="p">=</span> <span class="n">Repository</span><span class="p">.</span><span class="n">GetPeopleList</span><span class="p">();</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">people</span> <span class="p">=</span> <span class="n">peopleTask</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Этот код не будет выполняться асинхронно. Он будет ожидать завершение задачи <code>peopleTask</code> в основном потоке, поэтому UI заморозится. Добавим конструкцию <code>ContinueWith(t =&gt; { })</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+<span class="p">{</span>
+  <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">people</span> <span class="p">=</span> <span class="n">peopleTask</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>Теперь задача по получению пользователей выполнится асинхронно. После её завершения выполнится код в блоке <code>ContinueWith</code>.
+Добавим в <code>ContinueWith</code> отображение полученных имен в <code>textBoxMain</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">textBoxMain</span><span class="p">.</span><span class="n">AppendText</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;{Environment.NewLine}Person list:{Environment.NewLine}&quot;</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">person</span> <span class="k">in</span> <span class="n">people</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">textBoxMain</span><span class="p">.</span><span class="n">AppendText</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;- {person}{Environment.NewLine}&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Если запустить приложение и нажать на &ldquo;Fetch Data (with Task)&rdquo;, то возникнет ошибка. Все потому, что код в блоке <code>ContinueWith</code> выполняется в потоке, отличном от того где находится <a href="https://habrahabr.ru/post/232169/">SynchronizationContext</a> UI потока.
+Для выполнения в нужном потоке добавим в вызов метода <code>ContinueWith</code> аргумент <code>TaskScheduler.FromCurrentSynchronizationContext()</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span> <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">FromCurrentSynchronizationContext</span><span class="p">());</span>
+</code></pre></div>
+
+<p>Теперь приложение работает корректно. Перейдем к реализации этого кода с помощью ключевых слов <code>async</code> и <code>await</code>.</p>
+
+<h4 id="реализация-с-async-await">Реализация с async/await</h4>
+
+<p>Основное отличие от предыдущей реализации — код будет похож на синхронный. Перейдем в обработчик нажатия кнопки &ldquo;Fetch Data (with await)&rdquo; - <code>buttonAwait_Click</code>. Добавим код для получения списка пользователей:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">people</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Repository</span><span class="p">.</span><span class="n">GetPeopleList</span><span class="p">();</span>
+</code></pre></div>
+
+<p>В объявление метода добавим слово <code>async</code>, чтобы среда исполнения поняла что <code>await</code> это ключевое слово, а не просто переменная. Вставим без изменений код из <code>ContinueWith</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">textBoxMain</span><span class="p">.</span><span class="n">AppendText</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;{Environment.NewLine}Person list:{Environment.NewLine}&quot;</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">person</span> <span class="k">in</span> <span class="n">people</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">textBoxMain</span><span class="p">.</span><span class="n">AppendText</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;- {person}{Environment.NewLine}&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Все. Приложение работает так же как и в предыдущем пункте. Код выглядит как синхронный. Выполнение продолжается в том же потоке, из которого и было вызвано.</p>
+
+<h3 id="обработка-ошибок">Обработка ошибок</h3>
+
+<p>Для демонстрации добавим в метод <code>GetPeopleList</code> код вызова ошибки (после <code>Task.Delay(2000)</code>):</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">throw</span> <span class="k">new</span> <span class="nf">NotImplementedException</span><span class="p">(</span><span class="s">&quot;Метод не реализован!&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="обработка-ошибок-для-await-метода">Обработка ошибок для await метода</h4>
+
+<p>Сначала рассмотрим самый простой случай. Отлов и обработка ошибок для метода с <code>await</code> происходит как в синхронном коде:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">try</span>
+<span class="p">{</span>
+    <span class="c1">// Получение и вывод значений из репозитория</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span> <span class="s">&quot;ОШИБКА&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">finally</span>
+<span class="p">{</span>
+    <span class="c1">// Критичный к выполнению код</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Всё. Дополнительно писать ничего не надо, ошибка будет поймана.</p>
+
+<h4 id="обработка-ошибок-для-task-метода">Обработка ошибок для Task метода</h4>
+
+<p>Для метода с блоком <code>ContinueWith</code> обработать ошибки можно несколькими способами.</p>
+
+<p>Первый, использовать еще один вызов <code>ContinueWith</code> на задаче. Вызовем <code>ContinueWith</code> с 2 дополнительными параметрами:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="c1">// Получение и вывод значений из репозитория</span>
+    <span class="p">},</span>
+    <span class="n">CancellationToken</span><span class="p">.</span><span class="n">None</span><span class="p">,</span>
+    <span class="n">TaskContinuationOptions</span><span class="p">.</span><span class="n">OnlyOnRanToCompletion</span><span class="p">,</span>
+    <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">FromCurrentSynchronizationContext</span><span class="p">());</span>
+</code></pre></div>
+
+<p>Главное — аргумент <code>TaskContinuationOptions.OnlyOnRanToCompletion</code>. Он указывает, что блок кода выполнится только если в задаче не было ошибок.</p>
+
+<p>Теперь, код для обработки ошибки:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">exception</span> <span class="k">in</span> <span class="n">t</span><span class="p">.</span><span class="n">Exception</span><span class="p">.</span><span class="n">Flatten</span><span class="p">().</span><span class="n">InnerExceptions</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">exception</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">CancellationToken</span><span class="p">.</span><span class="n">None</span><span class="p">,</span>
+    <span class="n">TaskContinuationOptions</span><span class="p">.</span><span class="n">OnlyOnFaulted</span><span class="p">,</span>
+    <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">FromCurrentSynchronizationContext</span><span class="p">());</span>
+</code></pre></div>
+
+<p>Опция <code>OnlyOnFaulted</code> указывает, что код в блоке выполниться только при ошибке в задаче. Оператор <code>foreach</code> разворачивает ошибки в «плоское» состояние, т. к. все ошибки представляются в виде иерархии и оборачиваются в <code>AggregateException</code>.</p>
+
+<p>Для имитации блока <code>finally</code>, напишем:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="c1">// Критичный к выполнению код</span>
+    <span class="p">},</span>
+    <span class="n">CancellationToken</span><span class="p">.</span><span class="n">None</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Второй способ обработки ошибок занимает меньше строк. В блок <code>ContinueWith</code> добавляется условный оператор, который проверяет статус задачи:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">Status</span> <span class="p">==</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">RanToCompletion</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Получение и вывод значений из репозитория</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">Status</span> <span class="p">==</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">Faulted</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Обработка ошибок</span>
+        <span class="p">}</span>
+        <span class="c1">// (finally) Критичный к выполнению код</span>
+    <span class="p">},</span>
+    <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">FromCurrentSynchronizationContext</span><span class="p">());</span>
+</code></pre></div>
+
+<h3 id="отмена-действий">Отмена действий</h3>
+
+<p>Обновим метод <code>GetPeopleList</code> класса <code>Repository</code>. Добавим параметр <code>CancellationToken</code> и точку отмены после вызова <code>Task.Delay(2000)</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">GetPeopleList</span><span class="p">(</span><span class="n">CancellationToken</span> <span class="n">cancellationToken</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CancellationToken</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">1500</span><span class="p">,</span> <span class="n">cancellationToken</span><span class="p">);</span>
+    <span class="n">cancellationToken</span><span class="p">.</span><span class="n">ThrowIfCancellationRequested</span><span class="p">();</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Обратит внимание, что отмена произойдет только после ожидания в 2 секунды. Само действие <code>Task.Delay</code> не прерывается.</p>
+
+<p>Для операции отмены используем кнопку &ldquo;Cancel request&rdquo; с обработчиком <code>buttonCancel_Click</code>. Объекту <code>CancellationToken</code> можно задать значение только при инициализации. Поэтому создадим переменную <code>CancellationTokenSource</code>. Она позволяет генерировать токены и изменять их состояние во время выполнения.</p>
+
+<p>В класс <code>MainForm</code> добавим поле:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">private</span> <span class="n">CancellationTokenSource</span> <span class="n">_tokenSource</span><span class="p">;</span>
+</code></pre></div>
+
+<p>А в обработчик <code>buttonCancel_Click</code>  код для подачи токену сигнала отмены:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">_tokenSource</span><span class="p">.</span><span class="n">Cancel</span><span class="p">();</span>
+</code></pre></div>
+
+<h4 id="обработка-отмены-для-async-метода">Обработка отмены для async метода</h4>
+
+<p>В обработчике <code>buttonAwait_Click</code> изменим вызов метода <code>GetPeopleList()</code>, добавив инициализацию <code>_tokenSource</code> и передав сгенерированный токен в качестве аргумента:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">_tokenSource</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CancellationTokenSource</span><span class="p">();</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">people</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Repository</span><span class="p">.</span><span class="n">GetPeopleList</span><span class="p">(</span><span class="n">_tokenSource</span><span class="p">.</span><span class="n">Token</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Добавим обработку операции отмены:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">catch</span> <span class="p">(</span><span class="n">OperationCanceledException</span> <span class="n">ex</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span> <span class="s">&quot;Canceled&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="обработка-отмены-для-task-метода">Обработка отмены для Task метода</h4>
+
+<p>Для <code>buttonTask_Click</code> добавим похожий код для передачи токена:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">_tokenSource</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CancellationTokenSource</span><span class="p">();</span>
+<span class="n">Task</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">peopleTask</span> <span class="p">=</span> <span class="n">Repository</span><span class="p">.</span><span class="n">GetPeopleList</span><span class="p">(</span><span class="n">_tokenSource</span><span class="p">.</span><span class="n">Token</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Для обработки операции отмены в блок <code>ContinueWith</code> добавим:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">Status</span> <span class="p">==</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">Canceled</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Operation Canceled&quot;</span><span class="p">,</span> <span class="s">&quot;Canceled&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="deadlocks">Deadlocks</h3>
+
+<p>Добавим в класс <code>Repository</code> метод <code>DeadlockTestAsync()</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">DeadlockTestAsync</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">1500</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Done!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Вызовем этот метод в обработчике кнопки &ldquo;Deadlock&rdquo;:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">async</span> <span class="k">void</span> <span class="n">buttonDeadlock_Click</span>
+<span class="p">{</span>
+    <span class="n">Repository</span><span class="p">.</span><span class="n">DeadlockTestAsync</span><span class="p">().</span><span class="n">Wait</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Все. При нажатии на кнопку возникнет Deadlock. Почему? Рассмотрим по пунктам:</p>
+
+<ol>
+<li><code>DeadlockTestAsync()</code> вызывается на потоке с UI.</li>
+<li><code>Task.Delay()</code> запускается в новом потоке.</li>
+<li><code>await</code> захватывает <code>SynchronizationContext</code> и подключает continuation для выполнения действий после завершения.</li>
+<li>Вернемся к вызову <code>DeadlockTestAsync()</code>.</li>
+<li><code>Wait()</code> ждет завершение задачи в UI потоке.</li>
+<li><code>Task.Delay()</code> ожидает выполнить продолжение на UI потоке.</li>
+<li>Но поток в ожидание - Дедлок!</li>
+<li>Все потому, что задача не вернется из <code>DeadlockTestAsync()</code>, пока не выполнится &ldquo;продолжение&rdquo;.</li>
+</ol>
+
+<p>Для избежания подобной ситуации, в библиотеках, лучше писать <code>.ConfigureAwait(false)</code>:</p>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">1500</span><span class="p">).</span><span class="n">ConfigureAwait</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Это позволит выполнить &ldquo;продолжение&rdquo; в том же потоке, в котором работала задача. В моем примере это будет поток, отличный от UI потока.</p>
+
+<h3 id="полезные-ссылки">Полезные ссылки</h3>
+
+<ul>
+<li>Stephen blog - <a href="http://blog.stephencleary.com/2012/02/async-and-await.html">Async and Await</a></li>
+<li>Async/Await - <a href="https://msdn.microsoft.com/en-us/magazine/jj991977.aspx">Best Practices in Asynchronous Programming</a></li>
+<li>Async/Await <a href="http://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx">FAQ</a></li>
+<li><a href="http://blogs.msdn.com/b/pfxteam/archive/2011/01/13/10115642.aspx">Await anything</a></li>
+</ul>
+
+      </div>
+      <div class="meta">
+  
+  <span class="date" title="1 января 1, 00:00 UTC">
+    1 января 1
+  </span>
+
+   <a class="tag" href="tags/.net">.net</a>   
+
+</div>
+
+    </article>
+  
 
   
   
