@@ -177,10 +177,10 @@ section.header nav a:last-child {
 section.header nav a span {
   color: #000;
   font-weight: 500;
-  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -webkit-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
+  -moz-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
+  -ms-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
+  -o-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
 }
 section.header nav a span:hover {
   color: inherit;
@@ -402,10 +402,10 @@ section.header {
   }
 }
 a {
-  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  transition-duration: 0.5s;
+  transition-property: border-bottom, border-color, background, color, fill;
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 }
 a:link {
   color: #0060a0;
@@ -418,6 +418,10 @@ a:visited {
 a:hover {
   color: #d04000;
   border-bottom-color: rgba(208, 64, 0, 0.2);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 a.tag:visited,
 a.tag:link {
