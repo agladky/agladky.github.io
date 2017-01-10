@@ -175,15 +175,19 @@ section.header nav a:last-child {
   margin-right: 0;
 }
 section.header nav a span {
+  transition-duration: 0.5s;
+  transition-property: border-bottom, border-color, background, color, fill;
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
   color: #000;
   font-weight: 500;
-  -webkit-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
-  -moz-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
-  -ms-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
-  -o-transition: color 0.5s cubic-bezier(0, 0, 0.58, 1);
 }
 section.header nav a span:hover {
   color: inherit;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 @media (min-width: 400px) {
   section.header .name {
@@ -251,9 +255,17 @@ section.main .content .page-heading {
   font-smoothing: antialiased;
   color: #000;
   line-height: normal;
+  transition-duration: 0.5s;
+  transition-property: border-bottom, border-color, background, color, fill;
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 }
 section.main .content .page-heading:hover {
   color: inherit;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 section.main .content .section-heading {
   font-size: 28px;
@@ -469,27 +481,28 @@ section.main .content .markdown h6 {
   color: #000;
   line-height: normal;
   text-transform: none;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
+  line-height: inherit;
 }
 section.main .content .markdown h1 {
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
 section.main .content .markdown h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
 }
 section.main .content .markdown h3 {
-  font-size: 1.25em;
-  margin-bottom: 0.63rem;
+  font-size: 1.25rem;
 }
 section.main .content .markdown h4,
 section.main .content .markdown h5,
 section.main .content .markdown h6 {
   font-size: 1rem;
-  margin-bottom: 1rem;
   letter-spacing: none;
   text-transform: none;
+}
+section.main .content .markdown h3 + h4 {
+  margin-top: 0.5rem;
 }
 section.main .content .markdown code,
 section.main .content .markdown pre {
@@ -537,7 +550,6 @@ section.main .content .markdown p {
 section.main .content .markdown ul,
 section.main .content .markdown ol,
 section.main .content .markdown dl {
-  margin-top: 1rem;
   margin-bottom: 0.63em;
   padding-left: 2.5rem;
 }
