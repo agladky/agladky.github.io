@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>.Net on Блог Анатолия Гладкого</title>
-    <link>http://www.agladky.ru/tags/.net/index.xml</link>
-    <description>Recent content in .Net on Блог Анатолия Гладкого</description>
+    <title>Dotnet on Блог Анатолия Гладкого</title>
+    <link>http://www.agladky.ru/tags/dotnet/index.xml</link>
+    <description>Recent content in Dotnet on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <atom:link href="http://www.agladky.ru/tags/.net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.agladky.ru/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Сравнение async await и Task.ContinueWith()</title>
