@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Блог on Блог Анатолия Гладкого</title>
-    <link>http://www.agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/index.xml</link>
+    <link>https://www.agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/index.xml</link>
     <description>Recent content in Блог on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <atom:link href="http://www.agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Перешел на статический блог</title>
-      <link>http://www.agladky.ru/blog/moved-to-a-static-blog/</link>
+      <link>https://www.agladky.ru/blog/moved-to-a-static-blog/</link>
       <pubDate>Sat, 10 Sep 2016 11:13:23 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/moved-to-a-static-blog/</guid>
+      <guid>https://www.agladky.ru/blog/moved-to-a-static-blog/</guid>
       <description>
 
 &lt;p&gt;Для разработчика, вести блог на гитхабе — отличная идея.&lt;/p&gt;

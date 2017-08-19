@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Блог Анатолия Гладкого</title>
-    <link>http://www.agladky.ru/blog/index.xml</link>
+    <link>https://www.agladky.ru/blog/index.xml</link>
     <description>Recent content in Blog on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Fri, 13 Jan 2017 18:31:46 +0300</lastBuildDate>
-    <atom:link href="http://www.agladky.ru/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.agladky.ru/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Обо мне</title>
-      <link>http://www.agladky.ru/blog/about-me/</link>
+      <link>https://www.agladky.ru/blog/about-me/</link>
       <pubDate>Fri, 13 Jan 2017 18:31:46 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/about-me/</guid>
+      <guid>https://www.agladky.ru/blog/about-me/</guid>
       <description>&lt;div&gt;
 &lt;img style=&#34;float:left; border-radius:50%; margin-right:20px;&#34; src=&#34;https://lh3.googleusercontent.com/W-ilP5I0xXC4xj68hGswl4n1Rw3HG2kLGjxSE3y8rQrqTmHYHXMKMzNwgdnE1ilcw-5leHujgBec4RvmarfuFNurfwLMymph0Mc2NEioEa5tS47oOopVD56d-IMH-dXO8vrBwPKTNxxNZHmdrx8JUM5bSrO62O6s5NadlhBc6ur51AgJdEnQiWORCQ2kIwaTKVN5daTedUbldqO7JgTQUkgqxK32MBqmPiDstDjzyegtqc7Xrhcp4294xZQHlIIFqAQeDMiQeRhY2WpXnPuM0D4H3QuC8-B3TYzatGWKdWKyMzRJesLWGQlp1uyWB9PWYLKItUANhb9jrvkPiWre4y0_SOxQbpKixd7AZFbZiL-9f6I071-G-GF18zoxTQYE35PGDwhYL5k0EP1TAWhTaCsAAktQNpLG9GQbQzeiabadSupZCSOqHmSocdncEou0NhC_R0wN4ZYfbFiyxREPxnyijhWep6qW-zlRCLnrCqPaxRYwD8nt9qyxLAcMKj2fZhEncvR4FSN4Th0gpGGeq19UV7ABSmVhbded2tL-AqekL7OjvFvx8dyVVnYWA4xRifNcuDr-Q6jQXWu3EnpTenWE5o9brEgiiWAVrxF5XgcqSsRo=s120-no&#34;&gt;
 &lt;p&gt;
@@ -35,10 +35,10 @@
     
     <item>
       <title>Сравнение async await и Task.ContinueWith()</title>
-      <link>http://www.agladky.ru/blog/async-await-example/</link>
+      <link>https://www.agladky.ru/blog/async-await-example/</link>
       <pubDate>Tue, 13 Dec 2016 17:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/async-await-example/</guid>
+      <guid>https://www.agladky.ru/blog/async-await-example/</guid>
       <description>
 
 &lt;p&gt;Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока &lt;code&gt;ContinueWith&lt;/code&gt;.&lt;/p&gt;
@@ -321,10 +321,10 @@
     
     <item>
       <title>Перешел на статический блог</title>
-      <link>http://www.agladky.ru/blog/moved-to-a-static-blog/</link>
+      <link>https://www.agladky.ru/blog/moved-to-a-static-blog/</link>
       <pubDate>Sat, 10 Sep 2016 11:13:23 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/moved-to-a-static-blog/</guid>
+      <guid>https://www.agladky.ru/blog/moved-to-a-static-blog/</guid>
       <description>
 
 &lt;p&gt;Для разработчика, вести блог на гитхабе — отличная идея.&lt;/p&gt;
@@ -355,10 +355,10 @@
     
     <item>
       <title>Послушайте «Разбор полетов» 105</title>
-      <link>http://www.agladky.ru/blog/listen-razbor-poletov/</link>
+      <link>https://www.agladky.ru/blog/listen-razbor-poletov/</link>
       <pubDate>Mon, 05 Sep 2016 22:14:03 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/listen-razbor-poletov/</guid>
+      <guid>https://www.agladky.ru/blog/listen-razbor-poletov/</guid>
       <description>&lt;p&gt;Не каждый день встретишь человека с такой уверенностью в своей правоте и идущего против системы.&lt;/p&gt;
 
 &lt;p&gt;Послушал &lt;a href=&#34;http://razbor-poletov.com/2016/03/episode-105.html&#34;&gt;105 серию подкаста «Разбор полетов»&lt;/a&gt;. Веселый выпуск. Гость, Егор Бугаенко, убеждён что большинство использует ООП неправильно. Не понимают парадигмы. Ведущие с ним не соглашаются. Море троллинга и споров. Послушайте, узнаете как далеко можно зайти в своих убеждениях.&lt;/p&gt;
@@ -369,10 +369,10 @@
     
     <item>
       <title>Перетаскивание кода в окно Watch в Visual Studio</title>
-      <link>http://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
+      <link>https://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
       <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
+      <guid>https://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
       <description>&lt;p&gt;Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://dailydotnettips.com/wp-content/uploads/2016/02/CopyWatch.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -387,10 +387,10 @@
     
     <item>
       <title>Новый оператор ?. в C# 6</title>
-      <link>http://www.agladky.ru/blog/new-if-null-operator-csharp-6/</link>
+      <link>https://www.agladky.ru/blog/new-if-null-operator-csharp-6/</link>
       <pubDate>Wed, 17 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
+      <guid>https://www.agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
       <description>
 
 &lt;p&gt;Одно из нововведений в С# 6 — оператор &lt;code&gt;?.&lt;/code&gt;. Давайте рассмотрим, где и как его использовать.&lt;/p&gt;
@@ -499,10 +499,10 @@
     
     <item>
       <title>Различия операторов == и === в JavaScript</title>
-      <link>http://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
+      <link>https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
       <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
+      <guid>https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
       <description>&lt;p&gt;Каждый раз я с опаской заменяю &lt;code&gt;==&lt;/code&gt; на &lt;code&gt;===&lt;/code&gt; — боюсь сломать логическое выражение. Ведь оператор равенства &lt;code&gt;==&lt;/code&gt; реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.&lt;/p&gt;
 
 &lt;p&gt;Операторы &lt;code&gt;==&lt;/code&gt; и &lt;code&gt;===&lt;/code&gt; проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) &lt;code&gt;===&lt;/code&gt; проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) &lt;code&gt;==&lt;/code&gt; проверяет по менее строгим правилам, допускающим преобразования типов.&lt;/p&gt;
@@ -574,10 +574,10 @@
     
     <item>
       <title>Что такое монады на примере C#</title>
-      <link>http://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
+      <link>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
       <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
+      <guid>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
       <description>
 
 &lt;p&gt;Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:&lt;/p&gt;
@@ -932,10 +932,10 @@
     
     <item>
       <title>Первый скрипт на Python</title>
-      <link>http://www.agladky.ru/blog/my-first-python-script/</link>
+      <link>https://www.agladky.ru/blog/my-first-python-script/</link>
       <pubDate>Wed, 20 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/my-first-python-script/</guid>
+      <guid>https://www.agladky.ru/blog/my-first-python-script/</guid>
       <description>
 
 &lt;p&gt;Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.&lt;/p&gt;
@@ -1107,10 +1107,10 @@
     
     <item>
       <title>Шпаргалка с основными командами для Git</title>
-      <link>http://www.agladky.ru/blog/git-cheat-sheet/</link>
+      <link>https://www.agladky.ru/blog/git-cheat-sheet/</link>
       <pubDate>Wed, 06 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/git-cheat-sheet/</guid>
+      <guid>https://www.agladky.ru/blog/git-cheat-sheet/</guid>
       <description>
 
 &lt;h3 id=&#34;конфигурация&#34;&gt;Конфигурация&lt;/h3&gt;
@@ -1288,10 +1288,10 @@
     
     <item>
       <title>Почему стоит использовать zsh вместо bash</title>
-      <link>http://www.agladky.ru/blog/why-zsh-is-better-than-bash/</link>
+      <link>https://www.agladky.ru/blog/why-zsh-is-better-than-bash/</link>
       <pubDate>Thu, 26 Nov 2015 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
+      <guid>https://www.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
       <description>
 
 &lt;p&gt;Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в &lt;a href=&#34;https://ru.wikipedia.org/wiki/Zsh&#34;&gt;русской&lt;/a&gt; или &lt;a href=&#34;https://en.wikipedia.org/wiki/Z_shell&#34;&gt;английской&lt;/a&gt; википедии.&lt;/p&gt;
@@ -1444,10 +1444,10 @@ $ index.html
     
     <item>
       <title>C# Enum и Атрибут Flags</title>
-      <link>http://www.agladky.ru/blog/flags-enums-in-csharp/</link>
+      <link>https://www.agladky.ru/blog/flags-enums-in-csharp/</link>
       <pubDate>Tue, 03 Nov 2015 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/flags-enums-in-csharp/</guid>
+      <guid>https://www.agladky.ru/blog/flags-enums-in-csharp/</guid>
       <description>
 
 &lt;p&gt;Возникают ситуации, когда переменная должна хранить несколько значений типа перечисления. Например, используемые области логирования: &lt;em&gt;Warning + Info&lt;/em&gt;, или сочетания цветов: &lt;em&gt;Red + Blue + Green&lt;/em&gt;.&lt;/p&gt;
@@ -1555,10 +1555,10 @@ $ index.html
     
     <item>
       <title>Как тестировать абстрактные классы</title>
-      <link>http://www.agladky.ru/blog/how-to-test-abstract-classes/</link>
+      <link>https://www.agladky.ru/blog/how-to-test-abstract-classes/</link>
       <pubDate>Sat, 05 Sep 2015 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/how-to-test-abstract-classes/</guid>
+      <guid>https://www.agladky.ru/blog/how-to-test-abstract-classes/</guid>
       <description>
 
 &lt;p&gt;Абстрактные классы сложно тестировать. Рассмотрим ситуации применения абстрактных классов и последующего рефакторинга для проведения юнит тестирования.&lt;/p&gt;

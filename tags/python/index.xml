@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Блог Анатолия Гладкого</title>
-    <link>http://www.agladky.ru/tags/python/index.xml</link>
+    <link>https://www.agladky.ru/tags/python/index.xml</link>
     <description>Recent content in Python on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <atom:link href="http://www.agladky.ru/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.agladky.ru/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Первый скрипт на Python</title>
-      <link>http://www.agladky.ru/blog/my-first-python-script/</link>
+      <link>https://www.agladky.ru/blog/my-first-python-script/</link>
       <pubDate>Wed, 20 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>http://www.agladky.ru/blog/my-first-python-script/</guid>
+      <guid>https://www.agladky.ru/blog/my-first-python-script/</guid>
       <description>
 
 &lt;p&gt;Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.&lt;/p&gt;
