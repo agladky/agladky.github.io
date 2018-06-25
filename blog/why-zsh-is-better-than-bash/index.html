@@ -7,11 +7,13 @@
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Анатолий Гладкий">
+<meta name="description" content="Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh.">
+
 <meta property="og:description" content="Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh." />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Блог Анатолия Гладкого" />
-
-  
 
 
   <base href="https://www.agladky.ru/">
@@ -23,7 +25,6 @@
   </title>
   <link rel="canonical" href="https://www.agladky.ru/blog/why-zsh-is-better-than-bash/">
   
-
 <script type="text/javascript">
   var baseURL = 'https:\/\/www.agladky.ru\/';
   var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
@@ -34,34 +35,21 @@
 
 
 
-
-
-<link rel="stylesheet" href="https://www.agladky.ru/css/reset.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/main.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/pygments.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/likely.css">
-
-
-
-
-
+<link rel="stylesheet" href="https://www.agladky.ru/css/reset.css?t=2018-06-25%2009%3a30%3a17.154290883%20%2b0300%20MSK%20m%3d%2b0.121698649">
+<link rel="stylesheet" href="https://www.agladky.ru/css/pygments.css?t=2018-06-25%2009%3a30%3a17.154290883%20%2b0300%20MSK%20m%3d%2b0.121698649">
+<link rel="stylesheet" href="https://www.agladky.ru/css/main.css?t=2018-06-25%2009%3a30%3a17.154290883%20%2b0300%20MSK%20m%3d%2b0.121698649">
+<link rel="stylesheet" href="https://www.agladky.ru/css/likely.css?t=2018-06-25%2009%3a30%3a17.154290883%20%2b0300%20MSK%20m%3d%2b0.121698649">
 
 
 <script async src="https://www.agladky.ru/js/likely.js"></script>
 
 
-<link rel="shortcut icon"
-
-  href="https://www.agladky.ru/img/favicon.ico"
-
->
-
-
+<link rel="shortcut icon" href="https://www.agladky.ru/img/favicon.ico">
 
 </head>
 
 
-<body lang="ru">
+<body>
 
 <section class="header">
   <div class="container">
@@ -71,6 +59,7 @@
           <span class="name">Блог Анатолия Гладкого</span>
         </a>
       
+
       
     </div>
   </div>
@@ -82,13 +71,9 @@
     <div class="content">
       <article>
         <div class="title-container">
-          <span class="page-heading">
-  
-    Почему стоит использовать zsh вместо bash
-  
-</span>
-
+          <span class="page-heading">Почему стоит использовать zsh вместо bash</span>
         </div>
+
         <div class="markdown">
           
 
@@ -176,30 +161,24 @@
 <h3 id="псевдонимы">Псевдонимы</h3>
 
 <p>Обычные псевдонимы задаются так:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span>’ls —color<span class="o">=</span>auto’
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span>’ls —color<span class="o">=</span>auto’</code></pre></div>
 <p>В zsh существует еще 2 типа псевдонима.</p>
 
 <p>Первый — <em>глобальный (global)</em>. Может вызываться в любом месте команды. Задается ключом <code>-g</code>.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> -g <span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;| grep -i&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> -g <span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;| grep -i&#39;</span>
 
 $ ps ax gp <span class="nv">docker</span>
-<span class="o">=</span>&gt; ps ax <span class="p">|</span> grep -i docker
-</code></pre></div>
-
+<span class="o">=</span>&gt; ps ax <span class="p">|</span> grep -i docker</code></pre></div>
 <p>В примере, вместо написания <code>| grep -i</code>, в середине выражения, использовался псевдоним <code>gp</code>. Удобно.</p>
 
 <p>Второй тип — <em>суффиксный (suffix)</em>. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом <code>-s</code>.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> -s <span class="nv">log</span><span class="o">=</span><span class="s1">&#39;less -MN&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> -s <span class="nv">log</span><span class="o">=</span><span class="s1">&#39;less -MN&#39;</span>
 <span class="nb">alias</span> -s <span class="nv">html</span><span class="o">=</span><span class="s1">&#39;chromium&#39;</span>
 
 $ development.log
 <span class="o">=</span>&gt; less -MN development.log
 $ index.html
-<span class="o">=</span>&gt; chromium index.html
-</code></pre></div>
-
+<span class="o">=</span>&gt; chromium index.html</code></pre></div>
 <h3 id="правая-строка">Правая строка</h3>
 
 <p>Zsh позволяет настроить правую строку приглашения. Туда можно выводить текущую дату, состояние ветки в git и многое другое. Иллюстрация из <a href="https://git-scm.com/book/tr/v2/Git-in-Other-Environments-Git-in-Zsh">книги Pro Git</a>:</p>
@@ -239,15 +218,14 @@ $ index.html
 <p>Я не сомневаюсь, что многое из написанного можно достигнуть с помощью различных плагинов и скриптов для баша. Но зачем если есть хорошее решение «из коробки». Которое работает, и работает очень хорошо.</p>
 
         </div>
-        <div class="article-links">
-  <div class="likely">
-    <div class="twitter">Твитнуть</div>
-    <div class="facebook">Поделиться</div>
-    <div class="gplus">Плюсануть</div>
-    <div class="vkontakte">Поделиться</div>
-    <div class="telegram">Отправить</div>
-  </div>
-</div>
+
+        <div class="likely article__likely">
+          <div class="twitter">Твитнуть</div>
+          <div class="facebook">Поделиться</div>
+          <div class="gplus">Плюсануть</div>
+          <div class="vkontakte">Поделиться</div>
+          <div class="telegram">Отправить</div>
+        </div>
 
         <div class="meta">
   
@@ -279,20 +257,25 @@ $ index.html
       <br />
       <div class="disqus">
         <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'agladky';
-    var disqus_identifier = 'https:\/\/www.agladky.ru\/blog\/why-zsh-is-better-than-bash\/';
-    var disqus_title = 'Почему стоит использовать zsh вместо bash';
-    var disqus_url = 'https:\/\/www.agladky.ru\/blog\/why-zsh-is-better-than-bash\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "agladky" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
       </div>
     </div>
   </div>
@@ -301,7 +284,7 @@ $ index.html
 <section class="footer">
 <div class="container">
   <div class="content">
-    <span>© Анатолий Гладкий, 2016 </span><a class="rss" href="https://www.agladky.ru/index.xml">РСС</a>
+    <span>© Анатолий Гладкий, 2018 </span><a class="rss" href="https://www.agladky.ru/index.xml">РСС</a>
     <br />
     <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
   </div>
@@ -310,17 +293,16 @@ $ index.html
 
 
 
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75808442-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script type="text/javascript">
-  try {
-    var pageTracker = _gat._getTracker("UA-75808442-1");
-    pageTracker._trackPageview();
-  } catch (err) {}
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </body>

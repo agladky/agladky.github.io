@@ -10,5 +10,14 @@
 	<atom:link href="https://www.agladky.ru/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Development</title>
+      <link>https://www.agladky.ru/categories/development/</link>
+      <pubDate>Fri, 13 Jan 2017 18:31:46 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/categories/development/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

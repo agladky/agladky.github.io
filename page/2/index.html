@@ -2,17 +2,19 @@
 <html lang="ru-RU">
 
 <head>
-	<meta name="generator" content="Hugo 0.19-DEV" />
+	<meta name="generator" content="Hugo 0.42.1" />
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Анатолий Гладкий">
+<meta name="description" content="Блог Анатолия Гладкого">
+
 <meta property="og:description" content="Блог Анатолия Гладкого" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Блог Анатолия Гладкого" />
-
-  <meta http-equiv="refresh" content="0; url=https://www.agladky.ru/blog">
 
 
   <base href="https://www.agladky.ru/">
@@ -24,7 +26,6 @@
   </title>
   <link rel="canonical" href="https://www.agladky.ru/">
   
-
 <script type="text/javascript">
   var baseURL = 'https:\/\/www.agladky.ru\/';
   var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
@@ -35,34 +36,21 @@
 
 
 
-
-
-<link rel="stylesheet" href="https://www.agladky.ru/css/reset.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/main.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/pygments.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/likely.css">
-
-
-
-
-
+<link rel="stylesheet" href="https://www.agladky.ru/css/reset.css?t=2018-06-25%2009%3a30%3a17.17425645%20%2b0300%20MSK%20m%3d%2b0.141664863">
+<link rel="stylesheet" href="https://www.agladky.ru/css/pygments.css?t=2018-06-25%2009%3a30%3a17.17425645%20%2b0300%20MSK%20m%3d%2b0.141664863">
+<link rel="stylesheet" href="https://www.agladky.ru/css/main.css?t=2018-06-25%2009%3a30%3a17.17425645%20%2b0300%20MSK%20m%3d%2b0.141664863">
+<link rel="stylesheet" href="https://www.agladky.ru/css/likely.css?t=2018-06-25%2009%3a30%3a17.17425645%20%2b0300%20MSK%20m%3d%2b0.141664863">
 
 
 <script async src="https://www.agladky.ru/js/likely.js"></script>
 
 
-<link rel="shortcut icon"
-
-  href="https://www.agladky.ru/img/favicon.ico"
-
->
-
-
+<link rel="shortcut icon" href="https://www.agladky.ru/img/favicon.ico">
 
 </head>
 
 
-<body lang="ru">
+<body>
 
 <section class="header">
   <div class="container">
@@ -70,10 +58,12 @@
       
         <span class="name">Блог Анатолия Гладкого</span>
       
+
       
     </div>
   </div>
 </section>
+
 
 <section class="main">
   <div class="container">
@@ -84,12 +74,7 @@
   
     <article>
       <div class="title-container">
-        <a href="https://www.agladky.ru/blog/why-zsh-is-better-than-bash/"><span class="page-heading">
-  
-    Почему стоит использовать zsh вместо bash
-  
-</span>
-</a>
+        <a href="https://www.agladky.ru/blog/why-zsh-is-better-than-bash/"><span class="page-heading">Почему стоит использовать zsh вместо bash</span></a>
       </div>
       <div class="markdown">
         
@@ -178,30 +163,24 @@
 <h3 id="псевдонимы">Псевдонимы</h3>
 
 <p>Обычные псевдонимы задаются так:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span>’ls —color<span class="o">=</span>auto’
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span>’ls —color<span class="o">=</span>auto’</code></pre></div>
 <p>В zsh существует еще 2 типа псевдонима.</p>
 
 <p>Первый — <em>глобальный (global)</em>. Может вызываться в любом месте команды. Задается ключом <code>-g</code>.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> -g <span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;| grep -i&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> -g <span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;| grep -i&#39;</span>
 
 $ ps ax gp <span class="nv">docker</span>
-<span class="o">=</span>&gt; ps ax <span class="p">|</span> grep -i docker
-</code></pre></div>
-
+<span class="o">=</span>&gt; ps ax <span class="p">|</span> grep -i docker</code></pre></div>
 <p>В примере, вместо написания <code>| grep -i</code>, в середине выражения, использовался псевдоним <code>gp</code>. Удобно.</p>
 
 <p>Второй тип — <em>суффиксный (suffix)</em>. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом <code>-s</code>.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span><span class="nb">alias</span> -s <span class="nv">log</span><span class="o">=</span><span class="s1">&#39;less -MN&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> -s <span class="nv">log</span><span class="o">=</span><span class="s1">&#39;less -MN&#39;</span>
 <span class="nb">alias</span> -s <span class="nv">html</span><span class="o">=</span><span class="s1">&#39;chromium&#39;</span>
 
 $ development.log
 <span class="o">=</span>&gt; less -MN development.log
 $ index.html
-<span class="o">=</span>&gt; chromium index.html
-</code></pre></div>
-
+<span class="o">=</span>&gt; chromium index.html</code></pre></div>
 <h3 id="правая-строка">Правая строка</h3>
 
 <p>Zsh позволяет настроить правую строку приглашения. Туда можно выводить текущую дату, состояние ветки в git и многое другое. Иллюстрация из <a href="https://git-scm.com/book/tr/v2/Git-in-Other-Environments-Git-in-Zsh">книги Pro Git</a>:</p>
@@ -257,12 +236,7 @@ $ index.html
   
     <article>
       <div class="title-container">
-        <a href="https://www.agladky.ru/blog/flags-enums-in-csharp/"><span class="page-heading">
-  
-    C# Enum и Атрибут Flags
-  
-</span>
-</a>
+        <a href="https://www.agladky.ru/blog/flags-enums-in-csharp/"><span class="page-heading">C# Enum и Атрибут Flags</span></a>
       </div>
       <div class="markdown">
         
@@ -270,96 +244,76 @@ $ index.html
 <p>Возникают ситуации, когда переменная должна хранить несколько значений типа перечисления. Например, используемые области логирования: <em>Warning + Info</em>, или сочетания цветов: <em>Red + Blue + Green</em>.</p>
 
 <p>Для хранения в переменной нескольких флагов, значениям енама присваиваются степени двойки:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="na">[Flags]</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[Flags]</span>
 <span class="k">public</span> <span class="k">enum</span> <span class="n">MyColors</span>
 <span class="p">{</span>
     <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span>
     <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
     <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span>
     <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<span class="p">}</span></code></pre></div>
 <p>Значения <em>2, 4, 8</em> используются для <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8">операторов смещения</a>, таких как побитовое И (AND), ИЛИ (OR) и исключающее ИЛИ (XOR).</p>
 
 <h3 id="операции-над-переменной">Операции над переменной</h3>
 
 <p>Логическое ИЛИ (<code>|</code>) применяется для помещения нескольких значений флагов в одну переменную:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span></code></pre></div>
 <p>Логическое И (<code>&amp;</code>) помогает при нахождении значения флага:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="c1">// Yellow has been set...</span>
-<span class="p">}</span>
+    <span class="c1">// Yellow has been set...
+</span><span class="c1"></span><span class="p">}</span>
 
 <span class="k">if</span><span class="p">((</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">&amp;</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">)</span> <span class="p">==</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="c1">// Green has been set...</span>
-<span class="p">}</span>
-</code></pre></div>
-
+    <span class="c1">// Green has been set...
+</span><span class="c1"></span><span class="p">}</span></code></pre></div>
 <p>Начиная с .Net 4 можно использовать сокращенную версию, без явного указания <code>&amp;</code>:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">if</span> <span class="p">(</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">.</span><span class="n">HasFlag</span><span class="p">(</span><span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">))</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">.</span><span class="n">HasFlag</span><span class="p">(</span><span class="n">MyColor</span><span class="p">.</span><span class="n">Yellow</span><span class="p">))</span>
 <span class="p">{</span>
-    <span class="c1">// Yellow has been set...</span>
-<span class="p">}</span>
-</code></pre></div>
-
+    <span class="c1">// Yellow has been set...
+</span><span class="c1"></span><span class="p">}</span></code></pre></div>
 <p>Операция XOR (’^’) исключает значения из переменной:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
-<span class="c1">// Удаляем значение используя оператор смещения XOR.</span>
-<span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">^</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;My colors are {0}&quot;</span><span class="p">,</span> <span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">);</span>
-<span class="c1">// Output: My colors are Red, Blue</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Red</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span> <span class="p">|</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Blue</span><span class="p">;</span>
+<span class="c1">// Удаляем значение используя оператор смещения XOR.
+</span><span class="c1"></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">=</span> <span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span> <span class="p">^</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;My colors are {0}&#34;</span><span class="p">,</span> <span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">);</span>
+<span class="p">//</span> <span class="n">Output</span><span class="p">:</span> <span class="n">My</span> <span class="n">colors</span> <span class="n">are</span> <span class="n">Red</span><span class="p">,</span> <span class="n">Blue</span></code></pre></div>
 <h3 id="атрибут-flags">Атрибут Flags</h3>
 
 <p>Атрибут <code>[Flags]</code> необязательный и используется для красивого вывода при вызове <code>.ToString()</code>:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="k">enum</span> <span class="n">Colors</span> <span class="p">{</span> <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span> <span class="p">}</span>
-<span class="na">[Flags]</span> <span class="k">enum</span> <span class="n">ColorsFlags</span> <span class="p">{</span> <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span> <span class="p">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">enum</span> <span class="n">Colors</span> <span class="p">{</span> <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span> <span class="p">}</span><span class="na">
+</span><span class="na">[Flags]</span> <span class="k">enum</span> <span class="n">ColorsFlags</span> <span class="p">{</span> <span class="n">Yellow</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">Green</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">Red</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">=</span> <span class="m">8</span> <span class="p">}</span>
 <span class="p">...</span>
-<span class="kt">var</span> <span class="n">str1</span> <span class="p">=</span> <span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="n">Yellow</span> <span class="p">|</span> <span class="n">Colors</span><span class="p">.</span><span class="n">Red</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span> <span class="c1">// &quot;5&quot;</span>
-<span class="kt">var</span> <span class="n">str2</span> <span class="p">=</span> <span class="p">(</span><span class="n">ColorsFlags</span><span class="p">.</span><span class="n">Yellow</span> <span class="p">|</span> <span class="n">ColorsFlags</span><span class="p">.</span><span class="n">Red</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span> <span class="c1">// &quot;Yellow, Red&quot;</span>
-</code></pre></div>
-
+<span class="kt">var</span> <span class="n">str1</span> <span class="p">=</span> <span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="n">Yellow</span> <span class="p">|</span> <span class="n">Colors</span><span class="p">.</span><span class="n">Red</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span> <span class="c1">// &#34;5&#34;
+</span><span class="c1"></span><span class="kt">var</span> <span class="n">str2</span> <span class="p">=</span> <span class="p">(</span><span class="n">ColorsFlags</span><span class="p">.</span><span class="n">Yellow</span> <span class="p">|</span> <span class="n">ColorsFlags</span><span class="p">.</span><span class="n">Red</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span> <span class="p">//</span> <span class="s">&#34;Yellow, Red&#34;</span></code></pre></div>
 <p>Так же, атрибут <code>[Flags]</code> не присваивает значениям степень двойки. Если не проставить вручную, то значения инициализируются как в обычном енаме.</p>
 
 <p>Неправильное объявление:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="na">[Flags]</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[Flags]</span>
 <span class="k">public</span> <span class="k">enum</span> <span class="n">MyColors</span>
 <span class="p">{</span>
     <span class="n">Yellow</span><span class="p">,</span>
     <span class="n">Green</span><span class="p">,</span>
     <span class="n">Red</span><span class="p">,</span>
     <span class="n">Blue</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<span class="p">}</span></code></pre></div>
 <p>Присвоенные значения: <em>Yellow = 0, Green = 1, Red = 2, Blue = 3</em>. Они не подходят для использования операций смещения.</p>
 
 <h3 id="битовое-представление">Битовое представление</h3>
 
 <p>Описанное выше работает благодаря битовому представлению значений флагов при проставлении степени двойки:</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">Yellow</span><span class="p">:</span> <span class="m">00000001</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Yellow</span><span class="p">:</span> <span class="m">00000001</span>
 <span class="n">Green</span><span class="p">:</span>  <span class="m">00000010</span>
 <span class="n">Red</span><span class="p">:</span>    <span class="m">00000100</span>
-<span class="n">Blue</span><span class="p">:</span>   <span class="m">00001000</span>
-</code></pre></div>
-
+<span class="n">Blue</span><span class="p">:</span>   <span class="m">00001000</span></code></pre></div>
 <p>Значение переменной <code>AllowedColors</code> после присваивания <em>Red, Green</em> и <em>Blue</em> c использованием операции ИЛИ (<code>|</code>):</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span></code></pre></div>
 <p>Теперь, для проверки вхождения значения <em>Green</em> в переменную используем операцию смещения И (<code>&amp;</code>):</p>
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span></span><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">myProperties</span><span class="p">.</span><span class="n">AllowedColors</span><span class="p">:</span> <span class="m">00001110</span>
              <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">:</span> <span class="m">00000010</span>
              <span class="p">-----------------------</span>
-                            <span class="m">00000010</span> <span class="c1">// Это то же самое, что и MyColor.Green!</span>
-</code></pre></div>
-
+                            <span class="m">00000010</span> <span class="p">//</span> <span class="err">Это</span> <span class="err">то</span> <span class="err">же</span> <span class="err">самое</span><span class="p">,</span> <span class="err">что</span> <span class="err">и</span> <span class="n">MyColor</span><span class="p">.</span><span class="n">Green</span><span class="p">!</span></code></pre></div>
 <h3 id="полезные-ссылки">Полезные ссылки</h3>
 
 <ul>
@@ -385,12 +339,7 @@ $ index.html
   
     <article>
       <div class="title-container">
-        <a href="https://www.agladky.ru/blog/how-to-test-abstract-classes/"><span class="page-heading">
-  
-    Как тестировать абстрактные классы
-  
-</span>
-</a>
+        <a href="https://www.agladky.ru/blog/how-to-test-abstract-classes/"><span class="page-heading">Как тестировать абстрактные классы</span></a>
       </div>
       <div class="markdown">
         
@@ -467,10 +416,11 @@ $ index.html
     </div>
   </div>
 </section>
+
 <section class="footer">
 <div class="container">
   <div class="content">
-    <span>© Анатолий Гладкий, 2016 </span><a class="rss" href="https://www.agladky.ru/index.xml">РСС</a>
+    <span>© Анатолий Гладкий, 2018 </span><a class="rss" href="https://www.agladky.ru/index.xml">РСС</a>
     <br />
     <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
   </div>
@@ -479,17 +429,16 @@ $ index.html
 
 
 
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75808442-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script type="text/javascript">
-  try {
-    var pageTracker = _gat._getTracker("UA-75808442-1");
-    pageTracker._trackPageview();
-  } catch (err) {}
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </body>

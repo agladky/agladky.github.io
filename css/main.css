@@ -1,12 +1,38 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-.post-navigation {
-  font-size: 12px;
-  margin-bottom: 40px;
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
 }
-.post-navigation .post-prev-next {
-  display: inline-block;
-  margin-bottom: 6px;
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Ubuntu Mono Italic'), local('UbuntuMono-Italic'), url(https://fonts.gstatic.com/s/ubuntumono/v7/KFOhCneDtsqEr0keqCMhbCc_OsbSlQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Ubuntu Mono Bold Italic'), local('UbuntuMono-BoldItalic'), url(https://fonts.gstatic.com/s/ubuntumono/v7/KFO8CneDtsqEr0keqCMhbCc_Mn33hY9uew.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(https://fonts.gstatic.com/s/ubuntumono/v7/KFOjCneDtsqEr0keqCMhbCc6CsE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'), url(https://fonts.gstatic.com/s/ubuntumono/v7/KFO-CneDtsqEr0keqCMhbC-BL9H1tYg.ttf) format('truetype');
 }
 .dark {
   color: #333 !important;
@@ -29,6 +55,14 @@
   .large-screens-only {
     display: initial;
   }
+}
+.post-navigation {
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+.post-navigation .post-prev-next {
+  display: inline-block;
+  margin-bottom: 6px;
 }
 *,
 *:before,
@@ -283,7 +317,7 @@ section.main .content .section-heading {
 section.main .content .sub-section-heading {
   font-size: 13px;
 }
-section.main .content .article-links {
+section.main .content .article__likely {
   margin-bottom: 10px;
 }
 section.main .content .meta {

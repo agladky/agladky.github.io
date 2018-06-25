@@ -6,9 +6,158 @@
     <description>Recent content on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
+    <lastBuildDate>Fri, 13 Jan 2017 18:31:46 +0300</lastBuildDate>
     
 	<atom:link href="https://www.agladky.ru/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Обо мне</title>
+      <link>https://www.agladky.ru/blog/about-me/</link>
+      <pubDate>Fri, 13 Jan 2017 18:31:46 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/about-me/</guid>
+      <description>  Разрабатываю приложения для бизнеса на .NET, Node.js и Go. Налаживаю процессы в команде разработчиков. Тащусь от оптимизации и рефакторинга. Люблю собирать конструкторы и играть в автосимуляторы.  Для связи: me@agladky.ru и телеграм.  Новые посты советую получать через РСС. Также сообщаю о них в твитере, фейсбуке и гугл плюсе.  Мой гитхаб. Последний проект — todoist-overdue-alfred. Расширение для альфреда. Перемещает на сегодня все просроченные задачи в тудуисте.  </description>
+    </item>
+    
+    <item>
+      <title>Сравнение async await и Task.ContinueWith()</title>
+      <link>https://www.agladky.ru/blog/async-await-example/</link>
+      <pubDate>Tue, 13 Dec 2016 17:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/async-await-example/</guid>
+      <description>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока ContinueWith.
+Основные паттерны асинхронного программирования  Asynchronous Programming Model (APM) Event Asynchronous Pattern (EAP) Task Asynchronous Pattern (TAP)  Задачи представляют параллельные операции Могут выполняться на отдельном или разных потоках. Могут быть скомбинированы и выстроены в цепочку вызовов.   async/await — синтаксическая обертка над задачами  await ставит на паузу текущий метод, ожидая выполнения задачи.</description>
+    </item>
+    
+    <item>
+      <title>Перешел на статический блог</title>
+      <link>https://www.agladky.ru/blog/moved-to-a-static-blog/</link>
+      <pubDate>Sat, 10 Sep 2016 11:13:23 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/moved-to-a-static-blog/</guid>
+      <description>Для разработчика, вести блог на гитхабе — отличная идея.
+Я прошёл путь от простой хотелки перейти на статический блог до разработки шаблона и применения инфостиля. Расскажу как это было.
+Начало В начале года узнал о существовании github pages. Это статический хостинг. В отличие от динамических хостингов, которые для каждого запроса генерируют страницу с ответом, на статических хранятся готовые страницы. Сайт загружается быстрее, но на сервере нельзя выполнить никаких скриптов.</description>
+    </item>
+    
+    <item>
+      <title>Послушайте «Разбор полетов» 105</title>
+      <link>https://www.agladky.ru/blog/listen-razbor-poletov/</link>
+      <pubDate>Mon, 05 Sep 2016 22:14:03 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/listen-razbor-poletov/</guid>
+      <description>Не каждый день встретишь человека с такой уверенностью в своей правоте и идущего против системы.
+Послушал 105 серию подкаста «Разбор полетов». Веселый выпуск. Гость, Егор Бугаенко, убеждён что большинство использует ООП неправильно. Не понимают парадигмы. Ведущие с ним не соглашаются. Море троллинга и споров. Послушайте, узнаете как далеко можно зайти в своих убеждениях.
+После, советую пролистать блог Егора. Прав он или нет, но интересные мысли почерпнете.</description>
+    </item>
+    
+    <item>
+      <title>Перетаскивание кода в окно Watch в Visual Studio</title>
+      <link>https://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
+      <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
+      <description>Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:
+Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
+Сайт с полезными советами для .Net разработчиков — dailydotnettips.com.</description>
+    </item>
+    
+    <item>
+      <title>Новый оператор ?. в C# 6</title>
+      <link>https://www.agladky.ru/blog/new-if-null-operator-csharp-6/</link>
+      <pubDate>Wed, 17 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
+      <description>Одно из нововведений в С# 6 — оператор ?.. Давайте рассмотрим, где и как его использовать.
+Преобразование цепочки вызовов С новым оператором уменьшается количество проверок на null в цепочке вызовов:
+var documentName = taskManager.CurrentTask == null ? null : (taskManager.CurrentTask.GetDocument() == null ? null : taskManager.CurrentTask.GetDocument().Name); Перепишем в одну строчку используя ?.:
+var documentName = taskManager.CurrentTask?.GetDocument()?.Name; documentName примет значение null, если CurrentTask, GetDocument() или Name вернет null.
+Второй вариант компактнее.</description>
+    </item>
+    
+    <item>
+      <title>Различия операторов == и === в JavaScript</title>
+      <link>https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
+      <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
+      <description>Каждый раз я с опаской заменяю == на === — боюсь сломать логическое выражение. Ведь оператор равенства == реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.
+Операторы == и === проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) === проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) == проверяет по менее строгим правилам, допускающим преобразования типов.
+Оператор идентичности === вычисляет значения своих операндов, а затем сравнивает, без преобразования типов.</description>
+    </item>
+    
+    <item>
+      <title>Что такое монады на примере C#</title>
+      <link>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
+      <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
+      <description>Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:
+ Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?
+ Оригинальный цикл статей доступен по тегу monads.
+Часть первая Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее, их выполнений от вычислений.</description>
+    </item>
+    
+    <item>
+      <title>Первый скрипт на Python</title>
+      <link>https://www.agladky.ru/blog/my-first-python-script/</link>
+      <pubDate>Wed, 20 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/my-first-python-script/</guid>
+      <description>Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.
+И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в тудуисте. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня».</description>
+    </item>
+    
+    <item>
+      <title>Шпаргалка с основными командами для Git</title>
+      <link>https://www.agladky.ru/blog/git-cheat-sheet/</link>
+      <pubDate>Wed, 06 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/git-cheat-sheet/</guid>
+      <description>Конфигурация git config --global user.name &amp;quot;[name]&amp;quot; — установить имя, которое будет прикрепляться к коммиту.
+git config --global user.email &amp;quot;[email address]&amp;quot; — установить email, который будет прикрепляться к коммиту.
+git config --global color.ui auto — включить полезную подсветку командной строки.
+git config --global push.default current — обновлять удаленную ветку с таким же именем, что и локальная, при пуше изменений (если не указано иного).
+git config --global core.editor [editor] — установить редактор для редактирования сообщений коммита.</description>
+    </item>
+    
+    <item>
+      <title>Почему стоит использовать zsh вместо bash</title>
+      <link>https://www.agladky.ru/blog/why-zsh-is-better-than-bash/</link>
+      <pubDate>Thu, 26 Nov 2015 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/why-zsh-is-better-than-bash/</guid>
+      <description>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в русской или английской википедии.
+Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.
+Автодополнение для cd Наберем в баш cd и нажмем таб.
+Еще раз.
+Каждый раз будет выводиться только список файлов в текущей директории.</description>
+    </item>
+    
+    <item>
+      <title>C# Enum и Атрибут Flags</title>
+      <link>https://www.agladky.ru/blog/flags-enums-in-csharp/</link>
+      <pubDate>Tue, 03 Nov 2015 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/flags-enums-in-csharp/</guid>
+      <description>Возникают ситуации, когда переменная должна хранить несколько значений типа перечисления. Например, используемые области логирования: Warning + Info, или сочетания цветов: Red + Blue + Green.
+Для хранения в переменной нескольких флагов, значениям енама присваиваются степени двойки:
+[Flags] public enum MyColors { Yellow = 1, Green = 2, Red = 4, Blue = 8 } Значения 2, 4, 8 используются для операторов смещения, таких как побитовое И (AND), ИЛИ (OR) и исключающее ИЛИ (XOR).</description>
+    </item>
+    
+    <item>
+      <title>Как тестировать абстрактные классы</title>
+      <link>https://www.agladky.ru/blog/how-to-test-abstract-classes/</link>
+      <pubDate>Sat, 05 Sep 2015 13:10:07 +0300</pubDate>
+      
+      <guid>https://www.agladky.ru/blog/how-to-test-abstract-classes/</guid>
+      <description>Абстрактные классы сложно тестировать. Рассмотрим ситуации применения абстрактных классов и последующего рефакторинга для проведения юнит тестирования.
+Выделить реальный интерфейс Существует специализированный абстрактный класс, но все клиенты используют его конкретные реализации через единый публичный интерфейс:
+Классы-потомки реализуют интерфейс, определенный абстрактными методами класса. Для повышения тестируемости этот интерфейс выделяется. Абстрактный класс превращается в конкретный и в его конструктор передается объект классов-потомков, реализующих выделенный интерфейс.
+Применяется шаблон проектирования стратегия.
+Бывший абстрактный класс теперь тестируется используя мок-объект нового интерфейса.</description>
+    </item>
     
   </channel>
 </rss>

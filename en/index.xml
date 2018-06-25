@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anatoly Gladky Blog</title>
+    <link>https://www.agladky.ru/en/</link>
+    <description>Recent content on Anatoly Gladky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-RU</language>
+    
+	<atom:link href="https://www.agladky.ru/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

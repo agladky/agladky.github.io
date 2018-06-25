@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/git/index.xml</link>
+    <link>https://www.agladky.ru/tags/git/</link>
     <description>Recent content in Git on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <atom:link href="https://www.agladky.ru/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2016 13:10:07 +0300</lastBuildDate>
+    
+	<atom:link href="https://www.agladky.ru/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Шпаргалка с основными командами для Git</title>
@@ -14,179 +17,11 @@
       <pubDate>Wed, 06 Jan 2016 13:10:07 +0300</pubDate>
       
       <guid>https://www.agladky.ru/blog/git-cheat-sheet/</guid>
-      <description>
-
-&lt;h3 id=&#34;конфигурация&#34;&gt;Конфигурация&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global user.name &amp;quot;[name]&amp;quot;&lt;/code&gt; — установить имя, которое будет прикрепляться к коммиту.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global user.email &amp;quot;[email address]&amp;quot;&lt;/code&gt; — установить email, который будет прикрепляться к коммиту.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global color.ui auto&lt;/code&gt; — включить полезную подсветку командной строки.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global push.default current&lt;/code&gt; — обновлять удаленную ветку с таким же именем, что и локальная, при пуше изменений (если не указано иного).&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global core.editor [editor]&lt;/code&gt; — установить редактор для редактирования сообщений коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global diff.tool [tool]&lt;/code&gt; — установить программу для разрешения конфликтов при слиянии.&lt;/p&gt;
-
-&lt;h3 id=&#34;создание-репозиториев&#34;&gt;Создание репозиториев&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git init [project-name]&lt;/code&gt; — создать новый локальный репозиторий с заданным именем.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git clone [url]&lt;/code&gt; — загрузить проект и его полную историю изменений.&lt;/p&gt;
-
-&lt;h3 id=&#34;работа-с-изменениями&#34;&gt;Работа с изменениями&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git status&lt;/code&gt; — полный список изменений файлов, ожидающих коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git status -s&lt;/code&gt; — краткий вид изменений.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff&lt;/code&gt; — показать изменения в файлах, которые еще не были добавлены в индекс коммита (staged).&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git add [file]&lt;/code&gt; — сделать указанный файл готовым для коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git add .&lt;/code&gt; — сделать все измененные файлы готовыми для коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git add &#39;*.txt&#39;&lt;/code&gt; — добавить только файлы, соответствующие указанному выражению.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git add --patch filename&lt;/code&gt; — позволяет выбрать какие изменения из файла добавятся в коммит.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff --staged&lt;/code&gt; — показать что было добавленно в индекс с помощью &lt;code&gt;git add&lt;/code&gt;, но еще не было закоммиченно.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff HEAD&lt;/code&gt; — показать что изменилось с последнего коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff HEAD^&lt;/code&gt; — показать что изменилось с предпоследнего коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff [branch]&lt;/code&gt; — сравнить текущую ветку с заданной.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git difftool -d&lt;/code&gt; — то же самое, что и &lt;code&gt;diff&lt;/code&gt;, но показывает изменения в заданной difftool.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git difftool -d master..&lt;/code&gt; — показать изменения, сделанные в текущей ветке.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff --stat&lt;/code&gt; — показать статистику какие файлы были изменены и как.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git reset [file]&lt;/code&gt; — убрать файлы из индекса коммита (изменения не теряются).&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git commit&lt;/code&gt; — записать изменения в репозиторий. для написания сообщения откроется назначенный редактор.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;[descriptive message]&amp;quot;&lt;/code&gt; — записать изменения с заданным сообщением.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git commit --amend&lt;/code&gt; — добавить изменения к последнему коммиту.&lt;/p&gt;
-
-&lt;h3 id=&#34;работа-с-ветками&#34;&gt;Работа с ветками&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt; — список всех локальных веток в текущей директории.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git branch [branch-name]&lt;/code&gt; — создать новую ветку.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git checkout [branch-name]&lt;/code&gt; — переключиться на указанную ветку и обновить рабочую директорию.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git checkout -b &amp;lt;name&amp;gt; &amp;lt;remote&amp;gt;/&amp;lt;branch&amp;gt;&lt;/code&gt; — переключиться на удаленную ветку.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git checkout [filename]&lt;/code&gt; — вернуть файл в первоначальное состояние если он еще не был добавлен в индекс коммита.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git merge [branch]&lt;/code&gt; — соединить изменения в текущей ветке с изменениями из заданной.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git merge --no-ff [branch]&lt;/code&gt; — соединить ветки без режима &amp;ldquo;&lt;a href=&#34;http://zencoder.ru/git/fast-forward-git&#34;&gt;fast forwarding&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git branch -a&lt;/code&gt; — посмотреть полный список локальных и удаленных веток.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git branch -d [branch]&lt;/code&gt; — удалить заданную ветку.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git branch -D [branch]&lt;/code&gt; — принудительно удалить заданную ветку, игнорируя ошибки.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;&lt;/code&gt; — переименовать ветку.&lt;/p&gt;
-
-&lt;h3 id=&#34;работа-с-файлами&#34;&gt;Работа с файлами&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git rm [file]&lt;/code&gt; — удалить файл из рабочей директории и добавить в индекс информацию об удалении.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git rm --cached [file]&lt;/code&gt; — удалить файл из репозитория, но сохранить его локально.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git mv [file-original] [file-renamed]&lt;/code&gt; — изменить имя файла и добавить в индекс коммита.&lt;/p&gt;
-
-&lt;h3 id=&#34;отслеживание-файлов&#34;&gt;Отслеживание файлов&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;.gitignore&lt;/code&gt; — текстовый файл, в котором задаются правила для исключения файлов из репозитория. Например:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;*.log&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;build/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;temp-*&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;git ls-files --other --ignored --exclude-standard&lt;/code&gt; — список всех игнорируемых файлов.&lt;/p&gt;
-
-&lt;h3 id=&#34;сохранение-фрагментов&#34;&gt;Сохранение фрагментов&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git stash&lt;/code&gt; — положить во временное хранилище все отслеживаемые файлы.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git stash pop&lt;/code&gt; — восстановить последние файлы, положенные во временное хранилище.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git stash list&lt;/code&gt; — список всех сохраненных изменений во временном хранилище.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git stash drop&lt;/code&gt; — удалить последние файлы, положенные во временное хранилище.&lt;/p&gt;
-
-&lt;h3 id=&#34;просмотр-истории&#34;&gt;Просмотр истории&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git log&lt;/code&gt; — список изменения текущей ветки.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git log --follow [file]&lt;/code&gt; — список изменения текущего файла, включая переименования.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git log --pretty=format:&amp;quot;%h %s&amp;quot; --graph&lt;/code&gt; — изменение вида отображения истории изменений.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git log --author=&#39;Name&#39; --after={1.week.ago} --pretty=oneline --abbrev-commit&lt;/code&gt; — посмотреть над чем работал заданный пользователь последнюю неделю.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git log --no-merges master..&lt;/code&gt; — посмотреть историю изменений только для текущей ветки.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git diff [file-branch]..[second-branch]&lt;/code&gt; — посмотреть различия между двумя заданными ветками.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git show [commit]&lt;/code&gt; — показать метадату и изменения в заданном коммите.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git show [branch]:[file]&lt;/code&gt; — посмотреть на файл в другой ветке, не переключаясь на неё.&lt;/p&gt;
-
-&lt;h3 id=&#34;отмена-коммитов&#34;&gt;Отмена коммитов&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git reset&lt;/code&gt; — убрать изменения из индекса коммита, сами изменения останутся.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git reset [commit/tag]&lt;/code&gt; — отменить все коммиты после указанного коммита, изменения будут сохранены локально.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git reset --hard [commit]&lt;/code&gt; — принудительно вернутся к указанному коммиту, не сохраняя историю и изменения.&lt;/p&gt;
-
-&lt;h3 id=&#34;синхронизация-изменений&#34;&gt;Синхронизация изменений&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;git fetch [bookmark]&lt;/code&gt; — загрузить всю историю с заданного удаленного репозитория.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git merge [bookmark]/[branch]&lt;/code&gt; — слить изменения локальной ветки и заданной удаленной.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push&lt;/code&gt; — запушить текущую ветку в удаленную ветку.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push [remote] [branch]&lt;/code&gt; — запушить ветку в указанный репозиторий и удаленную ветку.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push [bookmark] :[branch]&lt;/code&gt; — в удаленном репозитории удалить заданную ветку.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push -u origin master&lt;/code&gt; — если удаленная ветка не установлена как отслеживаемая, то сделать ее такой.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; — загрузить историю и изменения удаленной ветки и произвести слияние с текущей веткой.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git pull [remote][branch]&lt;/code&gt; — указать конкретную удаленную ветку для слияния.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git remote&lt;/code&gt; — посмотреть список доступных удаленных репозиториев.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git remote -v&lt;/code&gt; — посмотреть детальный список доступных удаленных репозиториев.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git remote add [remote][url]&lt;/code&gt; — добавить новый удаленный репозиторий.&lt;/p&gt;
-
-&lt;h3 id=&#34;полезные-ссылки&#34;&gt;Полезные ссылки&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;19 советов по повседневной работе с Git. &lt;a href=&#34;http://www.alexkras.com/19-git-tips-for-everyday-use/&#34;&gt;оригинал&lt;/a&gt;. &lt;a href=&#34;http://habrahabr.ru/company/mailru/blog/267595/&#34;&gt;перевод&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Книга &amp;ldquo;&lt;a href=&#34;http://git-scm.com/book/ru/v1&#34;&gt;Pro Git&lt;/a&gt;&amp;rdquo;. Издание первое, на русском.&lt;/li&gt;
-&lt;li&gt;Книга &amp;ldquo;&lt;a href=&#34;http://git-scm.com/book/en/v2&#34;&gt;Pro Git&lt;/a&gt;&amp;rdquo;. Издание второе, на английском.&lt;/li&gt;
-&lt;li&gt;Git Rebase: &lt;a href=&#34;http://habrahabr.ru/post/161009/&#34;&gt;руководство по использованию&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Конфигурация git config --global user.name &amp;quot;[name]&amp;quot; — установить имя, которое будет прикрепляться к коммиту.
+git config --global user.email &amp;quot;[email address]&amp;quot; — установить email, который будет прикрепляться к коммиту.
+git config --global color.ui auto — включить полезную подсветку командной строки.
+git config --global push.default current — обновлять удаленную ветку с таким же именем, что и локальная, при пуше изменений (если не указано иного).
+git config --global core.editor [editor] — установить редактор для редактирования сообщений коммита.</description>
     </item>
     
   </channel>

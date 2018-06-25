@@ -7,11 +7,13 @@
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Анатолий Гладкий">
+<meta name="description" content="Блог Анатолия Гладкого">
+
 <meta property="og:description" content="Блог Анатолия Гладкого" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Блог Анатолия Гладкого" />
-
-  
 
 
   <base href="https://www.agladky.ru/">
@@ -23,7 +25,6 @@
   </title>
   <link rel="canonical" href="https://www.agladky.ru/tags/javascript/">
   
-
 <script type="text/javascript">
   var baseURL = 'https:\/\/www.agladky.ru\/';
   var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
@@ -34,34 +35,21 @@
 
 
 
-
-
-<link rel="stylesheet" href="https://www.agladky.ru/css/reset.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/main.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/pygments.css">
-<link rel="stylesheet" href="https://www.agladky.ru/css/likely.css">
-
-
-
-
-
+<link rel="stylesheet" href="https://www.agladky.ru/css/reset.css?t=2018-06-25%2009%3a30%3a17.163355473%20%2b0300%20MSK%20m%3d%2b0.130763533">
+<link rel="stylesheet" href="https://www.agladky.ru/css/pygments.css?t=2018-06-25%2009%3a30%3a17.163355473%20%2b0300%20MSK%20m%3d%2b0.130763533">
+<link rel="stylesheet" href="https://www.agladky.ru/css/main.css?t=2018-06-25%2009%3a30%3a17.163355473%20%2b0300%20MSK%20m%3d%2b0.130763533">
+<link rel="stylesheet" href="https://www.agladky.ru/css/likely.css?t=2018-06-25%2009%3a30%3a17.163355473%20%2b0300%20MSK%20m%3d%2b0.130763533">
 
 
 <script async src="https://www.agladky.ru/js/likely.js"></script>
 
 
-<link rel="shortcut icon"
-
-  href="https://www.agladky.ru/img/favicon.ico"
-
->
-
-
+<link rel="shortcut icon" href="https://www.agladky.ru/img/favicon.ico">
 
 </head>
 
 
-<body lang="ru">
+<body>
 
 <section class="header">
   <div class="container">
@@ -71,6 +59,7 @@
           <span class="name">Блог Анатолия Гладкого</span>
         </a>
       
+
       
     </div>
   </div>
@@ -88,12 +77,7 @@
   
     <article>
       <div class="title-container">
-        <a href="https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/"><span class="page-heading">
-  
-    Различия операторов == и === в JavaScript
-  
-</span>
-</a>
+        <a href="https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/"><span class="page-heading">Различия операторов == и === в JavaScript</span></a>
       </div>
       <div class="markdown">
         <p>Каждый раз я с опаской заменяю <code>==</code> на <code>===</code> — боюсь сломать логическое выражение. Ведь оператор равенства <code>==</code> реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.</p>
@@ -128,25 +112,23 @@
 </ul>
 
 <p>Правила преобразования типов и сравнения значений для оператора равенства <code>==</code> сложные и труднозапоминаемые. Интересные случаи:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>           <span class="c1">// false</span>
-<span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>             <span class="c1">// true</span>
-<span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>            <span class="c1">// true</span>
-
-<span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span>    <span class="c1">// false</span>
-<span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>        <span class="c1">// true</span>
-
-<span class="kc">false</span> <span class="o">==</span> <span class="kc">undefined</span>  <span class="c1">// false</span>
-<span class="kc">false</span> <span class="o">==</span> <span class="kc">null</span>       <span class="c1">// false</span>
-<span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true</span>
-
-<span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>           <span class="c1">// false
+</span><span class="c1"></span><span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>             <span class="c1">// true
+</span><span class="c1"></span><span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>            <span class="c1">// true
+</span><span class="c1"></span>
+<span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span>    <span class="c1">// false
+</span><span class="c1"></span><span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>        <span class="c1">// true
+</span><span class="c1"></span>
+<span class="kc">false</span> <span class="o">==</span> <span class="kc">undefined</span>  <span class="c1">// false
+</span><span class="c1"></span><span class="kc">false</span> <span class="o">==</span> <span class="kc">null</span>       <span class="c1">// false
+</span><span class="c1"></span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true
+</span><span class="c1"></span>
+<span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true
+</span><span class="c1"></span></code></pre></div>
 <p>Особый случай — сравнение литерал с объектом:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="s2">&quot;abc&quot;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>    <span class="c1">// true</span>
-<span class="s2">&quot;abc&quot;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>   <span class="c1">// false</span>
-</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;abc&#34;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>    <span class="c1">// true
+</span><span class="c1"></span><span class="s2">&#34;abc&#34;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>   <span class="c1">// false
+</span><span class="c1"></span></code></pre></div>
 <p>Здесь, оператор <code>==</code> проверяет значение объектов и возвращает <code>true</code>. Оператор <code>===</code> возвращает <code>false</code>, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.</p>
 
 <p>В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта <a href="http://dorey.github.io/JavaScript-Equality-Table/">dorey.github.io</a>.</p>
@@ -191,7 +173,7 @@
 <section class="footer">
 <div class="container">
   <div class="content">
-    <span>© Анатолий Гладкий, 2016 </span><a class="rss" href="https://www.agladky.ru/index.xml">РСС</a>
+    <span>© Анатолий Гладкий, 2018 </span><a class="rss" href="https://www.agladky.ru/index.xml">РСС</a>
     <br />
     <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
   </div>
@@ -200,17 +182,16 @@
 
 
 
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75808442-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script type="text/javascript">
-  try {
-    var pageTracker = _gat._getTracker("UA-75808442-1");
-    pageTracker._trackPageview();
-  } catch (err) {}
-</script>
-
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </body>
