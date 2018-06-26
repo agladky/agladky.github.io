@@ -1,2 +1,2 @@
-Sitemap: http://www.agladky.ru/sitemap.xml
+Sitemap: https://www.agladky.ru/sitemap.xml
 User-agent: *

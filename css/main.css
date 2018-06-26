@@ -56,11 +56,11 @@
     display: initial;
   }
 }
-.post-navigation {
+.article-navigation {
   font-size: 12px;
   margin-bottom: 40px;
 }
-.post-navigation .post-prev-next {
+.article-navigation .article-prev-next {
   display: inline-block;
   margin-bottom: 6px;
 }
@@ -378,7 +378,7 @@ section.main .container.f04 .content .detail {
     margin-bottom: 30px;
   }
 }
-section.main .container .content .post-item {
+section.main .container .content .article-item {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -391,7 +391,7 @@ section.main .container .content .post-item {
   display: list-item;
   list-style: disc inside;
 }
-section.main .container .content .post-item .meta {
+section.main .container .content .article-item .meta {
   font-size: 12px;
   display: none;
   min-width: 100px;
@@ -435,11 +435,11 @@ section.header {
     padding-top: 0;
     padding-bottom: 0;
   }
-  section.main .container .content .post-item {
+  section.main .container .content .article-item {
     display: flex;
     list-style: none;
   }
-  section.main .container .content .post-item .meta {
+  section.main .container .content .article-item .meta {
     display: block;
   }
   section.main.post {
