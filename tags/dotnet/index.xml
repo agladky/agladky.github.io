@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dotnet on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/dotnet/</link>
+    <link>https://agladky.ru/tags/dotnet/</link>
     <description>Recent content in Dotnet on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Tue, 13 Dec 2016 17:10:07 +0300</lastBuildDate>
     
-	<atom:link href="https://www.agladky.ru/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Сравнение async await и Task.ContinueWith()</title>
-      <link>https://www.agladky.ru/blog/async-await-example/</link>
+      <link>https://agladky.ru/blog/async-await-example/</link>
       <pubDate>Tue, 13 Dec 2016 17:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/async-await-example/</guid>
+      <guid>https://agladky.ru/blog/async-await-example/</guid>
       <description>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока ContinueWith.
 Основные паттерны асинхронного программирования  Asynchronous Programming Model (APM) Event Asynchronous Pattern (EAP) Task Asynchronous Pattern (TAP)  Задачи представляют параллельные операции Могут выполняться на отдельном или разных потоках. Могут быть скомбинированы и выстроены в цепочку вызовов.   async/await — синтаксическая обертка над задачами  await ставит на паузу текущий метод, ожидая выполнения задачи.</description>
     </item>
     
     <item>
       <title>Перетаскивание кода в окно Watch в Visual Studio</title>
-      <link>https://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
+      <link>https://agladky.ru/blog/drag-and-drop-in-watch-windows/</link>
       <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
+      <guid>https://agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
       <description>Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:
 Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
 Сайт с полезными советами для .Net разработчиков — dailydotnettips.com.</description>
@@ -34,10 +34,10 @@
     
     <item>
       <title>Новый оператор ?. в C# 6</title>
-      <link>https://www.agladky.ru/blog/new-if-null-operator-csharp-6/</link>
+      <link>https://agladky.ru/blog/new-if-null-operator-csharp-6/</link>
       <pubDate>Wed, 17 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
+      <guid>https://agladky.ru/blog/new-if-null-operator-csharp-6/</guid>
       <description>Одно из нововведений в С# 6 — оператор ?.. Давайте рассмотрим, где и как его использовать.
 Преобразование цепочки вызовов С новым оператором уменьшается количество проверок на null в цепочке вызовов:
 var documentName = taskManager.CurrentTask == null ? null : (taskManager.CurrentTask.GetDocument() == null ? null : taskManager.CurrentTask.GetDocument().Name); Перепишем в одну строчку используя ?.:
@@ -47,10 +47,10 @@ var documentName = taskManager.CurrentTask?.GetDocument()?.Name; documentName п
     
     <item>
       <title>Что такое монады на примере C#</title>
-      <link>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
+      <link>https://agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
       <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
+      <guid>https://agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
       <description>Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:
  Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?
  Оригинальный цикл статей доступен по тегу monads.
@@ -59,10 +59,10 @@ var documentName = taskManager.CurrentTask?.GetDocument()?.Name; documentName п
     
     <item>
       <title>C# Enum и Атрибут Flags</title>
-      <link>https://www.agladky.ru/blog/flags-enums-in-csharp/</link>
+      <link>https://agladky.ru/blog/flags-enums-in-csharp/</link>
       <pubDate>Tue, 03 Nov 2015 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/flags-enums-in-csharp/</guid>
+      <guid>https://agladky.ru/blog/flags-enums-in-csharp/</guid>
       <description>Возникают ситуации, когда переменная должна хранить несколько значений типа перечисления. Например, используемые области логирования: Warning + Info, или сочетания цветов: Red + Blue + Green.
 Для хранения в переменной нескольких флагов, значениям енама присваиваются степени двойки:
 [Flags] public enum MyColors { Yellow = 1, Green = 2, Red = 4, Blue = 8 } Значения 2, 4, 8 используются для операторов смещения, таких как побитовое И (AND), ИЛИ (OR) и исключающее ИЛИ (XOR).</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Functional on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/functional/</link>
+    <link>https://agladky.ru/tags/functional/</link>
     <description>Recent content in Functional on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Wed, 27 Jan 2016 13:10:07 +0300</lastBuildDate>
     
-	<atom:link href="https://www.agladky.ru/tags/functional/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/tags/functional/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Что такое монады на примере C#</title>
-      <link>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
+      <link>https://agladky.ru/blog/what-is-a-monad-on-csharp-example/</link>
       <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
+      <guid>https://agladky.ru/blog/what-is-a-monad-on-csharp-example/</guid>
       <description>Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:
  Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?
  Оригинальный цикл статей доступен по тегу monads.

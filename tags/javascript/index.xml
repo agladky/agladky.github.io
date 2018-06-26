@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/javascript/</link>
+    <link>https://agladky.ru/tags/javascript/</link>
     <description>Recent content in Javascript on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Tue, 02 Feb 2016 13:10:07 +0300</lastBuildDate>
     
-	<atom:link href="https://www.agladky.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Различия операторов == и === в JavaScript</title>
-      <link>https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
+      <link>https://agladky.ru/blog/differences-comparison-operators-in-javascript/</link>
       <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
+      <guid>https://agladky.ru/blog/differences-comparison-operators-in-javascript/</guid>
       <description>Каждый раз я с опаской заменяю == на === — боюсь сломать логическое выражение. Ведь оператор равенства == реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.
 Операторы == и === проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) === проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) == проверяет по менее строгим правилам, допускающим преобразования типов.
 Оператор идентичности === вычисляет значения своих операндов, а затем сравнивает, без преобразования типов.</description>

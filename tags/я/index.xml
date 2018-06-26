@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Я on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/%D1%8F/</link>
+    <link>https://agladky.ru/tags/%D1%8F/</link>
     <description>Recent content in Я on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Fri, 13 Jan 2017 18:31:46 +0300</lastBuildDate>
     
-	<atom:link href="https://www.agladky.ru/tags/%D1%8F/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/tags/%D1%8F/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Обо мне</title>
-      <link>https://www.agladky.ru/blog/about-me/</link>
+      <link>https://agladky.ru/blog/about-me/</link>
       <pubDate>Fri, 13 Jan 2017 18:31:46 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/about-me/</guid>
+      <guid>https://agladky.ru/blog/about-me/</guid>
       <description>  Разрабатываю приложения для бизнеса на .NET, Node.js и Go. Налаживаю процессы в команде разработчиков. Тащусь от оптимизации и рефакторинга. Люблю собирать конструкторы и играть в автосимуляторы.  Для связи: me@agladky.ru и телеграм.  Новые посты советую получать через РСС. Также сообщаю о них в твитере, фейсбуке и гугл плюсе.  Мой гитхаб. Последний проект — todoist-overdue-alfred. Расширение для альфреда. Перемещает на сегодня все просроченные задачи в тудуисте.  </description>
     </item>
     

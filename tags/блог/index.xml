@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Блог on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/</link>
+    <link>https://agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/</link>
     <description>Recent content in Блог on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Sat, 10 Sep 2016 11:13:23 +0300</lastBuildDate>
     
-	<atom:link href="https://www.agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Перешел на статический блог</title>
-      <link>https://www.agladky.ru/blog/moved-to-a-static-blog/</link>
+      <link>https://agladky.ru/blog/moved-to-a-static-blog/</link>
       <pubDate>Sat, 10 Sep 2016 11:13:23 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/moved-to-a-static-blog/</guid>
+      <guid>https://agladky.ru/blog/moved-to-a-static-blog/</guid>
       <description>Для разработчика, вести блог на гитхабе — отличная идея.
 Я прошёл путь от простой хотелки перейти на статический блог до разработки шаблона и применения инфостиля. Расскажу как это было.
 Начало В начале года узнал о существовании github pages. Это статический хостинг. В отличие от динамических хостингов, которые для каждого запроса генерируют страницу с ответом, на статических хранятся готовые страницы. Сайт загружается быстрее, но на сервере нельзя выполнить никаких скриптов.</description>

@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.agladky.ru/en/</loc>
+    <loc>https://agladky.ru/en/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://www.agladky.ru/"
+                href="https://agladky.ru/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.agladky.ru/en/"
+                href="https://agladky.ru/en/"
                 />
   </url>
   
   <url>
-    <loc>https://www.agladky.ru/en/categories/</loc>
+    <loc>https://agladky.ru/en/categories/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://www.agladky.ru/categories/"
+                href="https://agladky.ru/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.agladky.ru/en/categories/"
+                href="https://agladky.ru/en/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://www.agladky.ru/en/tags/</loc>
+    <loc>https://agladky.ru/en/tags/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://www.agladky.ru/tags/"
+                href="https://agladky.ru/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.agladky.ru/en/tags/"
+                href="https://agladky.ru/en/tags/"
                 />
   </url>
   

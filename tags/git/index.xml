@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/tags/git/</link>
+    <link>https://agladky.ru/tags/git/</link>
     <description>Recent content in Git on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Wed, 06 Jan 2016 13:10:07 +0300</lastBuildDate>
     
-	<atom:link href="https://www.agladky.ru/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Шпаргалка с основными командами для Git</title>
-      <link>https://www.agladky.ru/blog/git-cheat-sheet/</link>
+      <link>https://agladky.ru/blog/git-cheat-sheet/</link>
       <pubDate>Wed, 06 Jan 2016 13:10:07 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/blog/git-cheat-sheet/</guid>
+      <guid>https://agladky.ru/blog/git-cheat-sheet/</guid>
       <description>Конфигурация git config --global user.name &amp;quot;[name]&amp;quot; — установить имя, которое будет прикрепляться к коммиту.
 git config --global user.email &amp;quot;[email address]&amp;quot; — установить email, который будет прикрепляться к коммиту.
 git config --global color.ui auto — включить полезную подсветку командной строки.

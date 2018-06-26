@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Блог Анатолия Гладкого</title>
-    <link>https://www.agladky.ru/categories/</link>
+    <link>https://agladky.ru/categories/</link>
     <description>Recent content in Categories on Блог Анатолия Гладкого</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     
-	<atom:link href="https://www.agladky.ru/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agladky.ru/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>https://www.agladky.ru/categories/development/</link>
+      <link>https://agladky.ru/categories/development/</link>
       <pubDate>Fri, 13 Jan 2017 18:31:46 +0300</pubDate>
       
-      <guid>https://www.agladky.ru/categories/development/</guid>
+      <guid>https://agladky.ru/categories/development/</guid>
       <description></description>
     </item>
     
