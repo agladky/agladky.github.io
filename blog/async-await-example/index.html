@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
-
-<head>
-  <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="author" content="Анатолий Гладкий">
-<meta name="description" content="Краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием Task.ContinueWith.">
-
-<meta property="og:title" content="Сравнение async await и Task.ContinueWith()" />
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием Task.ContinueWith.">
+    <meta name="author" content="Анатолий Гладкий">
+    <meta property="og:title" content="Сравнение async await и Task.ContinueWith()" />
 <meta property="og:description" content="Краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием Task.ContinueWith." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://agladky.ru/blog/async-await-example/" />
@@ -22,7 +20,7 @@
 
 <meta property="article:modified_time" content="2016-12-13T17:10:07&#43;03:00"/>
 
-<meta property="og:site_name" content="Блог Анатолия Гладкого" />
+<meta property="og:site_name" content="Анатолий Гладкий" />
 
 
 
@@ -33,65 +31,47 @@
 
 
 
-
-
-
-
-  <base href="https://agladky.ru/">
-  <title>
     
+  
+    <base href="https://agladky.ru/">
+    <title>Сравнение async await и Task.ContinueWith()</title>
+    <link rel="canonical" href="https://agladky.ru/blog/async-await-example/">
+    <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1532164511">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1532164511">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1532164511">
+    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1532164511">
     
-      
-        Краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием Task.ContinueWith.
-      
-    
-  </title>
-  <link rel="canonical" href="https://agladky.ru/blog/async-await-example/">
+    <script async src="https://agladky.ru/js/likely.js"></script>
+  </head>
 
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
-  
-  <link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1530173437">
-  <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1530173437">
-  <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1530173437">
-  <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1530173437">
-
-  
-  <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
-
-  
-  <script async src="https://agladky.ru/js/likely.js"></script>
-</head>
-
-
-<body>
-
-<section class="header">
-  <div class="container">
-    <div class="content">
-      
-        <a href="https://agladky.ru/blog">
-          <span class="name">Блог Анатолия Гладкого</span>
-        </a>
-      
-
-      
-    </div>
-  </div>
-</section>
-
-
-<section class="main post non-narrow zero-top-spacing">
-  <div class="container">
-    <div class="content">
-      <article>
-        <div class="title-container">
-          <span class="page-heading">Сравнение async await и Task.ContinueWith()</span>
+  <body>
+    <div class="page-container">
+      <header class="page-header section-skin">
+        <div>
+          <a href="https://agladky.ru/"><img class="page-header__avatar" src="https://agladky.ru/img/avatar.jpg"></a>
+          
+          <span class="page-header__name"><a class="page-header__name-link" href="https://agladky.ru/"> Анатолий Гладкий</a></span>
         </div>
 
-        <div class="markdown">
-          
+        <nav class="page-header__menu">
+              <span class="page-header__menu-item page-header__menu-item--selected page-header__menu-item--first">
+                <a href="https://agladky.ru/blog/" class="page-header__menu-link">Блог</a>
+              </span>
+          </nav>
+      </header>
+
+      <main class="main-layout__container section-skin">
+        <div class="main-layout__content">
+            
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <span class="article-head">Сравнение async await и Task.ContinueWith()</span>
+    </header>
+
+    <div class="article-content markdown--blackfriday">
+      
 
 <p>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока <code>ContinueWith</code>.</p>
 
@@ -125,7 +105,17 @@
 
 <p>Примеры показываются на тестовом Windows Form приложении. <a href="https://github.com/agladky/async_await_article">GitHub репозиторий с приложением</a>.</p>
 
-<p><img src="https://lh3.googleusercontent.com/0OGyGjQfwFN5kVsnTmga0ed2yFkPNNMd_QWj8QBg8qOJqIQMU4o65DA1WUToyN0WVp7h_2UAkYXe_F1SLwcBZAE5fHzS3kYqLGluZkQpy7Wk2KapxVAByTO_jRd-0LYOztTe2YyU_YZEilg-RZbLXwXJHM4MnD_6ca5HHZcF9FWs1gPNZ9kkX1jw8vxAx94MFI-QF1Ne0xH2kltdjl_m7_Mwga2dZNNWivRdldwpC9DZ5ygfbzwG2FciaeEXYDmAvuC7tBCbwnR2jkDRgGBH9QZ0W1Yemgcow2JwDRjtQ-xdZTTxJZUno5F5G1W8Aiq4xacfxRkz1t8Tfbs08MEardybolFMZXwBDega35UXnq1L4CPinN3J5lEDiiWtDPzP3Bum_UBSgzDEKMvfbzvhJV9Nw7qex0diBmMa8K9M5cLvWRvU1r0mCbIsqyxxc494FxQ3JxrGNIPZPs_AaQgr85iaoIWf8WuKHDERVCJQCnjEYqf5ckxHC_WFlNPqxawhc6_-WTH8QsQ38YLTujMX7Xl48M_6jWGsMJNEXQDj8MbhFhV4sg2Q30IoA4wpb8gVmyhH=w561-h277-no" alt="async/await app" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/async-await-example/images/async-await-test-window.png" alt="async/await тестовое окно">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Асинхронные действия лежат в <code>PeopleRepositoryAsync</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">PeopleRepositoryAsync</span>
@@ -323,47 +313,38 @@
 <li><a href="http://blogs.msdn.com/b/pfxteam/archive/2011/01/13/10115642.aspx">Await anything</a></li>
 </ul>
 
-        </div>
+    </div>
 
-        <div class="likely article__likely">
-          <div class="twitter">Твитнуть</div>
-          <div class="facebook">Поделиться</div>
-          <div class="gplus">Плюсануть</div>
-          <div class="vkontakte">Поделиться</div>
-          <div class="telegram">Отправить</div>
-        </div>
-
-        <div class="meta">
-  <span class="date" title="13 декабря 2016, 17:10 MSK">
-    
-      2016
-    
-  </span>
-
-  
-  <span>   </span>
-
-  <a class="tag" href="tags/dotnet">dotnet</a>   
-</div>
-
-      </article>
-
-      <div class="article-navigation">
-        
-          <div class="article-prev-next">
-            <a href="https://agladky.ru/blog/about-me/">← Обо мне</a>  
-          </div>
-        
-        
-          <div class="article-prev-next">
-            <a href="https://agladky.ru/blog/moved-to-a-static-blog/">Перешел на статический блог →</a>
-          </div>
-        
+    <footer class="article-footer__wrapper">
+      <div class="likely">
+        <div class="twitter">Твитнуть</div>
+        <div class="facebook">Поделиться</div>
+        <div class="gplus">Плюсануть</div>
+        <div class="vkontakte">Поделиться</div>
+        <div class="telegram">Отправить</div>
       </div>
 
-      <br />
-      <div class="disqus">
-        <div id="disqus_thread"></div>
+      <div class="article-footer__meta">
+  <span title="13 декабря 2016, 17:10 MSK">2016</span>
+    <div class="article-footer__meta-tags">
+        <a class="article-footer__meta-tag" href="tags/dotnet">dotnet</a>
+      </div>
+  </div>
+
+    </footer>
+  </article>
+
+  <div class="article-navigation">
+    
+    
+      <div class="article-navigation__item">
+        <a href="https://agladky.ru/blog/moved-to-a-static-blog/">Перешел на статический блог →</a>
+      </div>
+    
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
     
@@ -383,23 +364,23 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </div>
-    </div>
   </div>
-</section>
 
-<section class="footer">
-  <div class="container">
-    <div class="content">
-      <span>© Анатолий Гладкий, 2018 </span><a class="rss" href="https://agladky.ru/index.xml">РСС</a>
-      <br />
-      <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+        </div>
+      </main>
+
+      <footer class="footer-layout__container section-skin">
+        <div>
+          <div>
+            <span>© Анатолий Гладкий, 2018</span>
+            <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
+          </div>
+          <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
-
-
-
+    
+    
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -411,8 +392,6 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-
-</body>
-
+  </body>
 </html>
-
+  

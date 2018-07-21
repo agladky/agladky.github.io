@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
-
-<head>
-  <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="author" content="Анатолий Гладкий">
-<meta name="description" content="Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh.">
-
-<meta property="og:title" content="Почему стоит использовать zsh вместо bash" />
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh.">
+    <meta name="author" content="Анатолий Гладкий">
+    <meta property="og:title" content="Почему стоит использовать zsh вместо bash" />
 <meta property="og:description" content="Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://agladky.ru/blog/why-zsh-is-better-than-bash/" />
@@ -22,7 +20,7 @@
 
 <meta property="article:modified_time" content="2015-11-26T13:10:07&#43;03:00"/>
 
-<meta property="og:site_name" content="Блог Анатолия Гладкого" />
+<meta property="og:site_name" content="Анатолий Гладкий" />
 
 
 
@@ -33,65 +31,47 @@
 
 
 
-
-
-
-
-  <base href="https://agladky.ru/">
-  <title>
     
+  
+    <base href="https://agladky.ru/">
+    <title>Почему стоит использовать zsh вместо bash</title>
+    <link rel="canonical" href="https://agladky.ru/blog/why-zsh-is-better-than-bash/">
+    <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1532164511">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1532164511">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1532164511">
+    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1532164511">
     
-      
-        Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh.
-      
-    
-  </title>
-  <link rel="canonical" href="https://agladky.ru/blog/why-zsh-is-better-than-bash/">
+    <script async src="https://agladky.ru/js/likely.js"></script>
+  </head>
 
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
-  
-  <link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1530173437">
-  <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1530173437">
-  <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1530173437">
-  <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1530173437">
-
-  
-  <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
-
-  
-  <script async src="https://agladky.ru/js/likely.js"></script>
-</head>
-
-
-<body>
-
-<section class="header">
-  <div class="container">
-    <div class="content">
-      
-        <a href="https://agladky.ru/blog">
-          <span class="name">Блог Анатолия Гладкого</span>
-        </a>
-      
-
-      
-    </div>
-  </div>
-</section>
-
-
-<section class="main post non-narrow zero-top-spacing">
-  <div class="container">
-    <div class="content">
-      <article>
-        <div class="title-container">
-          <span class="page-heading">Почему стоит использовать zsh вместо bash</span>
+  <body>
+    <div class="page-container">
+      <header class="page-header section-skin">
+        <div>
+          <a href="https://agladky.ru/"><img class="page-header__avatar" src="https://agladky.ru/img/avatar.jpg"></a>
+          
+          <span class="page-header__name"><a class="page-header__name-link" href="https://agladky.ru/"> Анатолий Гладкий</a></span>
         </div>
 
-        <div class="markdown">
-          
+        <nav class="page-header__menu">
+              <span class="page-header__menu-item page-header__menu-item--selected page-header__menu-item--first">
+                <a href="https://agladky.ru/blog/" class="page-header__menu-link">Блог</a>
+              </span>
+          </nav>
+      </header>
+
+      <main class="main-layout__container section-skin">
+        <div class="main-layout__content">
+            
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <span class="article-head">Почему стоит использовать zsh вместо bash</span>
+    </header>
+
+    <div class="article-content markdown--blackfriday">
+      
 
 <p>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в <a href="https://ru.wikipedia.org/wiki/Zsh">русской</a> или <a href="https://en.wikipedia.org/wiki/Z_shell">английской</a> википедии.</p>
 
@@ -101,21 +81,61 @@
 
 <p>Наберем в баш <code>cd</code> и нажмем таб.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-8iOm_Ix2cxE/VlawDdhnxPI/AAAAAAAAAjo/fybejZjCiJs/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.27.png" alt="bash cd tab first" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/bash-cd-tab-first_hu1ce81721fbd96c6f68f8565a2c1ea347_65739_1000x0_resize_q100_box_2.png" alt="bash cd tab first">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Еще раз.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-9EtosbNV72U/VlawDQ65VCI/AAAAAAAAAkE/hQ1XsEusWbA/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.47.png" alt="bash cd tab second" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/bash-cd-tab-second_hucf282d50c84dc6d5f7e208a899c25811_99710_1000x0_resize_q100_box_2.png" alt="bash cd tab second">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.</p>
 
 <p>Теперь наберем <code>cd</code> в zsh и нажмем таб.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-BSBLwCuwbGw/VlawDaG8oEI/AAAAAAAAAjw/dB7bM5n6iqg/s640-Ic42/Screenshot%2525202015-11-23%25252009.46.15.png" alt="zsh cd tab first" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-cd-tab-first_hu3649e35cdc114eeffa1642faccda59bd_65258_1000x0_resize_q100_box_2.png" alt="zsh cd tab first">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>В строку ввода подставилось первое значение из списка. Нажимаем таб еще раз.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-Dc119BYH764/VlawD4ymcII/AAAAAAAAAkI/V7EzDl0DuJA/s640-Ic42/Screenshot%2525202015-11-23%25252009.47.34.png" alt="zsh cd tab second" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-cd-tab-second_hu3649e35cdc114eeffa1642faccda59bd_71366_1000x0_resize_q100_box_2.png" alt="zsh cd tab second">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Подставилось второе значение из списка! Удобно.</p>
 
@@ -123,13 +143,33 @@
 
 <p>Введем в баш <code>git</code> и нажмем таб.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-2XI7N9lTfA4/VlawD66cYSI/AAAAAAAAAj4/3Pi57w0iQbA/s640-Ic42/Screenshot%2525202015-11-26%25252009.32.26.png" alt="bash git tab" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/bash-git-tab_hucf865b07bb521cee8aae6ad4b1fd7db4_69596_1000x0_resize_q100_box_2.png" alt="bash git tab">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Никакой помощи не появилось. Только отображаются файлы данной директории.</p>
 
 <p>Проделаем ту же операцию в zsh.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-8dn01qWVJd4/VlawEI4aHTI/AAAAAAAAAjk/i2wF_bGGo7c/s640-Ic42/Screenshot%2525202015-11-26%25252009.33.24.png" alt="zsh git tab" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-git-tab_hu03300f966fd8ae1ac2ad69108a315d31_189144_1000x0_resize_q100_box_2.png" alt="zsh git tab">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Отобразился список команд с описанием. Это гораздо информативнее.</p>
 
@@ -144,21 +184,61 @@
 
 <p>Zsh поддерживает раскрытие полного пути на основе неполных данных. Введем шаблон пути:</p>
 
-<p><img src="https://lh3.googleusercontent.com/-JkUKjONlTM0/VlawEFd1zdI/AAAAAAAAAkM/cU-dPKShFg8/s640-Ic42/Screenshot%2525202015-11-26%25252009.59.58.png" alt="zsh path expansion first" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-first_hudd8239d04b450c92f709011ee324f669_34826_1000x0_resize_q100_box_2.png" alt="zsh path expansion first">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Нажмем tab.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-dA_uysuc3-s/VlawEcceJZI/AAAAAAAAAkA/naoYDI9fJQc/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.08.png" alt="zsh path expansion second" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-second_hu3090c863184f469e2c4c382ebc6a1243_36631_1000x0_resize_q100_box_2.png" alt="zsh path expansion second">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Путь до директории полностью раскрылся. Не пришлось вводить лишних символов.</p>
 
 <p>Но что, если заданному пути соответствует несколько путей? Введем <code>cd u/l/g</code> и нажмем таб.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-RXcaxKd0UZc/VlawEQAE_II/AAAAAAAAAkQ/nePq8mG_mJc/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.31.png" alt="zsh path expansion third" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-third_hudd8239d04b450c92f709011ee324f669_34328_1000x0_resize_q100_box_2.png" alt="zsh path expansion third">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Путь раскрылся до возникновения неопределенности. Нажимаем таб еще раз, и перед нами предстанет выбор папки.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-YvpzsGE9ZiU/VlawEt6KbRI/AAAAAAAAAjs/8J7ogcuB5YU/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.46.png" alt="zsh path expansion third" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-fourth_hu1b01d49ba921e012625af7846d13510e_43085_1000x0_resize_q100_box_2.png" alt="zsh path expansion fourth">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Выбираем табом нужную папку. Последующее нажатие таба раскроет задуманный путь до конца.</p>
 
@@ -166,11 +246,31 @@
 
 <p>Zsh поддерживает замену части пути. Рассмотрим на примере. Введем <code>cd /usr/local/bin</code>. Но подождите, я хотел <code>cd /usr/local/share</code>! Не проблема, вводим команду <code>cd bin share</code> и получаем заветный путь:</p>
 
-<p><img src="https://lh3.googleusercontent.com/-P_Kx_CFBWx4/VlawEm_jwkI/AAAAAAAAAj8/F1bj2sVrwgk/s640-Ic42/Screenshot%2525202015-11-26%25252010.02.49.png" alt="zsh path replacement first" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-replacement-first_huc7aa161642077ec4358160303cc4aaee_60678_1000x0_resize_q100_box_2.png" alt="zsh path replacement first">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Возможно, это не самый убедительный пример. Того же эффекта можно достичь просто написав <code>cd ../share</code>. Но рассмотрим следующий случай:</p>
 
-<p><img src="https://lh3.googleusercontent.com/-_eKSxUA5xWc/VlawE9que7I/AAAAAAAAAkU/SuGQ0fm9awE/s640-Ic42/Screenshot%2525202015-11-26%25252010.05.16.png" alt="zsh path replacement second" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-replacement-second_hu0509c2a5874635db8a2d50a5900a46b7_64080_1000x0_resize_q100_box_2.png" alt="zsh path replacement second">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>B баш тут бы пришлось изрядно постараться (<code>cd ../../../</code>).</p>
 
@@ -199,7 +299,17 @@ $ index.html
 
 <p>Zsh позволяет настроить правую строку приглашения. Туда можно выводить текущую дату, состояние ветки в git и многое другое. Иллюстрация из <a href="https://git-scm.com/book/tr/v2/Git-in-Other-Environments-Git-in-Zsh">книги Pro Git</a>:</p>
 
-<p><img src="https://lh3.googleusercontent.com/-m6u_sxiII2k/VlbDByw8w2I/AAAAAAAAAkw/E1PlhRAqQw0/s640-Ic42/zsh-prompt.png" alt="zsh right prompt example" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-right-prompt-example.png" alt="zsh right prompt example">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <h3 id="поиск-в-истории-по-подстроке">Поиск в истории по подстроке</h3>
 
@@ -207,7 +317,17 @@ $ index.html
 
 <p>Например, вводим <code>git pu</code> и нажимаем стрелку вверх.</p>
 
-<p><img src="https://lh3.googleusercontent.com/-JcZi_xvm-gM/VlawE0ZiSVI/AAAAAAAAAj0/igudlxn0iDQ/s640-Ic42/Screenshot%2525202015-11-26%25252010.06.25.png" alt="zsh-history-substring-search" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-history-substring-search_hufadef811aa32d4d1419077222fb16b50_37862_1000x0_resize_q100_box_2.png" alt="zsh history substring search">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <p>Получили последний запрос, который соответствует введенному шаблону. Дальнейшие нажатия будут выводить следующий результат. Удобно, что для поиска совершаются минимальные действия.</p>
 
@@ -227,53 +347,58 @@ $ index.html
 
 <p>Вид популярной темы для zsh:</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png" alt="" /></p>
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/popular-zsh-theme.png" alt="popular zsh theme">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
 
 <h3 id="заключение">Заключение</h3>
 
 <p>Я не сомневаюсь, что многое из написанного можно достигнуть с помощью различных плагинов и скриптов для баша. Но зачем если есть хорошее решение «из коробки». Которое работает, и работает очень хорошо.</p>
 
-        </div>
+    </div>
 
-        <div class="likely article__likely">
-          <div class="twitter">Твитнуть</div>
-          <div class="facebook">Поделиться</div>
-          <div class="gplus">Плюсануть</div>
-          <div class="vkontakte">Поделиться</div>
-          <div class="telegram">Отправить</div>
-        </div>
-
-        <div class="meta">
-  <span class="date" title="26 ноября 2015, 13:10 MSK">
-    
-      2015
-    
-  </span>
-
-  
-  <span>   </span>
-
-  <a class="tag" href="tags/shell">shell</a>   
-</div>
-
-      </article>
-
-      <div class="article-navigation">
-        
-          <div class="article-prev-next">
-            <a href="https://agladky.ru/blog/git-cheat-sheet/">← Шпаргалка с основными командами для Git</a>  
-          </div>
-        
-        
-          <div class="article-prev-next">
-            <a href="https://agladky.ru/blog/flags-enums-in-csharp/">C# Enum и Атрибут Flags →</a>
-          </div>
-        
+    <footer class="article-footer__wrapper">
+      <div class="likely">
+        <div class="twitter">Твитнуть</div>
+        <div class="facebook">Поделиться</div>
+        <div class="gplus">Плюсануть</div>
+        <div class="vkontakte">Поделиться</div>
+        <div class="telegram">Отправить</div>
       </div>
 
-      <br />
-      <div class="disqus">
-        <div id="disqus_thread"></div>
+      <div class="article-footer__meta">
+  <span title="26 ноября 2015, 13:10 MSK">2015</span>
+    <div class="article-footer__meta-tags">
+        <a class="article-footer__meta-tag" href="tags/shell">shell</a>
+      </div>
+  </div>
+
+    </footer>
+  </article>
+
+  <div class="article-navigation">
+    
+      <div class="article-navigation__item article-navigation__item--first">
+        <a href="https://agladky.ru/blog/git-cheat-sheet/">← Шпаргалка с основными командами для Git</a>
+      </div>
+    
+    
+      <div class="article-navigation__item">
+        <a href="https://agladky.ru/blog/flags-enums-in-csharp/">C# Enum и Атрибут Flags →</a>
+      </div>
+    
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
     
@@ -293,23 +418,23 @@ $ index.html
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </div>
-    </div>
   </div>
-</section>
 
-<section class="footer">
-  <div class="container">
-    <div class="content">
-      <span>© Анатолий Гладкий, 2018 </span><a class="rss" href="https://agladky.ru/index.xml">РСС</a>
-      <br />
-      <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+        </div>
+      </main>
+
+      <footer class="footer-layout__container section-skin">
+        <div>
+          <div>
+            <span>© Анатолий Гладкий, 2018</span>
+            <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
+          </div>
+          <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
-
-
-
+    
+    
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -321,8 +446,6 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-
-</body>
-
+  </body>
 </html>
-
+  
