@@ -1,16 +1,182 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://agladky.ru/ru/sitemap.xml</loc>
-		
-	   	<lastmod>2016-12-13T17:10:07+03:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://agladky.ru/en/sitemap.xml</loc>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://agladky.ru/blog/async-await-example/</loc>
+    <lastmod>2016-12-13T17:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/moved-to-a-static-blog/</loc>
+    <lastmod>2016-09-10T11:13:23+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/listen-razbor-poletov/</loc>
+    <lastmod>2016-09-05T22:14:03+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/drag-and-drop-in-watch-windows/</loc>
+    <lastmod>2016-02-25T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/new-if-null-operator-csharp-6/</loc>
+    <lastmod>2016-02-17T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/differences-comparison-operators-in-javascript/</loc>
+    <lastmod>2016-02-02T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/what-is-a-monad-on-csharp-example/</loc>
+    <lastmod>2016-01-27T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/my-first-python-script/</loc>
+    <lastmod>2016-01-20T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/git-cheat-sheet/</loc>
+    <lastmod>2016-01-06T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/why-zsh-is-better-than-bash/</loc>
+    <lastmod>2015-11-26T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/flags-enums-in-csharp/</loc>
+    <lastmod>2015-11-03T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/how-to-test-abstract-classes/</loc>
+    <lastmod>2015-09-05T13:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/categories/development/</loc>
+    <lastmod>2016-12-13T17:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/dotnet/</loc>
+    <lastmod>2016-12-13T17:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/functional/</loc>
+    <lastmod>2016-01-27T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/git/</loc>
+    <lastmod>2016-01-06T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/ide/</loc>
+    <lastmod>2016-02-25T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/javascript/</loc>
+    <lastmod>2016-02-02T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/python/</loc>
+    <lastmod>2016-01-20T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/shell/</loc>
+    <lastmod>2015-11-26T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/</loc>
+    <lastmod>2016-12-13T17:10:07+03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/test/</loc>
+    <lastmod>2015-09-05T13:10:07+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/</loc>
+    <lastmod>2016-12-13T17:10:07+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/</loc>
+    <lastmod>2016-09-10T11:13:23+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/blog/</loc>
+    <lastmod>2016-12-13T17:10:07+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/tags/%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8B/</loc>
+    <lastmod>2016-09-05T22:14:03+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
