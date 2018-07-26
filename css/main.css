@@ -85,6 +85,10 @@ a:hover {
   max-width: 38px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
+.page-header__avatar-link {
+  border: none;
+  align-self: center;
+}
 .page-header__name {
   font-size: 30px;
   font-family: "Helvetica Neue", "Open Sans", "Arial", sans-serif;
@@ -108,10 +112,33 @@ a:hover {
   color: #d04000;
   border-bottom-color: rgba(208, 64, 0, 0.2);
 }
+.page-header__up {
+  display: flex;
+  justify-content: space-between;
+}
+.page-header__bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.page-header__lang {
+  margin-left: auto;
+}
+.page-header__lang-link:link {
+  color: #567;
+  border-bottom-color: rgba(85, 102, 119, 0.2);
+}
+.page-header__lang-link:visited {
+  color: #567;
+  border-bottom-color: rgba(85, 102, 119, 0.2);
+}
+.page-header__lang-link:hover {
+  color: #d04000;
+  border-bottom-color: rgba(208, 64, 0, 0.2);
+}
 .page-header__menu {
   font-size: 0.875rem;
   font-family: "Helvetica Neue", "Open Sans", "Arial", sans-serif;
-  margin-top: 1em;
 }
 .page-header__menu-item {
   display: inline-block;
@@ -255,7 +282,7 @@ a:hover {
   Footer
 */
 .footer-layout__container {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding-bottom: 2.2rem;
   font-size: 0.875rem;
 }
