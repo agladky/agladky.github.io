@@ -18,7 +18,7 @@
       
       <guid>https://agladky.ru/blog/async-await-example/</guid>
       <description>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока ContinueWith.
-Основные паттерны асинхронного программирования  Asynchronous Programming Model (APM) Event Asynchronous Pattern (EAP) Task Asynchronous Pattern (TAP)  Задачи представляют параллельные операции Могут выполняться на отдельном или разных потоках. Могут быть скомбинированы и выстроены в цепочку вызовов.   async/await — синтаксическая обертка над задачами  await ставит на паузу текущий метод, ожидая выполнения задачи.</description>
+ОРррсновные паттерны асинхронного программирования  Asynchronous Programming Model (APM) Event Asynchronous Pattern (EAP) Task Asynchronous Pattern (TAP)  Задачи представляют параллельные операции Могут выполняться на отдельном или разных потоках. Могут быть скомбинированы и выстроены в цепочку вызовов.   async/await — синтаксическая обертка над задачами  await ставит на паузу текущий метод, ожидая выполнения задачи.</description>
     </item>
     
     <item>

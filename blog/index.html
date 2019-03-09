@@ -14,19 +14,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://agladky.ru/blog/" />
 
-
-
-<meta property="og:updated_time" content="2016-12-13T17:10:07&#43;03:00"/>
-
-<meta property="og:site_name" content="Анатолий Гладкий" />
-
-
-
-
-
-
-
-
+<meta property="og:updated_time" content="2016-12-13T17:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
 
     
   
@@ -35,10 +23,10 @@
     <link rel="canonical" href="https://agladky.ru/blog/">
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1532588022">
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1532588022">
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1532588022">
-    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1532588022">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1552153809">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1552153809">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1552153809">
+    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1552153809">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -82,7 +70,7 @@
 
 <p>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока <code>ContinueWith</code>.</p>
 
-<h3 id="основные-паттерны-асинхронного-программирования">Основные паттерны асинхронного программирования</h3>
+<h3 id="орррсновные-паттерны-асинхронного-программирования">ОРррсновные паттерны асинхронного программирования</h3>
 
 <ul>
 <li><a href="https://msdn.microsoft.com/en-us/library/ms228963.aspx">Asynchronous Programming Model (APM)</a></li>
@@ -611,11 +599,11 @@
 </span><span class="c1"></span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true
 </span><span class="c1"></span>
 <span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true
-</span><span class="c1"></span></code></pre></div>
+</span></code></pre></div>
 <p>Особый случай — сравнение литерал с объектом:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;abc&#34;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>    <span class="c1">// true
 </span><span class="c1"></span><span class="s2">&#34;abc&#34;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>   <span class="c1">// false
-</span><span class="c1"></span></code></pre></div>
+</span></code></pre></div>
 <p>Здесь, оператор <code>==</code> проверяет значение объектов и возвращает <code>true</code>. Оператор <code>===</code> возвращает <code>false</code>, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.</p>
 
 <p>В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта <a href="http://dorey.github.io/JavaScript-Equality-Table/">dorey.github.io</a>.</p>
@@ -1671,7 +1659,7 @@ $ index.html
       <footer class="footer-layout__container section-skin">
         <div>
           <div>
-            <span>© Анатолий Гладкий, 2018</span>
+            <span>© Анатолий Гладкий, 2019</span>
             <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
           </div>
           <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>
@@ -1680,7 +1668,7 @@ $ index.html
     </div>
     
     
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
