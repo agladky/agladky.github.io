@@ -13,7 +13,6 @@
 <meta property="og:description" content="Блог Анатолия Гладкого" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://agladky.ru/tags/javascript/" />
-
 <meta property="og:updated_time" content="2016-02-02T13:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
 
     
@@ -23,10 +22,10 @@
     <link rel="canonical" href="https://agladky.ru/tags/javascript/">
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1552153809">
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1552153809">
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1552153809">
-    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1552153809">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1552202437">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1552202437">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1552202437">
+    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1552202437">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -117,11 +116,11 @@
 </span><span class="c1"></span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true
 </span><span class="c1"></span>
 <span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true
-</span></code></pre></div>
+</span><span class="c1"></span></code></pre></div>
 <p>Особый случай — сравнение литерал с объектом:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;abc&#34;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>    <span class="c1">// true
 </span><span class="c1"></span><span class="s2">&#34;abc&#34;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>   <span class="c1">// false
-</span></code></pre></div>
+</span><span class="c1"></span></code></pre></div>
 <p>Здесь, оператор <code>==</code> проверяет значение объектов и возвращает <code>true</code>. Оператор <code>===</code> возвращает <code>false</code>, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.</p>
 
 <p>В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта <a href="http://dorey.github.io/JavaScript-Equality-Table/">dorey.github.io</a>.</p>
@@ -162,7 +161,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="2 февраля 2016, 13:10 MSK">2016</span>
+  <span title="2 февраля 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/javascript">javascript</a>
       </div>

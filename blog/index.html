@@ -13,7 +13,6 @@
 <meta property="og:description" content="Пишу про разработку, налаживание процессов команды и мои интересы." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://agladky.ru/blog/" />
-
 <meta property="og:updated_time" content="2016-12-13T17:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
 
     
@@ -23,10 +22,10 @@
     <link rel="canonical" href="https://agladky.ru/blog/">
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1552153809">
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1552153809">
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1552153809">
-    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1552153809">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1552202437">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1552202437">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1552202437">
+    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1552202437">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -70,7 +69,7 @@
 
 <p>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока <code>ContinueWith</code>.</p>
 
-<h3 id="орррсновные-паттерны-асинхронного-программирования">ОРррсновные паттерны асинхронного программирования</h3>
+<h3 id="основные-паттерны-асинхронного-программирования">Основные паттерны асинхронного программирования</h3>
 
 <ul>
 <li><a href="https://msdn.microsoft.com/en-us/library/ms228963.aspx">Asynchronous Programming Model (APM)</a></li>
@@ -312,7 +311,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="13 декабря 2016, 17:10 MSK">2016</span>
+  <span title="13 декабря 2016, 17:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/dotnet">dotnet</a>
       </div>
@@ -359,7 +358,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="10 сентября 2016, 11:13 MSK">2016</span>
+  <span title="10 сентября 2016, 11:13 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/%D0%B1%D0%BB%D0%BE%D0%B3">блог</a>
       </div>
@@ -386,7 +385,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="5 сентября 2016, 22:14 MSK">2016</span>
+  <span title="5 сентября 2016, 22:14 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8B">подкасты</a>
       </div>
@@ -437,7 +436,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="25 февраля 2016, 13:10 MSK">2016</span>
+  <span title="25 февраля 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/dotnet">dotnet</a>
       
@@ -538,7 +537,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="17 февраля 2016, 13:10 MSK">2016</span>
+  <span title="17 февраля 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/dotnet">dotnet</a>
       </div>
@@ -599,11 +598,11 @@
 </span><span class="c1"></span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true
 </span><span class="c1"></span>
 <span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true
-</span></code></pre></div>
+</span><span class="c1"></span></code></pre></div>
 <p>Особый случай — сравнение литерал с объектом:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;abc&#34;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>    <span class="c1">// true
 </span><span class="c1"></span><span class="s2">&#34;abc&#34;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>   <span class="c1">// false
-</span></code></pre></div>
+</span><span class="c1"></span></code></pre></div>
 <p>Здесь, оператор <code>==</code> проверяет значение объектов и возвращает <code>true</code>. Оператор <code>===</code> возвращает <code>false</code>, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.</p>
 
 <p>В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта <a href="http://dorey.github.io/JavaScript-Equality-Table/">dorey.github.io</a>.</p>
@@ -644,7 +643,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="2 февраля 2016, 13:10 MSK">2016</span>
+  <span title="2 февраля 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/javascript">javascript</a>
       </div>
@@ -968,7 +967,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="27 января 2016, 13:10 MSK">2016</span>
+  <span title="27 января 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/dotnet">dotnet</a>
       
@@ -1126,7 +1125,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="20 января 2016, 13:10 MSK">2016</span>
+  <span title="20 января 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/python">python</a>
       </div>
@@ -1320,7 +1319,7 @@
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="6 января 2016, 13:10 MSK">2016</span>
+  <span title="6 января 2016, 13:10 &#43;0300">2016</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/git">git</a>
       </div>
@@ -1633,7 +1632,7 @@ $ index.html
 
     <footer class="article-footer__wrapper">
       <div class="article-footer__meta">
-  <span title="26 ноября 2015, 13:10 MSK">2015</span>
+  <span title="26 ноября 2015, 13:10 &#43;0300">2015</span>
     <div class="article-footer__meta-tags">
         <a class="article-footer__meta-tag" href="tags/shell">shell</a>
       </div>
