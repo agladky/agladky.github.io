@@ -21,6 +21,7 @@
 }
 .likely_visible {
   opacity: 1;
+  -webkit-transition: opacity 0.1s ease-in;
   transition: opacity 0.1s ease-in;
 }
 .likely > * {
@@ -70,11 +71,13 @@
   vertical-align: top;
 }
 .likely__widget {
+  -webkit-transition: background 0.33s ease-out, color 0.33s ease-out, fill 0.33s ease-out;
   transition: background 0.33s ease-out, color 0.33s ease-out, fill 0.33s ease-out;
 }
 .likely__widget:active,
 .likely__widget:focus,
 .likely__widget:hover {
+  -webkit-transition: none;
   transition: none;
   cursor: pointer;
 }
@@ -82,6 +85,7 @@
   .likely__widget:active,
   .likely__widget:focus,
   .likely__widget:hover {
+    -webkit-transition: background 0.33s ease-out, color 0.33s ease-out, fill 0.33s ease-out;
     transition: background 0.33s ease-out, color 0.33s ease-out, fill 0.33s ease-out;
     cursor: unset;
   }

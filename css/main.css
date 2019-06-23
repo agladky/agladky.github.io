@@ -10,11 +10,11 @@ html {
 }
 
 body {
-  display: -webkit-flex;
+  display: -webkit-box;
   display: flex;
-  -webkit-justify-content: flex-start;
+  -webkit-box-pack: start;
           justify-content: flex-start;
-  -webkit-align-items: center;
+  -webkit-box-align: center;
           align-items: center;
   width: 100%;
   min-height: 100%;
@@ -27,7 +27,7 @@ body {
 }
 @media (min-width: 600px) {
   body {
-    -webkit-justify-content: center;
+    -webkit-box-pack: center;
             justify-content: center;
   }
 }
@@ -41,9 +41,12 @@ a:active {
 }
 
 a {
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: border-bottom, border-color, background, color, fill;
   transition-property: border-bottom, border-color, background, color, fill;
-  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 }
 a:link {
   color: #0060a0;
@@ -58,6 +61,7 @@ a:hover {
   border-bottom-color: rgba(208, 64, 0, 0.2);
 }
 a:hover {
+  -webkit-transition: none;
   transition: none;
 }
 
@@ -91,8 +95,7 @@ a:hover {
 }
 .page-header__avatar-link {
   border: none;
-  -webkit-align-self: center;
-          align-self: center;
+  align-self: center;
 }
 .page-header__name {
   font-size: 30px;
@@ -118,15 +121,15 @@ a:hover {
   border-bottom-color: rgba(208, 64, 0, 0.2);
 }
 .page-header__up {
-  display: -webkit-flex;
+  display: -webkit-box;
   display: flex;
-  -webkit-justify-content: space-between;
+  -webkit-box-pack: justify;
           justify-content: space-between;
 }
 .page-header__bottom {
-  display: -webkit-flex;
+  display: -webkit-box;
   display: flex;
-  -webkit-justify-content: space-between;
+  -webkit-box-pack: justify;
           justify-content: space-between;
   margin-top: 1em;
 }
@@ -190,9 +193,9 @@ a:hover {
   font-size: 16px;
 }
 .main-layout__container {
-  -webkit-justify-content: flex-start;
+  -webkit-box-pack: start;
           justify-content: flex-start;
-  -webkit-align-items: center;
+  -webkit-box-align: center;
           align-items: center;
 }
 @media (min-width: 600px) {
@@ -324,21 +327,22 @@ a:hover {
   404 page
 */
 .e404-layout {
-  -webkit-justify-content: center;
+  -webkit-box-pack: center;
           justify-content: center;
-  display: -webkit-flex;
+  display: -webkit-box;
   display: flex;
-  -webkit-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
           flex-direction: column;
-  -webkit-align-items: center;
+  -webkit-box-align: center;
           align-items: center;
   margin-bottom: 2rem;
 }
 @media (min-width: 600px) {
   .e404-layout {
-    -webkit-justify-content: flex-start;
+    -webkit-box-pack: start;
             justify-content: flex-start;
-    -webkit-align-items: flex-start;
+    -webkit-box-align: start;
             align-items: flex-start;
   }
 }
