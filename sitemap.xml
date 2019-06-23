@@ -63,6 +63,20 @@
   </url>
   
   <url>
+    <loc>https://agladky.ru/books/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/books/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/books/"
+                />
+  </url>
+  
+  <url>
     <loc>https://agladky.ru/categories/</loc>
     <priority>0</priority>
     <xhtml:link
