@@ -12,13 +12,11 @@
 }
 /* Error */
 .k {
-  color: #000000;
-  font-weight: bold;
+  color: #0000ff;
 }
 /* Keyword */
 .o {
   color: #000000;
-  font-weight: bold;
 }
 /* Operator */
 .cm {
@@ -88,7 +86,6 @@
 /* Generic.Traceback */
 .kc {
   color: #000000;
-  font-weight: bold;
 }
 /* Keyword.Constant */
 .kd {
@@ -112,8 +109,7 @@
 }
 /* Keyword.Reserved */
 .kt {
-  color: #445588;
-  font-weight: bold;
+  color: #0000ff;
 }
 /* Keyword.Type */
 .m {
