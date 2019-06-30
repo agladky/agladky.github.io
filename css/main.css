@@ -6,7 +6,7 @@
 
 html {
   height: 100%;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
@@ -98,7 +98,7 @@ a:hover {
   align-self: center;
 }
 .page-header__name {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-family: "Helvetica Neue", "Open Sans", "Arial", sans-serif;
   letter-spacing: -0.005rem;
   font-weight: 700;
@@ -177,10 +177,10 @@ a:hover {
 }
 @media (min-width: 600px) {
   .page-header__avatar {
-    max-width: 50px;
+    max-width: 3.125rem;
   }
   .page-header__name {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 }
 
@@ -201,7 +201,7 @@ a:hover {
 }
 
 .section-head {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-family: "Helvetica Neue", "Open Sans", "Arial", sans-serif;
   letter-spacing: -0.005rem;
   font-weight: 700;
@@ -223,7 +223,7 @@ a:hover {
 }
 
 .article-head {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-family: "Helvetica Neue", "Open Sans", "Arial", sans-serif;
   letter-spacing: -0.005rem;
   font-weight: 700;
@@ -345,7 +345,7 @@ a:hover {
 .e404-content__num {
   margin: 30px 0px 30px 0;
   font-weight: 200;
-  font-size: 50px;
+  font-size: 3.125rem;
 }
 .e404-content__detail {
   margin-bottom: 2rem;
@@ -353,7 +353,7 @@ a:hover {
 @media (min-width: 600px) {
   .e404-content__num {
     margin: 0 0 10px 0;
-    font-size: 32px;
+    font-size: 2rem;
   }
   .e404-content__detail {
     margin-bottom: 1.6rem;
@@ -411,19 +411,15 @@ a:hover {
 .markdown--blackfriday code,
 .markdown--blackfriday pre {
   font-family: "Ubuntu Mono", "Menlo", monospace;
-  font-size: 0.93rem;
-  background-color: #f7f7f7;
+  font-size: 1.08rem;
 }
 .markdown--blackfriday code {
-  padding: 0.1em 0.3em;
-  border-radius: 2px;
   word-wrap: break-word;
 }
 .markdown--blackfriday pre {
   display: block;
   margin-bottom: 0.7em;
-  padding: 0.6em 1em;
-  line-height: 1.5em;
+  padding: 0 1em;
   white-space: pre;
   overflow-x: auto;
 }
@@ -446,7 +442,7 @@ a:hover {
 }
 .markdown--blackfriday ul, .markdown--blackfriday ol, .markdown--blackfriday dl {
   margin-bottom: 0.7em;
-  padding-left: 2.5rem;
+  padding-left: 2em;
 }
 .markdown--blackfriday p + ul, .markdown--blackfriday p + ol {
   margin-top: -0.7em;
