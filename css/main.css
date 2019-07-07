@@ -251,6 +251,9 @@ a:hover {
   color: #d04000;
   border-bottom-color: rgba(208, 64, 0, 0.2);
 }
+.article-head__sub {
+  color: rgba(0, 0, 0, 0.75);
+}
 
 .article-content {
   margin-bottom: 1rem;
