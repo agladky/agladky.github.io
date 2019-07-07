@@ -291,6 +291,37 @@ a:hover {
   margin-right: 1em;
 }
 
+.book-review__cover {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 1em;
+  max-width: 300px;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .book-review__cover {
+    float: left;
+    max-width: 250px;
+    margin-right: 1.5em;
+    margin-bottom: 0;
+  }
+}
+.book-review__rating {
+  margin-top: -0.3em;
+  margin-bottom: 0.5em;
+  color: gold;
+  letter-spacing: 0.1em;
+  font-size: 1.3em;
+}
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 /* 
   Footer
 */
