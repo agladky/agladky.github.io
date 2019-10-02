@@ -309,6 +309,20 @@ a:hover {
     margin-bottom: 0;
   }
 }
+.book-review__item {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+@media (min-width: 600px) {
+  .book-review__item {
+    -webkit-box-orient: inherit;
+    -webkit-box-direction: inherit;
+            flex-direction: inherit;
+  }
+}
 .book-review__rating {
   color: gold;
   letter-spacing: 0.1em;
@@ -319,15 +333,16 @@ a:hover {
   font-size: 1.3em;
 }
 .book-review__rating_row {
-  display: block;
   margin-bottom: -0.3em;
 }
 @media (min-width: 600px) {
   .book-review__rating_row {
-    float: left;
-    margin-bottom: inherit;
     margin-right: 0.3em;
+    margin-bottom: 0;
   }
+}
+.book-review__title_row {
+  display: block;
 }
 
 .clearfix:after {
