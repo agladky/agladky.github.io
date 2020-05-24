@@ -12,8 +12,9 @@
     <meta property="og:title" content="Почему стоит использовать zsh вместо bash" />
 <meta property="og:description" content="Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://agladky.ru/blog/why-zsh-is-better-than-bash/" /><meta property="article:published_time" content="2015-11-26T13:10:07&#43;03:00"/>
-<meta property="article:modified_time" content="2015-11-26T13:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
+<meta property="og:url" content="https://agladky.ru/blog/why-zsh-is-better-than-bash/" />
+<meta property="article:published_time" content="2015-11-26T13:10:07+03:00" />
+<meta property="article:modified_time" content="2015-11-26T13:10:07+03:00" /><meta property="og:site_name" content="Анатолий Гладкий" />
 
     
   
@@ -22,10 +23,14 @@
     <link rel="canonical" href="https://agladky.ru/blog/why-zsh-is-better-than-bash/">
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1570007355">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
+    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1590329171">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -70,222 +75,58 @@
     </header>
 
     <div class="article-content markdown--blackfriday">
-      
-
-<p>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в <a href="https://ru.wikipedia.org/wiki/Zsh">русской</a> или <a href="https://en.wikipedia.org/wiki/Z_shell">английской</a> википедии.</p>
-
+      <p>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в <a href="https://ru.wikipedia.org/wiki/Zsh">русской</a> или <a href="https://en.wikipedia.org/wiki/Z_shell">английской</a> википедии.</p>
 <p>Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.</p>
-
 <h3 id="автодополнение-для-cd">Автодополнение для cd</h3>
-
 <p>Наберем в баш <code>cd</code> и нажмем таб.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/bash-cd-tab-first_hu1ce81721fbd96c6f68f8565a2c1ea347_65739_1000x0_resize_q100_box_2.png" alt="bash cd tab first">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Еще раз.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/bash-cd-tab-second_hucf282d50c84dc6d5f7e208a899c25811_99710_1000x0_resize_q100_box_2.png" alt="bash cd tab second">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.</p>
-
 <p>Теперь наберем <code>cd</code> в zsh и нажмем таб.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-cd-tab-first_hu3649e35cdc114eeffa1642faccda59bd_65258_1000x0_resize_q100_box_2.png" alt="zsh cd tab first">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>В строку ввода подставилось первое значение из списка. Нажимаем таб еще раз.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-cd-tab-second_hu3649e35cdc114eeffa1642faccda59bd_71366_1000x0_resize_q100_box_2.png" alt="zsh cd tab second">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Подставилось второе значение из списка! Удобно.</p>
-
-<h3 id="автодополнение-для-команд-на-примере-git">Автодополнение для команд на примере git</h3>
-
+<h3 id="автодополнение-для-команд-напримере-git">Автодополнение для команд на примере git</h3>
 <p>Введем в баш <code>git</code> и нажмем таб.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/bash-git-tab_hucf865b07bb521cee8aae6ad4b1fd7db4_69596_1000x0_resize_q100_box_2.png" alt="bash git tab">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Никакой помощи не появилось. Только отображаются файлы данной директории.</p>
-
 <p>Проделаем ту же операцию в zsh.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-git-tab_hu03300f966fd8ae1ac2ad69108a315d31_189144_1000x0_resize_q100_box_2.png" alt="zsh git tab">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Отобразился список команд с описанием. Это гораздо информативнее.</p>
-
 <p>Да, установив пакет bash-completion, подобное поведение появится и в баше. Но выводить информацию как в zsh не получится:</p>
-
 <ul>
 <li>Не будет итерации по значениям, как в пункте про <code>cd</code>;</li>
 <li>Не будет справочной информации, только список значений.</li>
 </ul>
-
 <h3 id="раскрытие-полного-пути">Раскрытие полного пути</h3>
-
 <p>Zsh поддерживает раскрытие полного пути на основе неполных данных. Введем шаблон пути:</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-first_hudd8239d04b450c92f709011ee324f669_34826_1000x0_resize_q100_box_2.png" alt="zsh path expansion first">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Нажмем tab.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-second_hu3090c863184f469e2c4c382ebc6a1243_36631_1000x0_resize_q100_box_2.png" alt="zsh path expansion second">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Путь до директории полностью раскрылся. Не пришлось вводить лишних символов.</p>
-
 <p>Но что, если заданному пути соответствует несколько путей? Введем <code>cd u/l/g</code> и нажмем таб.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-third_hudd8239d04b450c92f709011ee324f669_34328_1000x0_resize_q100_box_2.png" alt="zsh path expansion third">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Путь раскрылся до возникновения неопределенности. Нажимаем таб еще раз, и перед нами предстанет выбор папки.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-expansion-fourth_hu1b01d49ba921e012625af7846d13510e_43085_1000x0_resize_q100_box_2.png" alt="zsh path expansion fourth">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Выбираем табом нужную папку. Последующее нажатие таба раскроет задуманный путь до конца.</p>
-
 <h3 id="замена-пути">Замена пути</h3>
-
 <p>Zsh поддерживает замену части пути. Рассмотрим на примере. Введем <code>cd /usr/local/bin</code>. Но подождите, я хотел <code>cd /usr/local/share</code>! Не проблема, вводим команду <code>cd bin share</code> и получаем заветный путь:</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-replacement-first_huc7aa161642077ec4358160303cc4aaee_60678_1000x0_resize_q100_box_2.png" alt="zsh path replacement first">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Возможно, это не самый убедительный пример. Того же эффекта можно достичь просто написав <code>cd ../share</code>. Но рассмотрим следующий случай:</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-path-replacement-second_hu0509c2a5874635db8a2d50a5900a46b7_64080_1000x0_resize_q100_box_2.png" alt="zsh path replacement second">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>B баш тут бы пришлось изрядно постараться (<code>cd ../../../</code>).</p>
-
 <h3 id="псевдонимы">Псевдонимы</h3>
-
 <p>Обычные псевдонимы задаются так:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span>’ls —color<span class="o">=</span>auto’</code></pre></div>
-<p>В zsh существует еще 2 типа псевдонима.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span>’ls —color<span class="o">=</span>auto’
+</code></pre></div><p>В zsh существует еще 2 типа псевдонима.</p>
 <p>Первый — <em>глобальный (global)</em>. Может вызываться в любом месте команды. Задается ключом <code>-g</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> -g <span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;| grep -i&#39;</span>
 
 $ ps ax gp <span class="nv">docker</span>
-<span class="o">=</span>&gt; ps ax <span class="p">|</span> grep -i docker</code></pre></div>
-<p>В примере, вместо написания <code>| grep -i</code>, в середине выражения, использовался псевдоним <code>gp</code>. Удобно.</p>
-
+<span class="o">=</span>&gt; ps ax <span class="p">|</span> grep -i docker
+</code></pre></div><p>В примере, вместо написания <code>| grep -i</code>, в середине выражения, использовался псевдоним <code>gp</code>. Удобно.</p>
 <p>Второй тип — <em>суффиксный (suffix)</em>. Указывает в каком приложении открывать файл, основываясь на расширении. Задается ключом <code>-s</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">alias</span> -s <span class="nv">log</span><span class="o">=</span><span class="s1">&#39;less -MN&#39;</span>
 <span class="nb">alias</span> -s <span class="nv">html</span><span class="o">=</span><span class="s1">&#39;chromium&#39;</span>
@@ -293,73 +134,31 @@ $ ps ax gp <span class="nv">docker</span>
 $ development.log
 <span class="o">=</span>&gt; less -MN development.log
 $ index.html
-<span class="o">=</span>&gt; chromium index.html</code></pre></div>
-<h3 id="правая-строка">Правая строка</h3>
-
+<span class="o">=</span>&gt; chromium index.html
+</code></pre></div><h3 id="правая-строка">Правая строка</h3>
 <p>Zsh позволяет настроить правую строку приглашения. Туда можно выводить текущую дату, состояние ветки в git и многое другое. Иллюстрация из <a href="https://git-scm.com/book/tr/v2/Git-in-Other-Environments-Git-in-Zsh">книги Pro Git</a>:</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-right-prompt-example.png" alt="zsh right prompt example">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
-<h3 id="поиск-в-истории-по-подстроке">Поиск в истории по подстроке</h3>
-
+<!-- raw HTML omitted -->
+<h3 id="поиск-вистории-поподстроке">Поиск в истории по подстроке</h3>
 <p>Одна из самых кайфовых вещей, которую позволяет делать zsh. (Включается плагином, history-substring-search в oh-my-zsh, о котором ниже).</p>
-
 <p>Например, вводим <code>git pu</code> и нажимаем стрелку вверх.</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/zsh-history-substring-search_hufadef811aa32d4d1419077222fb16b50_37862_1000x0_resize_q100_box_2.png" alt="zsh history substring search">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <p>Получили последний запрос, который соответствует введенному шаблону. Дальнейшие нажатия будут выводить следующий результат. Удобно, что для поиска совершаются минимальные действия.</p>
-
 <h3 id="oh-my-zsh">oh-my-zsh</h3>
-
 <p>Фреймворк для легкой настройки и установки <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview">плагинов</a> и <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">тем оформления</a>. Содержит в себе уже более 200 плагинов. Проект доступен на <a href="https://github.com/robbyrussell/oh-my-zsh">github</a>.</p>
-
-<p>Плагины которыми я пользуюсь:
-* <em>git</em> — добавляет много полезных <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git">сокращений</a> для команд гита.
-* <em>colored-man-pages</em> — добавляет подсветку на man страницы
-* <em>command-not-found</em> — подсказывает название команды, если она напечатана с ошибкой
-* <em>bwana</em> — позволяет открывать man страницы в браузере
-* <em>sublime</em> — псевдонимы для вызова sublime text
-* <em>history</em> — псевдонимы для истории команд и поиска по ним
-* <em>history-substring-search</em> — реализация поиска в истории по подстроке
-* <em>docker</em> — помощь для команд докера.</p>
-
+<p>Плагины которыми я пользуюсь:</p>
+<ul>
+<li><em>git</em> — добавляет много полезных <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git">сокращений</a> для команд гита.</li>
+<li><em>colored-man-pages</em> — добавляет подсветку на man страницы</li>
+<li><em>command-not-found</em> — подсказывает название команды, если она напечатана с ошибкой</li>
+<li><em>bwana</em> — позволяет открывать man страницы в браузере</li>
+<li><em>sublime</em> — псевдонимы для вызова sublime text</li>
+<li><em>history</em> — псевдонимы для истории команд и поиска по ним</li>
+<li><em>history-substring-search</em> — реализация поиска в истории по подстроке</li>
+<li><em>docker</em> — помощь для команд докера.</li>
+</ul>
 <p>Вид популярной темы для zsh:</p>
-
-
-
-
-    
-
-
-<figure>
-	<img src="https://agladky.ru/blog/why-zsh-is-better-than-bash/images/popular-zsh-theme.png" alt="popular zsh theme">
-	<figcaption style="font-size: 0.8rem"></figcaption>
-</figure>
-
-
+<!-- raw HTML omitted -->
 <h3 id="заключение">Заключение</h3>
-
 <p>Я не сомневаюсь, что многое из написанного можно достигнуть с помощью различных плагинов и скриптов для баша. Но зачем если есть хорошее решение «из коробки». Которое работает, и работает очень хорошо.</p>
 
     </div>
@@ -424,7 +223,7 @@ $ index.html
       <footer class="footer-layout__container section-skin">
         <div>
           <div>
-            <span>© Анатолий Гладкий, 2019</span>
+            <span>© Анатолий Гладкий, 2020</span>
             <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
           </div>
           <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shell on Анатолий Гладкий</title>
+    <title>shell on Анатолий Гладкий</title>
     <link>https://agladky.ru/tags/shell/</link>
-    <description>Recent content in Shell on Анатолий Гладкий</description>
+    <description>Recent content in shell on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Thu, 26 Nov 2015 13:10:07 +0300</lastBuildDate>
@@ -20,8 +20,8 @@
       <description>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в русской или английской википедии.
 Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.
 Автодополнение для cd Наберем в баш cd и нажмем таб.
-   Еще раз.
-   Каждый раз будет выводиться только список файлов в текущей директории.</description>
+Еще раз.
+Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список.</description>
     </item>
     
   </channel>

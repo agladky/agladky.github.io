@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Анатолий Гладкий</title>
+    <title>python on Анатолий Гладкий</title>
     <link>https://agladky.ru/tags/python/</link>
-    <description>Recent content in Python on Анатолий Гладкий</description>
+    <description>Recent content in python on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Wed, 20 Jan 2016 13:10:07 +0300</lastBuildDate>
@@ -18,7 +18,7 @@
       
       <guid>https://agladky.ru/blog/my-first-python-script/</guid>
       <description>Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.
-И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в тудуисте. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня».</description>
+И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в тудуисте. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня». Это не всегда получается с одной попытки.</description>
     </item>
     
   </channel>

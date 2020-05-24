@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Блог on Анатолий Гладкий</title>
+    <title>блог on Анатолий Гладкий</title>
     <link>https://agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/</link>
-    <description>Recent content in Блог on Анатолий Гладкий</description>
+    <description>Recent content in блог on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Sat, 10 Sep 2016 11:13:23 +0300</lastBuildDate>
@@ -19,7 +19,8 @@
       <guid>https://agladky.ru/blog/moved-to-a-static-blog/</guid>
       <description>Для разработчика, вести блог на гитхабе — отличная идея.
 Я прошёл путь от простой хотелки перейти на статический блог до разработки шаблона и применения инфостиля. Расскажу как это было.
-Начало В начале года узнал о существовании github pages. Это статический хостинг. В отличие от динамических хостингов, которые для каждого запроса генерируют страницу с ответом, на статических хранятся готовые страницы. Сайт загружается быстрее, но на сервере нельзя выполнить никаких скриптов.</description>
+Начало В начале года узнал о существовании github pages. Это статический хостинг. В отличие от динамических хостингов, которые для каждого запроса генерируют страницу с ответом, на статических хранятся готовые страницы. Сайт загружается быстрее, но на сервере нельзя выполнить никаких скриптов.
+Решил попробовать для блога.</description>
     </item>
     
   </channel>

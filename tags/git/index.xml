@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Анатолий Гладкий</title>
+    <title>git on Анатолий Гладкий</title>
     <link>https://agladky.ru/tags/git/</link>
-    <description>Recent content in Git on Анатолий Гладкий</description>
+    <description>Recent content in git on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Wed, 06 Jan 2016 13:10:07 +0300</lastBuildDate>

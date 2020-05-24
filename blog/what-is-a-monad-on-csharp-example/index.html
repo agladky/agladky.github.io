@@ -12,8 +12,9 @@
     <meta property="og:title" content="Что такое монады на примере C#" />
 <meta property="og:description" content="Краткий перевод статьи Эрика Липперта о реализации монад в .net на примере c#" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://agladky.ru/blog/what-is-a-monad-on-csharp-example/" /><meta property="article:published_time" content="2016-01-27T13:10:07&#43;03:00"/>
-<meta property="article:modified_time" content="2016-01-27T13:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
+<meta property="og:url" content="https://agladky.ru/blog/what-is-a-monad-on-csharp-example/" />
+<meta property="article:published_time" content="2016-01-27T13:10:07+03:00" />
+<meta property="article:modified_time" content="2016-01-27T13:10:07+03:00" /><meta property="og:site_name" content="Анатолий Гладкий" />
 
     
   
@@ -22,10 +23,14 @@
     <link rel="canonical" href="https://agladky.ru/blog/what-is-a-monad-on-csharp-example/">
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1570007355">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
+    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1590329171">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -70,24 +75,15 @@
     </header>
 
     <div class="article-content markdown--blackfriday">
-      
-
-<p>Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:</p>
-
+      <p>Конспект — вольный перевод одного из лучших циклов статей о монадах. Эрик Липперт, на протяжении 13 глав, отвечает на вопрос:</p>
 <blockquote>
 <p>Я C# разработчик без опыта в «функциональном программировании». Что такое «монада» и как можно её использовать для себя?</p>
 </blockquote>
-
 <p>Оригинальный цикл статей доступен по <a href="http://ericlippert.com/category/monads/">тегу monads</a>.</p>
-
 <h3 id="часть-первая">Часть первая</h3>
-
 <p>Монада в функциональном программировании — абстракция линейной цепочки связанных вычислений. Её основное назначение — инкапсуляция функций с побочным эффектом от чистых функций, а точнее, их выполнений от вычислений. (Определение из википедии).</p>
-
 <p>«Шаблон монады» это еще один шаблон для типов. Как, например, одиночка (синглтон).</p>
-
 <h3 id="часть-вторая">Часть вторая</h3>
-
 <ul>
 <li><code>Nullable&lt;T&gt;</code> — представляет объект типа T, который может быть <code>null</code> (в дальнейшем, подразумевается что <code>Nullable&lt;T&gt;</code> может работать с любым типом данных).</li>
 <li><code>Func&lt;T&gt;</code> — представляет объект типа T, который будет вычислен отложено (в дальнейшем, для большей ясности, будет использоваться делегат <code>delegate T OnDemand&lt;T&gt;();</code>).</li>
@@ -95,15 +91,12 @@
 <li><code>Task&lt;T&gt;</code> — представляет объект типа T, который будет вычислен асинхронно и будет доступен в будущем, если уже не вычислен.</li>
 <li><code>IEnumerable&lt;T&gt;</code> — представляет упорядоченную, доступную только для чтения последовательность от нуля и более элементов типа T.</li>
 </ul>
-
 <h3 id="часть-третья">Часть третья</h3>
-
 <p>Первое требование для монад: «если <code>M&lt;T&gt;</code> это тип-монада, тогда должен быть простой путь по превращению любого значение типа <code>T</code> в значение типа <code>M&lt;T&gt;</code>». Например:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleNullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">item</span><span class="p">);</span> <span class="p">}</span>
 <span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleOnDemand</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">item</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleSequence</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">yield</span> <span class="k">return</span> <span class="n">item</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
-<p>Кажется, что второе требование просто сформулировать: «из монады <code>M&lt;T&gt;</code>можно получить значение типа <code>T</code>». Но не все так однозначно. Начнем с очень специфичного вопроса. Можно легко прибавить единицу к целочисленному типу, но как «прибавить единицу» к типу-монаде обернутого вокруг целочисленного типа?</p>
-
+<span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleSequence</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span> <span class="k">yield</span> <span class="k">return</span> <span class="n">item</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div><p>Кажется, что второе требование просто сформулировать: «из монады <code>M&lt;T&gt;</code>можно получить значение типа <code>T</code>». Но не все так однозначно. Начнем с очень специфичного вопроса. Можно легко прибавить единицу к целочисленному типу, но как «прибавить единицу» к типу-монаде обернутого вокруг целочисленного типа?</p>
 <p>Для <code>Nullable&lt;T&gt;</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">)</span>
 <span class="p">{</span>
@@ -115,8 +108,8 @@
   <span class="p">}</span>
   <span class="k">else</span>  
     <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
-<span class="p">}</span></code></pre></div>
-<p>То есть можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
+<span class="p">}</span>
+</code></pre></div><p>То есть можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для <code>OnDemand&lt;T&gt;()</code>, который обернут вокруг <code>DateTime.Now.Seconds</code>, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">OnDemand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">onDemand</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span>
@@ -125,9 +118,8 @@
     <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
   <span class="p">};</span>
-<span class="p">}</span></code></pre></div>
-<p>То есть тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>То есть тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.</p>
 <p>Для <code>Lazy&lt;T&gt;</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Lazy</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">lazy</span><span class="p">)</span>
 <span class="p">{</span>
@@ -137,15 +129,15 @@
     <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
   <span class="p">});</span>
-<span class="p">}</span></code></pre></div>
-<p>Для <code>Task&lt;T&gt;</code>:</p>
+<span class="p">}</span>
+</code></pre></div><p>Для <code>Task&lt;T&gt;</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">async</span> <span class="k">static</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Task</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">task</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="n">unwrapped</span> <span class="p">=</span> <span class="k">await</span> <span class="n">task</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
   <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<p>И, наконец, для <code>IEnumerable&lt;T&gt;</code>:</p>
+<span class="p">}</span>
+</code></pre></div><p>И, наконец, для <code>IEnumerable&lt;T&gt;</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">sequence</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">foreach</span><span class="p">(</span><span class="kt">int</span> <span class="n">unwrapped</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">)</span>
@@ -153,11 +145,9 @@
     <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">unwrapped</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
     <span class="k">yield</span> <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
-<p>Таким образом, одно из полезных правил для шаблона монад — добавление единицы к завернутому целочисленному типу производит другой завернутый целочисленный тип, с сохранением всех особенностей.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Таким образом, одно из полезных правил для шаблона монад — добавление единицы к завернутому целочисленному типу производит другой завернутый целочисленный тип, с сохранением всех особенностей.</p>
 <h3 id="часть-четвертая">Часть четвертая</h3>
-
 <p>Напишем метод, который позволит делать оболочку над любыми <code>Nullable&lt;T&gt;</code> функциями, а не только операцией по добавлению единицы:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
   <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
@@ -171,13 +161,13 @@
   <span class="p">}</span>
   <span class="k">else</span>
     <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;();</span>
-<span class="p">}</span></code></pre></div>
-<p>Теперь метод <code>AddOne(...)</code> будет выглядеть так:</p>
+<span class="p">}</span>
+</code></pre></div><p>Теперь метод <code>AddOne(...)</code> будет выглядеть так:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">AddOne</span><span class="p">(</span><span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">ApplyFunction</span><span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
-<p>Но, допустим, мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
+<span class="p">}</span>
+</code></pre></div><p>Но, допустим, мы хотим функцию которая принимает тип <code>int</code> и возвращает <code>double</code>. Например, поделить 2 целых числа и получить результат типа <code>double</code>. Для этого, перепишем метод <code>ApplyFunction</code> в следующий вид:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
   <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
   <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
@@ -190,11 +180,9 @@
   <span class="p">}</span>
   <span class="k">else</span>
     <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;();</span>
-<span class="p">}</span></code></pre></div>
-<p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения, предоставляемые в монадическом («расширенном») типе.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Для остальных типов, можно сделать по аналогии. По сути, получился способ превращения типов из <code>A</code> в <code>R</code> в монадические типы из <code>М&lt;А&gt;</code> в <code>М&lt;R&gt;</code> такие, что сохраняется действие функции и значения, предоставляемые в монадическом («расширенном») типе.</p>
 <h3 id="часть-пятая">Часть пятая</h3>
-
 <p>Ранее было указано, что можно взять любую функцию с одним параметром и любым не пустым возвращаемым типом и применить эту функцию к монаде с возвращаемым типом <code>M&lt;R&gt;</code>. Любой возвращаемый тип, так? Предположим, что есть функция с одним параметром:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;</span> <span class="n">SafeLog</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
@@ -202,9 +190,8 @@
     <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;(</span><span class="n">Math</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
   <span class="k">else</span>
     <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
-<span class="p">}</span></code></pre></div>
-<p>Обычная функция с одним параметром. Значит, ее можно применить к <code>Nullable&lt;int&gt;</code> и получить обратно&hellip; <code>Nullable&lt;Nullable&lt;double&gt;&gt;</code>! Это неправильно.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Обычная функция с одним параметром. Значит, ее можно применить к <code>Nullable&lt;int&gt;</code> и получить обратно&hellip; <code>Nullable&lt;Nullable&lt;double&gt;&gt;</code>! Это неправильно.</p>
 <p>Создадим новую версию <code>ApplyFunction</code>, которая избегает описанной проблемы:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
   <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">nullable</span><span class="p">,</span>
@@ -218,8 +205,8 @@
   <span class="p">}</span>
   <span class="k">else</span>
     <span class="k">return</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;();</span>
-<span class="p">}</span></code></pre></div>
-<p>Просто, не так ли? Создадим функции для остальных операторов:</p>
+<span class="p">}</span>
+</code></pre></div><p>Просто, не так ли? Создадим функции для остальных операторов:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
   <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">onDemand</span><span class="p">,</span>
   <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">OnDemand</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
@@ -263,24 +250,26 @@
     <span class="k">foreach</span><span class="p">(</span><span class="n">R</span> <span class="n">r</span> <span class="k">in</span> <span class="n">result</span><span class="p">)</span>
       <span class="k">yield</span> <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
-<p>В итоге для «шаблона монады» имеются 3 правила:</p>
-
+<span class="p">}</span>
+</code></pre></div><p>В итоге для «шаблона монады» имеются 3 правила:</p>
 <ol>
-<li><p>Всегда существует возможность преобразовать тип <code>T</code> в тип <code>M&lt;T&gt;</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="k">value</span><span class="p">)</span></code></pre></div></li>
-
-<li><p>Если существует функция, преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<li>
+<p>Всегда существует возможность преобразовать тип <code>T</code> в тип <code>M&lt;T&gt;</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="k">value</span><span class="p">)</span>
+</code></pre></div></li>
+<li>
+<p>Если существует функция, преобразующая <code>A</code> в <code>R</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
-<span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span></code></pre></div></li>
-
-<li><p>Если существует функция, преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
+<span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">function</span><span class="p">)</span>
+</code></pre></div></li>
+<li>
+<p>Если существует функция, преобразующая <code>A</code> в <code>M&lt;R&gt;</code>, тогда можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
-<span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span></code></pre></div></li>
+<span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+</code></pre></div></li>
 </ol>
-
 <p>Но, правило 2 является частным случаем правила 3. Его можно представить в как комбинацию 1 и 3 правила:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplyFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
   <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">wrapped</span><span class="p">,</span>
@@ -289,82 +278,70 @@
   <span class="k">return</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
     <span class="n">wrapped</span><span class="p">,</span>
     <span class="p">(</span><span class="n">A</span> <span class="n">unwrapped</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;(</span><span class="n">function</span><span class="p">(</span><span class="n">unwrapped</span><span class="p">)));</span>
-<span class="p">}</span></code></pre></div>
-<p>Остается всего два правила. Они являются полными правилами «шаблона монады»? В принципе, да.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Остается всего два правила. Они являются полными правилами «шаблона монады»? В принципе, да.</p>
 <h3 id="часть-шестая">Часть шестая</h3>
-
 <p>Необходимо, чтобы операции упаковки и распаковки сохраняли значение.</p>
-
 <p>Пусть имеются 2 метода:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 <span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
-  <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">monad</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span> <span class="p">{...}</span></code></pre></div>
-<p>Тогда, результат следующего выражения:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">someMonadValue</span><span class="p">,</span> <span class="n">CreateSimpleM</span><span class="p">)</span></code></pre></div>
-<p>по значению идентичен <code>someMonadValue</code>, а результат следующего выражения:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">CreateSimpleM</span><span class="p">(</span><span class="n">someValue</span><span class="p">),</span> <span class="n">someFunction</span><span class="p">)</span></code></pre></div>
-<p>по значению идентичен:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">someFunction</span><span class="p">(</span><span class="n">someValue</span><span class="p">)</span></code></pre></div>
-<h3 id="часть-седьмая">Часть седьмая</h3>
-
+  <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">monad</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span> <span class="p">{...}</span>
+</code></pre></div><p>Тогда, результат следующего выражения:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">someMonadValue</span><span class="p">,</span> <span class="n">CreateSimpleM</span><span class="p">)</span>
+</code></pre></div><p>по значению идентичен <code>someMonadValue</code>, а результат следующего выражения:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">CreateSimpleM</span><span class="p">(</span><span class="n">someValue</span><span class="p">),</span> <span class="n">someFunction</span><span class="p">)</span>
+</code></pre></div><p>по значению идентичен:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">someFunction</span><span class="p">(</span><span class="n">someValue</span><span class="p">)</span>
+</code></pre></div><h3 id="часть-седьмая">Часть седьмая</h3>
 <p>Допустим, имеются 2 функции:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">&gt;</span> <span class="m">0</span>
     <span class="p">?</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;(</span><span class="n">Math</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="p">:</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;&gt;</span> <span class="n">toDecimal</span> <span class="p">=</span> <span class="n">y</span> <span class="p">=&gt;</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">&lt;</span> <span class="kt">decimal</span><span class="p">.</span><span class="n">MaxValue</span>
     <span class="p">?</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;((</span><span class="kt">decimal</span><span class="p">)</span><span class="n">y</span><span class="p">)</span>
-    <span class="p">:</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;();</span></code></pre></div>
-<p>Тогда, с помощью определенного ранее метода <code>ApplySpecialFunction</code> можно написать следующий метод-помощник:</p>
+    <span class="p">:</span> <span class="k">new</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;();</span>
+</code></pre></div><p>Тогда, с помощью определенного ранее метода <code>ApplySpecialFunction</code> можно написать следующий метод-помощник:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">ComposeSpecial</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">&gt;(</span>
   <span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">&gt;&gt;</span> <span class="n">f</span><span class="p">,</span>
   <span class="n">Func</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">g</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">g</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
-<p>который позволяет объединить определенные выше функции в одну:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;&gt;</span> <span class="n">both</span> <span class="p">=</span> <span class="n">ComposeSpecial</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">toDecimal</span><span class="p">);</span></code></pre></div>
-<p>Отсюда следует последнее правило — метод <code>ApplySpecialFunction</code> должен гарантировать работу композиции. Пример:</p>
+<span class="p">}</span>
+</code></pre></div><p>который позволяет объединить определенные выше функции в одну:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Nullable</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">&gt;&gt;</span> <span class="n">both</span> <span class="p">=</span> <span class="n">ComposeSpecial</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">toDecimal</span><span class="p">);</span>
+</code></pre></div><p>Отсюда следует последнее правило — метод <code>ApplySpecialFunction</code> должен гарантировать работу композиции. Пример:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">&gt;&gt;</span> <span class="n">f</span> <span class="p">=</span> <span class="n">whatever</span><span class="p">;</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">g</span> <span class="p">=</span> <span class="n">whatever</span><span class="p">;</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">X</span><span class="p">&gt;</span> <span class="n">mx</span> <span class="p">=</span> <span class="n">whatever</span><span class="p">;</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">Y</span><span class="p">&gt;</span> <span class="n">my</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
 <span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;</span> <span class="n">mz1</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">my</span><span class="p">,</span> <span class="n">g</span><span class="p">);</span>
 <span class="n">Func</span><span class="p">&lt;</span><span class="n">X</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;&gt;</span> <span class="n">h</span> <span class="p">=</span> <span class="n">ComposeSpecial</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">);</span>
-<span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;</span> <span class="n">mz2</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span></code></pre></div>
-<p>Значения <code>mz1</code> и <code>mz2</code> должны быть одинаковыми.</p>
-
+<span class="n">M</span><span class="p">&lt;</span><span class="n">Z</span><span class="p">&gt;</span> <span class="n">mz2</span> <span class="p">=</span> <span class="n">ApplySpecialFunction</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
+</code></pre></div><p>Значения <code>mz1</code> и <code>mz2</code> должны быть одинаковыми.</p>
 <p>Наконец, можно полностью описать «шаблон монады» в C#:</p>
-
 <p>Монада — это обобщенный тип <code>M&lt;T&gt;</code>, такой что:</p>
-
 <ul>
-<li><p>Для нее существует конструирующий механизм, который принимает на вход переменную типа <code>T</code> и возвращает <code>M&lt;T&gt;</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span></code></pre></div></li>
-
-<li><p>Если существует способ преобразования значения типа <code>A</code> в <code>M&lt;R&gt;</code>, то можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>:</p>
+<li>
+<p>Для нее существует конструирующий механизм, который принимает на вход переменную типа <code>T</code> и возвращает <code>M&lt;T&gt;</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">CreateSimpleM</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div></li>
+<li>
+<p>Если существует способ преобразования значения типа <code>A</code> в <code>M&lt;R&gt;</code>, то можно применить эту функцию к экземпляру <code>M&lt;A&gt;</code> и получить экземпляр <code>M&lt;R&gt;</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="n">ApplySpecialFunction</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span>
-<span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">monad</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span></code></pre></div></li>
+  <span class="n">M</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;</span> <span class="n">monad</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;&gt;</span> <span class="n">function</span><span class="p">)</span>
+</code></pre></div></li>
 </ul>
-
 <p>Оба этих метода должны подчиняться следующим законам:</p>
-
 <ul>
 <li>Применение функции создающую простую монаду (правило-метод 1) к конкретному экземпляру монады должно приводить к логически идентичному экземпляру монады.</li>
 <li>Применение функции к результату функции создающей простую монаду из определенного значения и применение этой функции к определенному значению напрямую должно приводить к логически идентичным экземплярам монад.</li>
 <li>Результат применения к значению первой функции второй функции и результат применения первоначального значения к функции-композиции первых двух функций должен приводить к двум логически идентичным экземплярам монад.</li>
 </ul>
-
 <h3 id="часть-восьмая">Часть восьмая</h3>
-
 <p>Традиционное имя для функции <code>CreateSimple</code> — <code>unit</code>. В Haskell — <code>return</code>.</p>
-
 <p>Традиционное имя для функции <code>ApplySpecialFunction</code> — <code>bind</code>. В Haskell она является встроенной функцией, для того чтобы применить функцию <code>f</code> на экземпляр монады <code>m</code> необходимо написать <code>m &gt;&gt;= f</code>.</p>
-
 <p>Фактически функция привязки берет неизменный рабочий процесс и операцию над ним и возвращает новый рабочий процесс.</p>
-
 <p>Мой конспект на этом оканчивается. В последующих частях серии рассматривается практическое применение монад в коде.</p>
-
 <ul>
 <li><a href="http://ericlippert.com/2013/03/21/monads-part-nine/">Часть 9</a>. О простых монадах «присоединяющих дополнительные данные к значению».</li>
 <li><a href="http://ericlippert.com/2013/03/25/monads-part-ten/">Часть 10</a>. О запросах и LINQ на примере <code>SelectMany</code>.</li>
@@ -437,7 +414,7 @@
       <footer class="footer-layout__container section-skin">
         <div>
           <div>
-            <span>© Анатолий Гладкий, 2019</span>
+            <span>© Анатолий Гладкий, 2020</span>
             <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
           </div>
           <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Анатолий Гладкий</title>
@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Dotnet</title>
+      <title>dotnet</title>
       <link>https://agladky.ru/tags/dotnet/</link>
       <pubDate>Tue, 13 Dec 2016 17:10:07 +0300</pubDate>
       
@@ -21,70 +21,7 @@
     </item>
     
     <item>
-      <title>Functional</title>
-      <link>https://agladky.ru/tags/functional/</link>
-      <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/functional/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://agladky.ru/tags/git/</link>
-      <pubDate>Wed, 06 Jan 2016 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ide</title>
-      <link>https://agladky.ru/tags/ide/</link>
-      <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/ide/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://agladky.ru/tags/javascript/</link>
-      <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://agladky.ru/tags/python/</link>
-      <pubDate>Wed, 20 Jan 2016 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shell</title>
-      <link>https://agladky.ru/tags/shell/</link>
-      <pubDate>Thu, 26 Nov 2015 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/shell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://agladky.ru/tags/test/</link>
-      <pubDate>Sat, 05 Sep 2015 13:10:07 +0300</pubDate>
-      
-      <guid>https://agladky.ru/tags/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Блог</title>
+      <title>блог</title>
       <link>https://agladky.ru/tags/%D0%B1%D0%BB%D0%BE%D0%B3/</link>
       <pubDate>Sat, 10 Sep 2016 11:13:23 +0300</pubDate>
       
@@ -93,11 +30,74 @@
     </item>
     
     <item>
-      <title>Подкасты</title>
+      <title>подкасты</title>
       <link>https://agladky.ru/tags/%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8B/</link>
       <pubDate>Mon, 05 Sep 2016 22:14:03 +0300</pubDate>
       
       <guid>https://agladky.ru/tags/%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ide</title>
+      <link>https://agladky.ru/tags/ide/</link>
+      <pubDate>Thu, 25 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/ide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://agladky.ru/tags/javascript/</link>
+      <pubDate>Tue, 02 Feb 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>functional</title>
+      <link>https://agladky.ru/tags/functional/</link>
+      <pubDate>Wed, 27 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/functional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://agladky.ru/tags/python/</link>
+      <pubDate>Wed, 20 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://agladky.ru/tags/git/</link>
+      <pubDate>Wed, 06 Jan 2016 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://agladky.ru/tags/shell/</link>
+      <pubDate>Thu, 26 Nov 2015 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://agladky.ru/tags/test/</link>
+      <pubDate>Sat, 05 Sep 2015 13:10:07 +0300</pubDate>
+      
+      <guid>https://agladky.ru/tags/test/</guid>
       <description></description>
     </item>
     

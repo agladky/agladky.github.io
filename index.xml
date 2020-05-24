@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Анатолий Гладкий</title>
@@ -6,10 +6,100 @@
     <description>Recent content on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Thu, 12 Sep 2019 05:56:55 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 08:34:17 -0700</lastBuildDate>
     
 	<atom:link href="https://agladky.ru/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Building Microservices: Designing Fine-Grained Systems</title>
+      <link>https://agladky.ru/books/building-microservices-designing-fine-grained-systems/</link>
+      <pubDate>Wed, 29 Apr 2020 08:34:17 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/building-microservices-designing-fine-grained-systems/</guid>
+      <description>Хорошая книга для погружения в понимание микросервисов. Пошагово проходится по всем этапам: как разрабатывать, как тестировать, как деплоить. Хотелось бы, что бы пример был более сложным, а не просто музыкальный магазин.</description>
+    </item>
+    
+    <item>
+      <title>Точки контакта: Простые идеи для улучшения вашего маркетинга</title>
+      <link>https://agladky.ru/books/tocki-kontakta-prostye-idei-dla-ulucsenia-vasego-marketinga/</link>
+      <pubDate>Mon, 24 Feb 2020 12:40:28 -0800</pubDate>
+      
+      <guid>https://agladky.ru/books/tocki-kontakta-prostye-idei-dla-ulucsenia-vasego-marketinga/</guid>
+      <description>Книга описывает очевидные вещи, про точки контакта. Но я никогда не воспринимал их так серьезно и систематично, как после прочтения этой книги. Эта книга надолго останется «под рукой». —- The book describes the obvious things about points of contact. But I have never taken them as seriously and systematically as after reading this book. This book will remain &amp;ldquo;at hand&amp;rdquo; for a long time.</description>
+    </item>
+    
+    <item>
+      <title>Пиши, сокращай</title>
+      <link>https://agladky.ru/books/pisi-sokrasaj/</link>
+      <pubDate>Wed, 13 Nov 2019 10:50:01 -0800</pubDate>
+      
+      <guid>https://agladky.ru/books/pisi-sokrasaj/</guid>
+      <description>Должна быть настольной книгой для всех.</description>
+    </item>
+    
+    <item>
+      <title>Смерть и жизнь больших американских городов</title>
+      <link>https://agladky.ru/books/smert-i-jizn-bol-sih-amerikanskih-gorodov/</link>
+      <pubDate>Wed, 13 Nov 2019 06:52:48 -0800</pubDate>
+      
+      <guid>https://agladky.ru/books/smert-i-jizn-bol-sih-amerikanskih-gorodov/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Общаться с ребенком. Как?</title>
+      <link>https://agladky.ru/books/obsat-sa-s-rebenkom-kak/</link>
+      <pubDate>Wed, 13 Nov 2019 06:23:49 -0800</pubDate>
+      
+      <guid>https://agladky.ru/books/obsat-sa-s-rebenkom-kak/</guid>
+      <description>Отлично.</description>
+    </item>
+    
+    <item>
+      <title>Канбан. Альтернативный путь в Agile</title>
+      <link>https://agladky.ru/books/kanban-al-ternativnyj-put-v-agile/</link>
+      <pubDate>Wed, 13 Nov 2019 06:03:59 -0800</pubDate>
+      
+      <guid>https://agladky.ru/books/kanban-al-ternativnyj-put-v-agile/</guid>
+      <description>Отлично.</description>
+    </item>
+    
+    <item>
+      <title>Как читать книги: Руководство по чтению великих произведений</title>
+      <link>https://agladky.ru/books/kak-citat-knigi-rukovodstvo-po-cteniu-velikih-proizvedenij/</link>
+      <pubDate>Tue, 12 Nov 2019 22:55:31 -0800</pubDate>
+      
+      <guid>https://agladky.ru/books/kak-citat-knigi-rukovodstvo-po-cteniu-velikih-proizvedenij/</guid>
+      <description>Вдохновила на вдумчивое прочтение философских трактатов. Научила искать в книгах основную мысль автора и ее раскрытие. Советую. —- Inspired a thoughtful reading of philosophical treatises. The book taught to look for the main idea of the author and its disclosure in the books.</description>
+    </item>
+    
+    <item>
+      <title>Два капитана</title>
+      <link>https://agladky.ru/books/dva-kapitana/</link>
+      <pubDate>Mon, 28 Oct 2019 00:28:02 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/dva-kapitana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Бизнесхак на каждый день: Экономьте время, деньги и силы</title>
+      <link>https://agladky.ru/books/bizneshak-na-kajdyj-den-ekonom-te-vrema-den-gi-i-sily/</link>
+      <pubDate>Sun, 20 Oct 2019 04:43:07 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/bizneshak-na-kajdyj-den-ekonom-te-vrema-den-gi-i-sily/</guid>
+      <description>Сборник слабо связанных идей. Отсутствуют ссылки на книги и статьи с расширенным описанием, поэтому применять описанные идеи тяжело. Лучше найти книгу по интересной области, чем читать такой сборник всего.</description>
+    </item>
+    
+    <item>
+      <title>The Seven Principles For Making Marriage Work</title>
+      <link>https://agladky.ru/books/the-seven-principles-for-making-marriage-work/</link>
+      <pubDate>Thu, 03 Oct 2019 00:31:23 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/the-seven-principles-for-making-marriage-work/</guid>
+      <description>Читал по совету из книги «Coaching Agile Teams». Как книга по сохранению брака — хороша. Но если рассматривать как книгу для коуча, и это не первая ваша книга по теме, лучше найти другую. Многие советы для меня были вторичны, так как я читал о них в книгах по психологии и переговорах. П.С. Хорошие упражнения в каждой главе.</description>
+    </item>
     
     <item>
       <title>Принцип Пирамиды Минто: Золотые правила мышления, делового письма и устных выступлений</title>
@@ -18,6 +108,15 @@
       
       <guid>https://agladky.ru/books/prinzip-piramidy-minto-zolotye-pravila-myslenia-delovogo-pis-ma-i-ustnyh-vystuplenij/</guid>
       <description>Книга помогает выстраивать структуры в виде пирамиды для систематизации идей. Идеи помогают найти логику и улучшить решения при поиске и анализе проблем. Третья часть книги самая интересная, она помогает в поиске определения проблем, а хорошая формулировка это уже половина решения.</description>
+    </item>
+    
+    <item>
+      <title>Coaching Agile Teams: A Companion for ScrumMasters, Agile Coaches, and Project Managers in Transition</title>
+      <link>https://agladky.ru/books/coaching-agile-teams-a-companion-for-scrummasters-agile-coaches-and-project-managers-in-transition/</link>
+      <pubDate>Sun, 11 Aug 2019 23:08:15 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/coaching-agile-teams-a-companion-for-scrummasters-agile-coaches-and-project-managers-in-transition/</guid>
+      <description>Книга поможет ответить на многочисленные вопросы коуча-новичка: как слушать команду, что говорить, какие вопросы задавать, как выстроить атмосферу, как найти точки роста команды и так далее. В книге описаны роли аджайл-коуча: Коуч-ментор, Фасилитатор, Учитель, Решатель проблем, Навигатор конфликтов, Дирижер совместной работы.</description>
     </item>
     
     <item>
@@ -48,6 +147,15 @@
     </item>
     
     <item>
+      <title>Scrum: A Smart Travel Companion--A Pocket Guide</title>
+      <link>https://agladky.ru/books/scrum-a-smart-travel-companion-a-pocket-guide/</link>
+      <pubDate>Mon, 17 Jun 2019 23:33:36 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/scrum-a-smart-travel-companion-a-pocket-guide/</guid>
+      <description>Не открывает много нового по сравнению со Скрам-гайдом. Добавляет пару примеров и наставлений. Полезно прочитать перед PSM I. Или как первая книга по скраму. На pocket guide тянет только размером. Желание возвращаться к этой книге нет.</description>
+    </item>
+    
+    <item>
       <title>Large-Scale Scrum: More with LeSS</title>
       <link>https://agladky.ru/books/large-scale-scrum-more-with-less/</link>
       <pubDate>Tue, 11 Jun 2019 14:19:29 -0700</pubDate>
@@ -63,6 +171,15 @@
       
       <guid>https://agladky.ru/books/pocemu-e-mc2-i-pocemu-eto-doljno-nas-volnovat/</guid>
       <description>Книга максимально доступным языком объясняет теорию относительности. Мне помогла разложить по полочкам знания полученные в институте знания. Интересно и убирает страх к дальнейшему изучению науки, пускай и познавательному.</description>
+    </item>
+    
+    <item>
+      <title>How Google Works</title>
+      <link>https://agladky.ru/books/how-google-works/</link>
+      <pubDate>Thu, 23 May 2019 01:57:46 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/how-google-works/</guid>
+      <description>Основа гугла — умные креативщики, профессионалы которые могут плыть самостоятельно и делать инновации. В каждом продукте должен быть технологический инсайт. Иначе, на современном динамическом рынке тяжело выжить и продать продукт. рассказывается как управлять технологической компанией так, что бы был поток идей и никто не хотел разбежаться. Заставляет задуматься про будущее продуктов и себя. Советую как настольную книгу всем.</description>
     </item>
     
     <item>
@@ -260,7 +377,8 @@
       <pubDate>Wed, 12 Dec 2018 11:08:40 -0800</pubDate>
       
       <guid>https://agladky.ru/books/dizajn-dla-nedizajnerov/</guid>
-      <description>Очень легкое произведение. Позволяет понять основные принципы дизайна (по версии Автора, конечно же) и немного разобраться в шрифтах. Влияние части по шрифтам особенно заметно. Сейчас читаю другую книгу по дизайну и вижу моменты в типографике, на которые обращал автор и понимаю почему сделано именно так и почему это хорошо. Рекомендую. Основные принципы в дизайне: * Контраст * Повтор * Выравнивание * Приближенность (объединение схожего)</description>
+      <description>Очень легкое произведение. Позволяет понять основные принципы дизайна (по версии Автора, конечно же) и немного разобраться в шрифтах. Влияние части по шрифтам особенно заметно. Сейчас читаю другую книгу по дизайну и вижу моменты в типографике, на которые обращал автор и понимаю почему сделано именно так и почему это хорошо. Рекомендую. Основные принципы в дизайне:
+ Контраст Повтор Выравнивание Приближенность (объединение схожего)  </description>
     </item>
     
     <item>
@@ -603,7 +721,7 @@
       
       <guid>https://agladky.ru/blog/async-await-example/</guid>
       <description>Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока ContinueWith.
-Основные паттерны асинхронного программирования  Asynchronous Programming Model (APM) Event Asynchronous Pattern (EAP) Task Asynchronous Pattern (TAP)  Задачи представляют параллельные операции Могут выполняться на отдельном или разных потоках. Могут быть скомбинированы и выстроены в цепочку вызовов.   async/await — синтаксическая обертка над задачами  await ставит на паузу текущий метод, ожидая выполнения задачи.</description>
+Основные паттерны асинхронного программирования  Asynchronous Programming Model (APM) Event Asynchronous Pattern (EAP) Task Asynchronous Pattern (TAP)  Задачи представляют параллельные операции Могут выполняться на отдельном или разных потоках. Могут быть скомбинированы и выстроены в цепочку вызовов.    async/await — синтаксическая обертка над задачами  await ставит на паузу текущий метод, ожидая выполнения задачи.</description>
     </item>
     
     <item>
@@ -614,7 +732,8 @@
       <guid>https://agladky.ru/blog/moved-to-a-static-blog/</guid>
       <description>Для разработчика, вести блог на гитхабе — отличная идея.
 Я прошёл путь от простой хотелки перейти на статический блог до разработки шаблона и применения инфостиля. Расскажу как это было.
-Начало В начале года узнал о существовании github pages. Это статический хостинг. В отличие от динамических хостингов, которые для каждого запроса генерируют страницу с ответом, на статических хранятся готовые страницы. Сайт загружается быстрее, но на сервере нельзя выполнить никаких скриптов.</description>
+Начало В начале года узнал о существовании github pages. Это статический хостинг. В отличие от динамических хостингов, которые для каждого запроса генерируют страницу с ответом, на статических хранятся готовые страницы. Сайт загружается быстрее, но на сервере нельзя выполнить никаких скриптов.
+Решил попробовать для блога.</description>
     </item>
     
     <item>
@@ -635,8 +754,8 @@
       
       <guid>https://agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
       <description>Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:
-   Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
-   Сайт с полезными советами для .Net разработчиков — dailydotnettips.com.</description>
+Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
+Сайт с полезными советами для .Net разработчиков — dailydotnettips.com.</description>
     </item>
     
     <item>
@@ -649,7 +768,7 @@
 Преобразование цепочки вызовов С новым оператором уменьшается количество проверок на null в цепочке вызовов:
 var documentName = taskManager.CurrentTask == null ? null : (taskManager.CurrentTask.GetDocument() == null ? null : taskManager.CurrentTask.GetDocument().Name); Перепишем в одну строчку используя ?.:
 var documentName = taskManager.CurrentTask?.GetDocument()?.Name; documentName примет значение null, если CurrentTask, GetDocument() или Name вернет null.
-Второй вариант компактнее.</description>
+Второй вариант компактнее. Также, в первом блоке кода метод GetDocument() вызывается два раза, а во втором — один.</description>
     </item>
     
     <item>
@@ -682,7 +801,7 @@ var documentName = taskManager.CurrentTask?.GetDocument()?.Name; documentName п
       
       <guid>https://agladky.ru/blog/my-first-python-script/</guid>
       <description>Желание изучить питон было давно. Я много где слышал что он хорошо подходит для прототипов, скриптов и небольших приложений. Он отличается высокой скоростью разработки и низким порогом вхождения. Динамичность — непривычно, но решаемо.
-И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в тудуисте. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня».</description>
+И вот, написал первый скрипт. Он оптимизирует перемещение на «сегодня» просроченных задач в тудуисте. Перенос в приложении выполняется в 3 действия: выделить задачи с зажатым шифтом, пройти через пункты меню и нажать заветную кнопку: «перенести на сегодня». Это не всегда получается с одной попытки.</description>
     </item>
     
     <item>
@@ -707,8 +826,8 @@ git config --global core.editor [editor] — установить редакто
       <description>Zsh не такая уж и новая оболочка, первая версия появилась еще в 1990 году. С историей и основными особенностями можно познакомиться в русской или английской википедии.
 Давайте рассмотрим особенности zsh, которые покажут чем эта оболочка лучше bash. И почему стоит хотя бы попробовать использовать её в повседневной жизни.
 Автодополнение для cd Наберем в баш cd и нажмем таб.
-   Еще раз.
-   Каждый раз будет выводиться только список файлов в текущей директории.</description>
+Еще раз.
+Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список.</description>
     </item>
     
     <item>
@@ -730,8 +849,9 @@ git config --global core.editor [editor] — установить редакто
       <guid>https://agladky.ru/blog/how-to-test-abstract-classes/</guid>
       <description>Абстрактные классы сложно тестировать. Рассмотрим ситуации применения абстрактных классов и последующего рефакторинга для проведения юнит тестирования.
 Выделить реальный интерфейс Существует специализированный абстрактный класс, но все клиенты используют его конкретные реализации через единый публичный интерфейс:
-   Классы-потомки реализуют интерфейс, определенный абстрактными методами класса. Для повышения тестируемости этот интерфейс выделяется. Абстрактный класс превращается в конкретный и в его конструктор передается объект классов-потомков, реализующих выделенный интерфейс.
-Применяется шаблон проектирования стратегия.</description>
+Классы-потомки реализуют интерфейс, определенный абстрактными методами класса. Для повышения тестируемости этот интерфейс выделяется. Абстрактный класс превращается в конкретный и в его конструктор передается объект классов-потомков, реализующих выделенный интерфейс.
+Применяется шаблон проектирования стратегия.
+Бывший абстрактный класс теперь тестируется используя мок-объект нового интерфейса.</description>
     </item>
     
   </channel>

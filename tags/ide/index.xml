@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ide on Анатолий Гладкий</title>
+    <title>ide on Анатолий Гладкий</title>
     <link>https://agladky.ru/tags/ide/</link>
-    <description>Recent content in Ide on Анатолий Гладкий</description>
+    <description>Recent content in ide on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
     <lastBuildDate>Thu, 25 Feb 2016 13:10:07 +0300</lastBuildDate>
@@ -18,8 +18,8 @@
       
       <guid>https://agladky.ru/blog/drag-and-drop-in-watch-windows/</guid>
       <description>Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:
-   Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
-   Сайт с полезными советами для .Net разработчиков — dailydotnettips.com.</description>
+Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
+Сайт с полезными советами для .Net разработчиков — dailydotnettips.com.</description>
     </item>
     
   </channel>

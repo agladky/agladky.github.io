@@ -12,8 +12,9 @@
     <meta property="og:title" content="Новый оператор ?. в C# 6" />
 <meta property="og:description" content="Использование оператора ?. с цепочкой вызова, индексатором и делегатами. Комбинация с ??" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://agladky.ru/blog/new-if-null-operator-csharp-6/" /><meta property="article:published_time" content="2016-02-17T13:10:07&#43;03:00"/>
-<meta property="article:modified_time" content="2016-02-17T13:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
+<meta property="og:url" content="https://agladky.ru/blog/new-if-null-operator-csharp-6/" />
+<meta property="article:published_time" content="2016-02-17T13:10:07+03:00" />
+<meta property="article:modified_time" content="2016-02-17T13:10:07+03:00" /><meta property="og:site_name" content="Анатолий Гладкий" />
 
     
   
@@ -22,10 +23,14 @@
     <link rel="canonical" href="https://agladky.ru/blog/new-if-null-operator-csharp-6/">
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1570007355">
-    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1570007355">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
+    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1590329171">
+    
+    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1590329171">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -70,78 +75,60 @@
     </header>
 
     <div class="article-content markdown--blackfriday">
-      
-
-<p>Одно из нововведений в С# 6 — оператор <code>?.</code>. Давайте рассмотрим, где и как его использовать.</p>
-
+      <p>Одно из нововведений в С# 6 — оператор <code>?.</code>. Давайте рассмотрим, где и как его использовать.</p>
 <h3 id="преобразование-цепочки-вызовов">Преобразование цепочки вызовов</h3>
-
 <p>С новым оператором уменьшается количество проверок на <code>null</code> в цепочке вызовов:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span>
   <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">.</span><span class="n">GetDocument</span><span class="p">()</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span>
-    <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">.</span><span class="n">GetDocument</span><span class="p">().</span><span class="n">Name</span><span class="p">);</span></code></pre></div>
-<p>Перепишем в одну строчку используя <code>?.</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">?.</span><span class="n">GetDocument</span><span class="p">()?.</span><span class="n">Name</span><span class="p">;</span></code></pre></div>
-<p><code>documentName</code> примет значение <code>null</code>, если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>.</p>
-
+    <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">.</span><span class="n">GetDocument</span><span class="p">().</span><span class="n">Name</span><span class="p">);</span>
+</code></pre></div><p>Перепишем в одну строчку используя <code>?.</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">?.</span><span class="n">GetDocument</span><span class="p">()?.</span><span class="n">Name</span><span class="p">;</span>
+</code></pre></div><p><code>documentName</code> примет значение <code>null</code>, если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>.</p>
 <p>Второй вариант компактнее. Также, в первом блоке кода метод <code>GetDocument()</code> вызывается два раза, а во втором — один. Для реализации подобного поведения без использования <code>?.</code> нужна дополнительная переменная для сохранения значения из <code>GetDocument()</code>.</p>
-
 <h3 id="использование-с-индексатором">Использование с индексатором</h3>
-
 <p>Рассмотрим получение значения из коллекции по индексу, с проверкой набора значений на <code>null</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">?</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="na">[index]</span> <span class="p">:</span> <span class="k">null</span><span class="p">;</span></code></pre></div>
-<p>С новым оператором проверка на <code>null</code> условным оператором не расписывается. Бонус — выражение в 2 раза короче:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?</span><span class="na">[index]</span><span class="p">;</span></code></pre></div>
-<h3 id="оборачивание-в-нулевые-типы">Оборачивание в нулевые типы</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">?</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">:</span> <span class="k">null</span><span class="p">;</span>
+</code></pre></div><p>С новым оператором проверка на <code>null</code> условным оператором не расписывается. Бонус — выражение в 2 раза короче:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">tasks</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?[</span><span class="n">index</span><span class="p">];</span>
+</code></pre></div><h3 id="оборачивание-внулевые-типы">Оборачивание в нулевые типы</h3>
 <p>Результат выполнения <code>String.Equals()</code> — <code>bool</code>. Скомпилируется ли следующий код?</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">String</span> <span class="n">str</span> <span class="p">=</span> <span class="s">&#34;x&#34;</span><span class="p">;</span>
   <span class="kt">bool</span> <span class="n">result</span> <span class="p">=</span> <span class="n">str</span><span class="p">?.</span><span class="n">Equals</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
-<p>Нет. Возникнет ошибка: <code>Cannot implicitly convert type ’bool?’ to ’bool’</code>. Такое поведение ожидаемо, так как <code>str?.Equals(&quot;x&quot;)</code> вернет <code>null</code> если переменная <code>str</code> не инициализирована и <code>bool</code> в остальных случаях.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Нет. Возникнет ошибка: <code>Cannot implicitly convert type ’bool?’ to ’bool’</code>. Такое поведение ожидаемо, так как <code>str?.Equals(&quot;x&quot;)</code> вернет <code>null</code> если переменная <code>str</code> не инициализирована и <code>bool</code> в остальных случаях.</p>
 <p>В подобных ситуациях, при использовании оператора <code>?.</code>, возвращаемый тип функции <code>T</code> будет оборачиваться в <code>Nullable&lt;T&gt;</code>.</p>
-
-<h3 id="использование-в-условии">Использование в условии</h3>
-
+<h3 id="использование-вусловии">Использование в условии</h3>
 <p>Есть задача — проверить коллекцию на наличие в ней элементов. Типичный код:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Any</span><span class="p">())</span>
-  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span></code></pre></div>
-<p>Попробуем переписать:</p>
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span>
+</code></pre></div><p>Попробуем переписать:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">())</span>
-  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span></code></pre></div>
-<p>Код не скомпилируется. Как написано в предыдущем пункте, <code>taskManager.Tasks?.Any()</code> вернет <code>Nullable&lt;bool&gt;</code> тип, который нельзя однозначно трактовать в условии <code>if</code>. Дополним код:</p>
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span>
+</code></pre></div><p>Код не скомпилируется. Как написано в предыдущем пункте, <code>taskManager.Tasks?.Any()</code> вернет <code>Nullable&lt;bool&gt;</code> тип, который нельзя однозначно трактовать в условии <code>if</code>. Дополним код:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">()</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span>
-  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span></code></pre></div>
-<p>Работает. И на одно условие стало меньше.</p>
-
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span>
+</code></pre></div><p>Работает. И на одно условие стало меньше.</p>
 <p>Комбинируя с оператором <code>??</code>, перепишем в эквивалентный код:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">if</span> <span class="p">(</span><span class="n">taskManager</span><span class="p">.</span><span class="n">Tasks</span><span class="p">?.</span><span class="n">Any</span><span class="p">()</span> <span class="p">??</span> <span class="k">false</span><span class="p">)</span>
-  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span></code></pre></div>
-<h3 id="комбинация-с-оператором">Комбинация с оператором ??</h3>
-
+  <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&#34;Tasks has items!&#34;</span><span class="p">);</span>
+</code></pre></div><h3 id="комбинация-с-оператором-">Комбинация с оператором ??</h3>
 <p>Оператор <code>??</code> называется оператором объединения со значением <code>null</code>. Если операция возвращает <code>null</code>, оператор <code>??</code> подставит значение из правой части выражения.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">?.</span><span class="n">GetDocument</span><span class="p">()?.</span><span class="n">Name</span> <span class="p">??</span> <span class="s">&#34;No Name&#34;</span><span class="p">;</span></code></pre></div>
-<p>Если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>, то переменная примет значение <code>&quot;No Name&quot;</code>.</p>
-
-<h3 id="использование-с-делегатами">Использование с делегатами</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">documentName</span> <span class="p">=</span> <span class="n">taskManager</span><span class="p">.</span><span class="n">CurrentTask</span><span class="p">?.</span><span class="n">GetDocument</span><span class="p">()?.</span><span class="n">Name</span> <span class="p">??</span> <span class="s">&#34;No Name&#34;</span><span class="p">;</span>
+</code></pre></div><p>Если <code>CurrentTask</code>, <code>GetDocument()</code> или <code>Name</code> вернет <code>null</code>, то переменная примет значение <code>&quot;No Name&quot;</code>.</p>
+<h3 id="использование-сделегатами">Использование с делегатами</h3>
 <p>Стандартный код для вызова делегата:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">handler</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PropertyChanged</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">handler</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
-  <span class="n">handler</span><span class="p">(</span><span class="err">…</span><span class="p">)</span></code></pre></div>
-<p>Используя <code>?.</code>, больше не надо каждый раз писать такой код, делегат вызывается одной строкой:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">PropertyChanged</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></code></pre></div>
-<p>Компилятор создает код для вычисления PropertyChanged только один раз, запоминая результат во временной переменной.</p>
-
+  <span class="n">handler</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+</code></pre></div><p>Используя <code>?.</code>, больше не надо каждый раз писать такой код, делегат вызывается одной строкой:</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">PropertyChanged</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div><p>Компилятор создает код для вычисления PropertyChanged только один раз, запоминая результат во временной переменной.</p>
 <p>Обратите внимание, следующий код вызовет ошибку:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">PropertyChanged</span><span class="p">?(</span><span class="n">e</span><span class="p">)</span></code></pre></div>
-<p>Вызов метода <code>Invoke</code> обязателен.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">PropertyChanged</span><span class="p">?(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div><p>Вызов метода <code>Invoke</code> обязателен.</p>
 <h3 id="полезные-ссылки">Полезные ссылки</h3>
-
 <ul>
 <li><a href="https://msdn.microsoft.com/ru-ru/library/ms173224.aspx">Оператор ??</a></li>
 <li><a href="https://msdn.microsoft.com/ru-RU/library/dn986595.aspx">Операторы ?. и ?</a></li>
@@ -210,7 +197,7 @@
       <footer class="footer-layout__container section-skin">
         <div>
           <div>
-            <span>© Анатолий Гладкий, 2019</span>
+            <span>© Анатолий Гладкий, 2020</span>
             <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
           </div>
           <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Анатолий Гладкий</title>
@@ -6,6 +6,7 @@
     <description>Recent content in Categories on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
+    <lastBuildDate>Tue, 13 Dec 2016 17:10:07 +0300</lastBuildDate>
     
 	<atom:link href="https://agladky.ru/categories/index.xml" rel="self" type="application/rss+xml" />
     
