@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://agladky.ru/books/</loc>
-    <lastmod>2020-04-29T08:34:17-07:00</lastmod>
+    <lastmod>2020-07-03T04:00:27-07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,13 +18,8 @@
   </url>
   
   <url>
-    <loc>https://agladky.ru/books/building-microservices-designing-fine-grained-systems/</loc>
-    <lastmod>2020-04-29T08:34:17-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://agladky.ru/</loc>
-    <lastmod>2020-04-29T08:34:17-07:00</lastmod>
+    <lastmod>2020-07-03T04:00:27-07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -35,6 +30,16 @@
                 hreflang="ru"
                 href="https://agladky.ru/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/books/byt-piratom-kak-brosit-miru-vyzov-i-pobedit/</loc>
+    <lastmod>2020-07-03T04:00:27-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/books/building-microservices-designing-fine-grained-systems/</loc>
+    <lastmod>2020-04-29T08:34:17-07:00</lastmod>
   </url>
   
   <url>

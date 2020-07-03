@@ -6,10 +6,19 @@
     <description>Recent content on Анатолий Гладкий</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Wed, 29 Apr 2020 08:34:17 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2020 04:00:27 -0700</lastBuildDate>
     
 	<atom:link href="https://agladky.ru/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Быть пиратом. Как бросить миру вызов и победить</title>
+      <link>https://agladky.ru/books/byt-piratom-kak-brosit-miru-vyzov-i-pobedit/</link>
+      <pubDate>Fri, 03 Jul 2020 04:00:27 -0700</pubDate>
+      
+      <guid>https://agladky.ru/books/byt-piratom-kak-brosit-miru-vyzov-i-pobedit/</guid>
+      <description>В книги интересны только вводные по пиратам, которые можно уложить в 15 страниц. Остальное это 3 мысли размазанные на всю книгу и активная продажа тренинга.</description>
+    </item>
     
     <item>
       <title>Building Microservices: Designing Fine-Grained Systems</title>
