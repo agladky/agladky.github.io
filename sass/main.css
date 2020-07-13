@@ -229,6 +229,9 @@ a {
       max-width: 250px;
       margin-right: 1.5em;
       margin-bottom: 0; } }
+.book-review__all-items {
+  padding-left: 0; }
+
 .book-review__item {
   display: flex;
   flex-direction: column; }
