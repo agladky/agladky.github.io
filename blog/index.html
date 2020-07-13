@@ -23,13 +23,13 @@
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
-    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1594651472">
+    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1594672468">
     
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1594651472">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1594672468">
     
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1594651472">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1594672468">
     
-    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1594651472">
+    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1594672468">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -133,7 +133,7 @@
 <span class="p">{</span>
     <span class="n">textBoxMain</span><span class="p">.</span><span class="n">AppendText</span><span class="p">(</span><span class="s">$&#34;- {person}{Environment.NewLine}&#34;</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div><p>Если запустить приложение и нажать на &ldquo;Fetch Data (with Task)&quot;, то возникнет ошибка. Все потому, что код в блоке <code>ContinueWith</code> выполняется в потоке, отличном от того где находится <a href="https://habrahabr.ru/post/232169/">SynchronizationContext</a> UI потока.
+</code></pre></div><p>Если запустить приложение и нажать на &ldquo;Fetch Data (with Task)&rdquo;, то возникнет ошибка. Все потому, что код в блоке <code>ContinueWith</code> выполняется в потоке, отличном от того где находится <a href="https://habrahabr.ru/post/232169/">SynchronizationContext</a> UI потока.
 Для выполнения в нужном потоке добавим в вызов метода <code>ContinueWith</code> аргумент <code>TaskScheduler.FromCurrentSynchronizationContext()</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span> <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">FromCurrentSynchronizationContext</span><span class="p">());</span>
 </code></pre></div><p>Теперь приложение работает корректно. Перейдем к реализации этого кода с помощью ключевых слов <code>async</code> и <code>await</code>.</p>
@@ -989,7 +989,7 @@
 <p><code>git checkout -b &lt;name&gt; &lt;remote&gt;/&lt;branch&gt;</code> — переключиться на удаленную ветку.</p>
 <p><code>git checkout [filename]</code> — вернуть файл в первоначальное состояние если он еще не был добавлен в индекс коммита.</p>
 <p><code>git merge [branch]</code> — соединить изменения в текущей ветке с изменениями из заданной.</p>
-<p><code>git merge --no-ff [branch]</code> — соединить ветки без режима &ldquo;<a href="http://zencoder.ru/git/fast-forward-git">fast forwarding</a>&quot;.</p>
+<p><code>git merge --no-ff [branch]</code> — соединить ветки без режима &ldquo;<a href="http://zencoder.ru/git/fast-forward-git">fast forwarding</a>&rdquo;.</p>
 <p><code>git branch -a</code> — посмотреть полный список локальных и удаленных веток.</p>
 <p><code>git branch -d [branch]</code> — удалить заданную ветку.</p>
 <p><code>git branch -D [branch]</code> — принудительно удалить заданную ветку, игнорируя ошибки.</p>
@@ -1039,8 +1039,8 @@
 <h3 id="полезные-ссылки">Полезные ссылки</h3>
 <ul>
 <li>19 советов по повседневной работе с Git. <a href="http://www.alexkras.com/19-git-tips-for-everyday-use/">оригинал</a>. <a href="http://habrahabr.ru/company/mailru/blog/267595/">перевод</a>.</li>
-<li>Книга &ldquo;<a href="http://git-scm.com/book/ru/v1">Pro Git</a>&quot;. Издание первое, на русском.</li>
-<li>Книга &ldquo;<a href="http://git-scm.com/book/en/v2">Pro Git</a>&quot;. Издание второе, на английском.</li>
+<li>Книга &ldquo;<a href="http://git-scm.com/book/ru/v1">Pro Git</a>&rdquo;. Издание первое, на русском.</li>
+<li>Книга &ldquo;<a href="http://git-scm.com/book/en/v2">Pro Git</a>&rdquo;. Издание второе, на английском.</li>
 <li>Git Rebase: <a href="http://habrahabr.ru/post/161009/">руководство по использованию</a>.</li>
 </ul>
 

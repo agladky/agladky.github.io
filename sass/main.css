@@ -96,7 +96,10 @@ a {
     justify-content: space-between;
     margin-top: 1em; }
   .page-header__lang {
-    margin-left: auto; }
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    line-height: 0; }
   .page-header__lang-link:link {
     color: #567;
     border-bottom-color: rgba(85, 102, 119, 0.2); }
@@ -106,15 +109,21 @@ a {
   .page-header__lang-link:hover {
     color: #d04000;
     border-bottom-color: rgba(208, 64, 0, 0.2); }
+  .page-header__lang-list {
+    list-style-type: none;
+    padding-left: 0; }
   .page-header__menu {
     font-size: 0.875rem;
     font-family: "Helvetica Neue", "Open Sans", "Arial", sans-serif; }
   .page-header__menu-item {
     display: inline-block;
     margin-left: 0.5em;
-    font-weight: 500; }
+    font-weight: 500;
+    padding: 0.2em 0; }
   .page-header__menu-item--selected {
-    background-color: antiquewhite; }
+    background-color: antiquewhite;
+    border-radius: 0.5em;
+    padding: 0.2em 0.4em; }
   .page-header__menu-item--first {
     margin-left: 0; }
   .page-header__menu-link:link {

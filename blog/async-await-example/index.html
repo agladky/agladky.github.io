@@ -24,13 +24,13 @@
     <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
-    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1594651469">
+    <link rel="stylesheet" href="https://agladky.ru/css/reset.csst=1594672465">
     
-    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1594651469">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1594672465">
     
-    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1594651469">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1594672465">
     
-    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1594651469">
+    <link rel="stylesheet" href="https://agladky.ru/sass/main.css?t=1594672465">
     
     <script async src="https://agladky.ru/js/likely.js"></script>
   </head>
@@ -133,7 +133,7 @@
 <span class="p">{</span>
     <span class="n">textBoxMain</span><span class="p">.</span><span class="n">AppendText</span><span class="p">(</span><span class="s">$&#34;- {person}{Environment.NewLine}&#34;</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div><p>Если запустить приложение и нажать на &ldquo;Fetch Data (with Task)&quot;, то возникнет ошибка. Все потому, что код в блоке <code>ContinueWith</code> выполняется в потоке, отличном от того где находится <a href="https://habrahabr.ru/post/232169/">SynchronizationContext</a> UI потока.
+</code></pre></div><p>Если запустить приложение и нажать на &ldquo;Fetch Data (with Task)&rdquo;, то возникнет ошибка. Все потому, что код в блоке <code>ContinueWith</code> выполняется в потоке, отличном от того где находится <a href="https://habrahabr.ru/post/232169/">SynchronizationContext</a> UI потока.
 Для выполнения в нужном потоке добавим в вызов метода <code>ContinueWith</code> аргумент <code>TaskScheduler.FromCurrentSynchronizationContext()</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">peopleTask</span><span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span> <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">FromCurrentSynchronizationContext</span><span class="p">());</span>
 </code></pre></div><p>Теперь приложение работает корректно. Перейдем к реализации этого кода с помощью ключевых слов <code>async</code> и <code>await</code>.</p>
