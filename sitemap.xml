@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://agladky.ru/books/</loc>
-    <lastmod>2020-10-28T00:08:54-07:00</lastmod>
+    <lastmod>2021-01-26T00:21:11-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,7 @@
   
   <url>
     <loc>https://agladky.ru/</loc>
-    <lastmod>2020-10-28T00:08:54-07:00</lastmod>
+    <lastmod>2021-01-26T00:21:11-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -30,6 +30,11 @@
                 hreflang="ru"
                 href="https://agladky.ru/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/books/arhitekturnye-izlisestva-kak-polubit-moskvu/</loc>
+    <lastmod>2021-01-26T00:21:11-08:00</lastmod>
   </url>
   
   <url>
@@ -55,6 +60,11 @@
   <url>
     <loc>https://agladky.ru/books/pervoklassnyj-servis-kak-konkurentnoe-preimusestvo/</loc>
     <lastmod>2020-08-02T02:52:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agladky.ru/books/hulinomika-huliganskaa-ekonomika-finansovye-rynki-dla-teh-kto-ih-v-grobu-vidal/</loc>
+    <lastmod>2020-08-02T02:49:08-07:00</lastmod>
   </url>
   
   <url>
